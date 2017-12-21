@@ -17,7 +17,6 @@
 # Packing-only formats
 *.iso
 *.tar
-
 # Package management formats
 *.dmg
 *.xpi
@@ -122,4 +121,5 @@ typings/
 .env
 
 
-
+out/*
+output/*
