@@ -13,7 +13,7 @@ const addMetadata = require('./lib/behaviors/addMetadata');
 
 var filepath;
 
-(async ()=> {
+(async () => {
     //For this to work, we need to add plugins before
     //we create an instance. This is not what we want.
     FileDesriptor.use(addMetadata);
@@ -34,31 +34,31 @@ var filepath;
             templateExt: '.swig'
         });
 
-        file.use(function buildMenuLevels(file=this){
+        file.use(function buildMenuLevels(file = this) {
             let levels = file.name.match(/(\d+\.?\d+)?_/);
-            if(levels) {
+            if (levels) {
                 levels = levels[1].split('.');
-                levels = levels.map((v)=>parseInt(v, 10));
+                levels = levels.map(v => parseInt(v, 10));
                 file.set('levels', levels);
             }
         });
 
-        file.use(function buildOutputName(file=this){
+        file.use(function buildOutputName(file = this) {
             let name = file.name;
             name = name.toLowerCase();
             name = name.replace(/(\d+\.?\d+)?_/, '');
             file.nicename = name;
             // let levels = name.
-            file.target = `./out/documentation/${name}.html`;
+            file.target = `./output/documentation/${name}.html`;
         });
 
-        file.use(function buildTemplateName(file=this){
+        file.use(function buildTemplateName(file = this) {
             let templateName = this.get('templateName', 'index');
             let templateExt = this.get('templateExt', '.swig');
             file.template = `./templates/${templateName}${templateExt}`;
             return file;
         });
-        
+
         await file.readFile();
 
         file.buildMenuLevels();
@@ -68,14 +68,13 @@ var filepath;
         //TODO: we should process.
         file.parseGrayMatter();
 
-
         /////////
         var target = new FileDesriptor(file.target);
         file.set('link', target.basename);
-        
+
         /**
          * Generate sidebar menu for content.
-         * 
+         *
          */
         let item = {
             name: file.get('title', file.nicename),
@@ -84,34 +83,36 @@ var filepath;
             children: []
         };
 
-        if(item.levels.length === 1) {
-            let li = sidebar.items[item.levels[0]];
-            sidebar.items[item.levels[0]] = item;
-            if(li) item.children = item.children.concat(li.children);
+        let [parent, child] = item.levels;
+
+        if (item.levels.length === 1) {
+            let li = sidebar.items[parent];
+            sidebar.items[parent] = item;
+            if (li) item.children = item.children.concat(li.children);
         }
 
-        if(item.levels.length === 2) {
-            if(!sidebar.items[item.levels[0]]){
-                sidebar.items[item.levels[0]] = {
+        if (item.levels.length === 2) {
+            if (!sidebar.items[parent]) {
+                sidebar.items[parent] = {
                     children: []
                 };
             }
-            sidebar.items[item.levels[0]].children[item.levels[1]] = (item);
+            sidebar.items[parent].children[child] = item;
         }
     }
-    
+
     console.log('process files');
     /**
-     * Process all files, build paths 
+     * Process all files, build paths
      * and create sidebar
      */
-    for(let file of files) {
+    for (let file of files) {
         await processFile(file);
     }
 
     console.log('render files');
     sidebar.items = sidebar.items.filter(Boolean);
-    sidebar.items.forEach((child)=>{
+    sidebar.items.forEach(child => {
         child.children = child.children.filter(Boolean);
     });
 
@@ -119,26 +120,25 @@ var filepath;
      * Render stage
      */
     var out = true;
-    files.forEach(async (file)=> {
+    files.forEach(async (file) => {
         file.set('sidebar', sidebar);
-        if(out){
+        
+        if (out) {
             console.log(JSON.stringify(sidebar, null, 4));
-            out = false
+            out = false;
         }
         file.renderMarkdown();
         file.render();
     });
 
-    console.log('write output')
+    console.log('write output');
+
     /**
      * Write output.
      */
-    files.forEach(async (file) => {
-        await file.writeFile();
+    files.forEach(async file => {// jshint ignore:line
+        await file.writeFile();// jshint ignore:line
     });
-
-
 
     // console.log(JSON.stringify(sidebar, null, 4));
 })();
-
