@@ -9,14 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "expand-files": "^0.8.4",
     "gextend": "^0.3.0",
     "gkeypath": "^0.7.0",
     "gray-matter": "^3.1.1",
     "jstransformer": "^1.0.0",
     "jstransformer-markdown-it": "^2.0.0",
     "jstransformer-swig": "^0.2.1",
-    "markdown-it": "^8.4.0",
-    "recursive-readdir": "^2.2.1"
+    "markdown-it": "^8.4.0"
   }
 }
