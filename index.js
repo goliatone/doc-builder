@@ -3,26 +3,57 @@
 const fs = require('fs');
 const extend = require('gextend');
 
-const collectFiles = require('./lib/collect-files').listFilepaths;
+const collectFiles = require('./lib/collect-files').collectFileDescriptors;
 const FileDesriptor = require('./lib/filedescriptor');
 
 const renderMarkdown = require('./lib/behaviors/renderMarkdown');
 const parseGrayMatter = require('./lib/behaviors/parseGrayMatter');
 const renderHtml = require('./lib/behaviors/renderHtml');
 const addMetadata = require('./lib/behaviors/addMetadata');
+const buildOutputName = require('./lib/behaviors/buildOutputName');
+const buildSidebarLevels = require('./lib/behaviors/buildSidebarLevels');
+const buildTemplateName = require('./lib/behaviors/buildTemplateName');
 
 var filepath;
 
 (async () => {
-    //For this to work, we need to add plugins before
-    //we create an instance. This is not what we want.
+    /**
+     * TODO: For this to work, we need to add 
+     * plugins before we create an instance. 
+     * This is not what we want.
+     * 
+     * TODO: How do we configure behaviors?
+     * 
+     * `use` is overloaded to take multiple
+     * signatures:
+     * name, function: 
+     * function/1
+     * function/1
+     */
     FileDesriptor.use(addMetadata);
+    FileDesriptor.use(renderMarkdown);
+    FileDesriptor.use( buildSidebarLevels);
+
     FileDesriptor.use('render', renderHtml);
     FileDesriptor.use('parseGrayMatter', parseGrayMatter);
-    FileDesriptor.use(renderMarkdown);
 
-    let files = await collectFiles('./docs');
-    files = files.filterByExt('.md');
+    FileDesriptor.use(buildTemplateName({
+        templatesPath: './templates'
+    }));
+
+    FileDesriptor.use(buildOutputName({
+        basePath: './output/documentation'
+    }));
+
+    let files = await collectFiles('./docs', {
+        /**
+         * Select only the files that follow the pattern:
+         * `../{0-9}.{0-9}?_[filename].md`
+         */
+        filter: function(fd) {
+            return fd.source.match(/.*\d+[\.\d+]?_.*md$/);
+        }
+    });
 
     let sidebar = {};
     sidebar.items = [];
@@ -34,34 +65,9 @@ var filepath;
             templateExt: '.swig'
         });
 
-        file.use(function buildMenuLevels(file = this) {
-            let levels = file.name.match(/(\d+\.?\d+)?_/);
-            if (levels) {
-                levels = levels[1].split('.');
-                levels = levels.map(v => parseInt(v, 10));
-                file.set('levels', levels);
-            }
-        });
-
-        file.use(function buildOutputName(file = this) {
-            let name = file.name;
-            name = name.toLowerCase();
-            name = name.replace(/(\d+\.?\d+)?_/, '');
-            file.nicename = name;
-            // let levels = name.
-            file.target = `./output/documentation/${name}.html`;
-        });
-
-        file.use(function buildTemplateName(file = this) {
-            let templateName = this.get('templateName', 'index');
-            let templateExt = this.get('templateExt', '.swig');
-            file.template = `./templates/${templateName}${templateExt}`;
-            return file;
-        });
-
         await file.readFile();
 
-        file.buildMenuLevels();
+        file.buildSidebarLevels();
         file.buildTemplateName();
         file.buildOutputName();
 
@@ -69,7 +75,7 @@ var filepath;
         file.parseGrayMatter();
 
         /////////
-        var target = new FileDesriptor(file.target);
+        let target = new FileDesriptor(file.target);
         file.set('link', target.basename);
 
         /**
