@@ -33,22 +33,22 @@
 
       <!-- HEADER LOGO -->
       <div class="logo">
-        <a href="features.html"><img src="/img/logo/c_core.svg" alt="Core.io" title="Core.io"/></a>
+        <a href="/"><img src="/img/logo/c_core.svg" alt="Core.io" title="Core.io"/></a>
       </div><!-- END HEADER LOGO -->
 
       <!-- Header Navigation Bar -->
       <nav id="main-nav" class="nav-bar-1">
         <div class="menu-item">
-          <a href="features.html">Features</a>
+          <a href="/">Features</a>
         </div>
         <div class="menu-item">
-          <a href="quickstart.html">Quickstart</a>
+          <a href="/quickstart.html">Quickstart</a>
         </div>
         <div class="menu-item">
-          <a href="documentation.html">Documentation</a>
+          <a href="/documentation.html">Documentation</a>
         </div>
         <div class="menu-item">
-          <a href="modules.html">Modules</a>
+          <a href="/modules.html">Modules</a>
         </div>
       </nav><!-- END Header Navigation Bar -->
 
@@ -60,13 +60,13 @@
       <!-- Documentation Navigation Bar -->
       <nav id="docs-nav" class="nav-bar-2">
         <div class="menu-item">
-          <a href="guide.html">Guide</a>
+          <a href="/guide.html">Guide</a>
         </div>
         <div class="menu-item">
-          <a href="api.html">API</a>
+          <a href="/api.html">API</a>
         </div>
         <div class="menu-item">
-          <a href="examples.html">Examples</a>
+          <a href="/examples.html">Examples</a>
         </div>
       </nav><!-- END Documentation Navigation Bar -->
 
@@ -80,7 +80,7 @@
       <div class="cols">
 
         <div class="col-2">
-      <!-- Documentation Side Menu -->
+      
       <!-- Documentation Side Menu -->
       <nav id="docs-side-menu" class="side-menu">
         <ul>
