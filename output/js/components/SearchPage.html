@@ -1,0 +1,46 @@
+<div class="posts">
+    {{#await modules}}
+    <!-- MESSAGE BOX -->
+    <div class="message-box row row-centered row-vCentered">
+            <span>Wait for it</span>
+          </div><!-- END MESSAGE BOX -->
+    {{then modules}} {{#each modules as module}}
+    <ModuleItem entry="{{module}}" /> {{/each}} {{catch error}}
+    <p>well that's odd</p>
+    {{/await}}
+</div>
+
+<script>
+    import ModuleItem from './ModuleItem.html'
+
+    export default {
+        oncreate() {
+            this.observe('query', ({ query }) => {
+                let modules, old;
+                if(!query) {
+                    modules = this.get('sourceModules');
+                    return this.set({modules});
+                }
+
+                old = this.get('modules');
+                
+                console.log('filtering by', query, old.length);
+
+                modules = old.filter((mod) => {
+                    return mod.name === query;
+                });
+
+                console.log('modules', modules.length);
+
+                //check if we actually filtered
+                
+                this.set({sourceModules: old});
+
+                this.set({ modules });
+            }, { init: false });
+        },
+        components: {
+            ModuleItem
+        }
+    }
+</script>

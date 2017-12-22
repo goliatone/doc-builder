@@ -1,0 +1,87 @@
+<div class="row">
+    <!-- END MODULE POST -->
+    <div class="post cols">
+        <div>
+            <!-- POST TITLE, VERSION and DESCRIPTION -->
+            <div class="row row-vCentered">
+                <div class="title h-small">
+                    <a href="https://npmjs.com/package/{{entry.name}}">{{entry.name}}</a>
+                </div>
+                <div class="tag">
+                    <span on:click='doExpand()'>v{{entry.version}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="description p-medium-1">
+                    <p>{{entry.description}}</p>
+                </div>
+            </div>
+            <!-- END POST DESCRIPTION -->
+        </div>
+
+        <!-- POST LABELS AND ACCES ICON -->
+        <div class="row">
+            {{#if entry.keywords}}
+            <div class="labels row">
+                {{#each entry.keywords as keyword}}
+                    <div class="label green">
+                        <span>{{keyword}}</span>
+                    </div>
+                {{/each}}
+            </div>
+            {{/if}}
+            <div class="author row">
+                <span>by {{entry.author}}</span>
+            </div>
+        </div>
+        <!-- POST LABELS AND ACCES ICON -->
+        <div class="readme">
+            <!-- {{{renderMarkdown(entry.readme)}}} -->
+        </div>
+    </div>  
+    <!-- END MODULE POST -->
+</div>
+
+<script>
+    export default {
+        helpers: {
+            renderMarkdown(text='') {
+                if(Array.isArray(text)){
+                    text = text[0]
+                }
+                //https://github.com/jonschlinkert/remarkable
+                //https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.5/showdown.min.js
+                var converter = new showdown.Converter();
+                return converter.makeHtml(text);
+            }
+        },
+        oncreate(){
+            if(!window.mods) window.mods = []
+            window.mods.push(this);
+
+            this.observe('entry.readme', (val, old) => {
+                if(!val) return;
+                console.log('Update entry.readme', val);
+                console.log('readme', this.get('entry.readme'));
+            });
+            this.observe('readme', (val, old)=>{
+                if(!val) return;
+                console.log('Update readme', val);
+                console.log('readme', this.get('readme'));
+            });
+        },
+        methods: {
+            doExpand() {
+                console.log('do expand...');
+    
+                let readme = this.get('entry.readme');
+                console.log('model', readme);
+            }
+        },
+        data(){
+            return {
+                
+            };
+        }
+    }
+</script>

@@ -1,0 +1,41 @@
+<!-- SEARCH BAR -->
+<div class="search-bar-1">
+        <input id="search-modules" 
+            bind:value='query' 
+            on:keydown='doSearch(event.keyCode===13)'
+            name="search-modules" placeholder="Search modules…" 
+            maxlength="150">
+        <span class="icon icon-search" on:click='doSearch()'>
+            <img src="/img/icons/search-icon.png" alt="Search" title="Search"/>
+        </span>
+    </div><!-- END SEARCH BAR -->
+    
+    <script>
+    export default {
+        
+        oncreate () {
+            this.observe( 'query', (value, old) => {
+                console.log('query: new "%s" old "%s"', value, old);
+            }, { init: false });
+        },
+        methods: {
+            doSearch(isEnter = true) {
+                console.log('do search...', ...arguments);
+    
+                let model = this.get();
+                console.log('model', this.get('query'));
+                if (isEnter) {   
+                    console.log('is enter...');
+                    this.fire('search', {
+                        query: this.get('query') 
+                    });
+                }
+            }  
+        },
+        data() {
+            return {
+                query: ''
+            };
+        }
+    };
+    </script>
