@@ -28,6 +28,8 @@ const API = {
     }
 };
 
+//watch 'svelte compile --format iife -i js/components -o js/dist' ./js/components/
+//live-server
 //svelte compile --format iife -i js/components -o js/dist
 const SearchBoxComponent = new SearchBox({
     target: document.getElementById('searchBox'),
