@@ -1,3 +1,7 @@
+import SearchBox from './components/SearchBox.html';
+import Pagination from './components/Pagination.html';
+import SearchPage from './components/SearchPage.html';
+
 const API = {
     getModuleList: () => {
         const uri =
@@ -39,6 +43,7 @@ const SearchBoxComponent = new SearchBox({
     data: {}
 });
 
+console.log('Here here!!');
 let request = API.getModuleList();
 
 const SearchPageComponent = new SearchPage({
