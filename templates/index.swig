@@ -45,7 +45,7 @@
           <a href="/quickstart.html">Quickstart</a>
         </div>
         <div class="menu-item">
-          <a href="/documentation.html">Documentation</a>
+          <a href="/documentation/about.html">Documentation</a>
         </div>
         <div class="menu-item">
           <a href="/modules.html">Modules</a>
@@ -60,13 +60,13 @@
       <!-- Documentation Navigation Bar -->
       <nav id="docs-nav" class="nav-bar-2">
         <div class="menu-item">
-          <a href="/guide.html">Guide</a>
+          <a href="/documentation/guide/index.html">Guide</a>
         </div>
         <div class="menu-item">
-          <a href="/api.html">API</a>
+          <a href="/documentation/api/index.html">API</a>
         </div>
         <div class="menu-item">
-          <a href="/examples.html">Examples</a>
+          <a href="/documentation/examples/index.html">Examples</a>
         </div>
       </nav><!-- END Documentation Navigation Bar -->
 
