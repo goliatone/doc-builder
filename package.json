@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "base-cli-commands": "0.0.5",
     "gextend": "^0.3.0",
     "gkeypath": "^0.7.0",
     "gray-matter": "^3.1.1",
@@ -20,7 +21,9 @@
     "jstransformer-markdown-it": "^2.0.0",
     "jstransformer-swig": "^0.2.1",
     "markdown-it": "^8.4.0",
-    "micromatch": "^3.1.4"
+    "micromatch": "^3.1.4",
+    "mkdirp-promise": "^5.0.1",
+    "rmfr": "^1.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
