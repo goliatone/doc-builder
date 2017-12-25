@@ -22,6 +22,7 @@ class GenerateCommand extends BaseCommand {
         const basePath = join(event.output, 'documentation');
 
         this.logger.info('templates', event.options.templates);
+        this.logger.info('basePath', basePath);
 
         let o = event.options;
 
@@ -31,12 +32,20 @@ class GenerateCommand extends BaseCommand {
         this.logger.info('output', event.output);
         this.logger.info('basePath', basePath);
 
-        await generate({ 
-            source: event.source, 
-            target: event.target, 
-            templates: event.templates, 
-            basePath 
-        });
+        try {
+            let files = await generate({
+                logger: this.logger,
+                source: event.source, 
+                target: event.target, 
+                templates: event.options.templates, 
+                basePath 
+            });
+            this.logger.info('Generated %s files.', files.size);
+        } catch (error) {
+            this.logger.error(error);
+            this.logger.error('Generate error...');
+        }
+        
 
         return Promise.resolve();
     }
