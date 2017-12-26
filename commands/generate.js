@@ -1,6 +1,5 @@
 'use strict';
 
-
 const extend = require('gextend');
 const BaseCommand = require('base-cli-commands').BaseCommand;
 const { resolve, join } = require('path');
@@ -10,7 +9,6 @@ const mkdirp = require('../lib/tasks/mkdirp');
 const generate = require('../lib/generator');
 
 class GenerateCommand extends BaseCommand {
-
     async execute(event) {
         event = extend({}, GenerateCommand.DEFAULTS, event);
 
@@ -26,7 +24,7 @@ class GenerateCommand extends BaseCommand {
 
         let o = event.options;
 
-        await mkdirp(basePath);
+        await mkdirp({ target: basePath });
 
         this.logger.info('source', event.source);
         this.logger.info('output', event.output);
@@ -35,41 +33,52 @@ class GenerateCommand extends BaseCommand {
         try {
             let files = await generate({
                 logger: this.logger,
-                source: event.source, 
-                target: event.target, 
-                templates: event.options.templates, 
-                basePath 
+                debug: o.debug,
+                source: event.source,
+                target: event.target,
+                templates: o.templates,
+                basePath
             });
             this.logger.info('Generated %s files.', files.size);
         } catch (error) {
             this.logger.error(error);
             this.logger.error('Generate error...');
         }
-        
 
         return Promise.resolve();
     }
 
     static describe(prog, cmd) {
-        cmd.argument('[source]',
+        cmd.argument(
+            '[source]',
             'Path to directory with documentation files',
             /.*/,
             GenerateCommand.DEFAULTS.source
         );
 
-        cmd.argument('[output]',
+        cmd.argument(
+            '[output]',
             'Target directory where files will be created',
             /.*/,
             GenerateCommand.DEFAULTS.output
         );
 
-        cmd.option('--clean',
+        cmd.option(
+            '--clean',
             'Should the contents of [output] be removed before running',
             prog.BOOL,
             GenerateCommand.DEFAULTS.options.clean
         );
 
-        cmd.option('--templates <path>',
+        cmd.option(
+            '--debug',
+            'Will produce a menu.json file containing the sidebar',
+            prog.BOOL,
+            GenerateCommand.DEFAULTS.options.debug
+        );
+
+        cmd.option(
+            '--templates <path>',
             '<path> to template files',
             null,
             GenerateCommand.DEFAULTS.options.templates
@@ -83,6 +92,7 @@ GenerateCommand.DEFAULTS = {
     pathSolver: resolve,
     options: {
         clean: false,
+        debug: false,
         templates: join(__dirname, '../templates')
     }
 };
