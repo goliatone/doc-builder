@@ -15,6 +15,7 @@
   "dependencies": {
     "base-cli-commands": "0.0.5",
     "download-git-repo": "^1.0.1",
+    "fs-extra": "^5.0.0",
     "gextend": "^0.3.0",
     "gkeypath": "^0.7.0",
     "gray-matter": "^3.1.1",
