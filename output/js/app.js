@@ -22,13 +22,14 @@ const API = {
             //Just for now, so we can have await working
             //in ModulesPage.
             return out.modules;
-        }).then(out => {
-            return new Promise((resolve, reject)=>{
-                setTimeout(()=>{
-                    resolve(out);
-                },1000);
-            });
         });
+        // .then(out => {
+        //     return new Promise((resolve, reject)=>{
+        //         setTimeout(()=>{
+        //             resolve(out);
+        //         },1000);
+        //     });
+        // });
     }
 };
 
