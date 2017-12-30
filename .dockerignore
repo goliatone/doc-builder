@@ -1,2 +1,7 @@
 node_modules
 npm-debug.log
+*
+
+!output
+!ops/nginx/conf.d/*
+!ops/nginx/conf.d/coreio.nginx.conf
