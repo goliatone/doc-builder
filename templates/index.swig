@@ -19,8 +19,6 @@
 
   <!-- highlight js -->
   <link rel="stylesheet" href="/js/vendor/highlight-common/styles/atelier-dune-dark.css">
-  <script src="/js/vendor/highlight-common/highlight.pack.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
 </head>
 
 <body>
@@ -71,33 +69,31 @@
       </nav><!-- END Documentation Navigation Bar -->
 
         <div class="label highlight">
-          <span>{{metadata.version}}</span>
+          <span>{{metadata.library.version}}</span>
         </div>
       </div>
 
       <hr class="hr-light">
 
       <div class="cols">
-
         <div class="col-2">
-      
-      <!-- Documentation Side Menu -->
-      <nav id="docs-side-menu" class="side-menu">
-        <ul>
-        {%- for item in metadata.sidebar.items  %}
-            <li>
-                <a href="{{item.link}}">{{item.name}}</a>
-                {%- if item.children.length > 0 %}
-                <ul>
-                {% for child in item.children  %}
-                <li><a href="{{child.link}}">{{child.name}}</a> </li>
-                {% endfor %}
-                </ul>
-                {% endif %}
-            </li>
-        {% endfor %}
-        </ul>
-        </nav><!-- END Documentation Side Menu -->
+          <!-- Documentation Side Menu -->
+          <nav id="docs-side-menu" class="side-menu">
+            <ul>
+            {%- for item in metadata.sidebar.items  %}
+                <li>
+                    <a href="{{item.link}}">{{item.name}}</a>
+                    {%- if item.children.length > 0 %}
+                    <ul>
+                    {% for child in item.children  %}
+                    <li><a href="{{child.link}}">{{child.name}}</a> </li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+            </nav><!-- END Documentation Side Menu -->
         </div>
 
         <div class="col-2">
@@ -107,9 +103,11 @@
                 {{ content }}
             {% endautoescape %}
             <!-- END CONENT BLOCK -->
-            <div class="link-pagination">
+
+            <!--div class="link-pagination">
               <a href="#">Next: Application</a>
-            </div>
+            </div-->
+            
           </div>
         </div>
       </div>
@@ -157,7 +155,9 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.1.1.min.js"><\/script>')</script>
-  <script src="/js/main.js"></script>
+  <script src="/js/vendor/highlight-common/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="/js/main.min.js"></script>
 
 </body>
 
