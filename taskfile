@@ -1,0 +1,67 @@
+#!/bin/bash
+PATH=./node_modules/.bin:$PATH
+
+function docker:build {
+    echo "Build docker"
+    docker build -t core.io-web .
+}
+
+function docker:build:bust {
+    echo "Build docker"
+    docker build --no-cache -t core.io-web .
+}
+
+function docker:dev {
+    echo "Running docker dev..."
+    if [ ! "$(docker ps -q -f name=docs)" ]; then
+        if [ "$(docker ps -aq -f status=exited -f name=docs)" ]; then
+            # cleanup
+            docker rm docs
+        fi
+
+        # run your container
+        # --net nginx-network \
+        docker run --name docs \
+            -v $PWD/output:/usr/share/nginx/html:ro \
+            -v $PWD/ops/nginx/conf.d:/etc/nginx/conf.d:ro \
+            -d -p 8080:80 \
+        core.io-web
+    fi
+    
+}
+
+function docker:stop {
+    echo "stop docker...."
+    docker stop docs && docker rm docs
+}
+
+function docker:shell {
+    echo "Connecting to container over shell..."
+    docker exec -ti docs /bin/bash
+}
+
+function docker:network:crt {
+    docker network create --attachable --label nginx nginx-network
+}
+function docker:create {
+    docker:network:crt
+}
+
+function docker:rebuild {
+    docker:stop 
+    docker:build
+    docker:dev
+}
+
+function docker:nginx:rld {
+    docker exec -it docs nginx -s reload
+}
+
+function help {
+    echo "$0 <task> <args>"
+    echo "Tasks:"
+    compgen -A function | cat -n
+}
+
+TIMEFORMAT="Task completed in %3lR"
+time ${@:-help}
