@@ -6,9 +6,9 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <title>Documentation</title>
-  <meta name="description" content="add_description">
-  <meta name="keywords" content="add_keywords">
-  <meta name="author" content="add_author">
+  <meta name="description" content="{{metadata.description}}">
+  <meta name="keywords" content="{{metadata.keywords}}">
+  <meta name="author" content="{{metadata.author}}">
 
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <!-- Place favicon.ico in the root directory -->
@@ -71,7 +71,7 @@
       </nav><!-- END Documentation Navigation Bar -->
 
         <div class="label highlight">
-          <span>0.2.8</span>
+          <span>{{metadata.version}}</span>
         </div>
       </div>
 
@@ -125,7 +125,7 @@
           </div>
 
           <div class="footer-menu">
-            <a href="features.html">Features</a>
+            <a href="index.html">Features</a>
             <a href="quickstart.html">Quickstart</a>
             <a href="documentation.html">Documentation</a>
             <a href="modules.html">Modules</a>
