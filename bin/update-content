@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const copy = require('../lib/tasks/copy-dir');
+
+
+function updateContent(source, target) {
+    return copy({source, target, logger:console}).then((out)=>{
+        console.log('copy command done...');
+    }).catch((err)=>{
+        console.error('copy command error!');
+    });
+};
+
+module.exports = updateContent;
+
+updateContent('/tmp/core.io/output', './output');
