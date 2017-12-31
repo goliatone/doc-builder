@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>Documentation</title>
+  <meta name="description" content="add_description">
+  <meta name="keywords" content="add_keywords">
+  <meta name="author" content="add_author">
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/css/main.css">
+
+  <!-- highlight js -->
+  <link rel="stylesheet" href="/js/vendor/highlight-common/styles/atelier-dune-dark.css">
+  <script src="/js/vendor/highlight-common/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+
+  <div class="docs midnight-mode layout-app">
+
+    <div class="highlight-bar"></div>
+
+    <header class="row row-vCentered">
+
+      <!-- HEADER LOGO -->
+      <div class="logo">
+        <a href="/"><img src="/img/logo/c_core.svg" alt="Core.io" title="Core.io"></a>
+      </div><!-- END HEADER LOGO -->
+
+      <!-- Header Navigation Bar -->
+      <nav id="main-nav" class="nav-bar-1">
+        <div class="menu-item">
+          <a href="/">Features</a>
+        </div>
+        <div class="menu-item">
+          <a href="/quickstart">Quickstart</a>
+        </div>
+        <div class="menu-item">
+          <a href="/documentation/about">Documentation</a>
+        </div>
+        <div class="menu-item">
+          <a href="/modules">Modules</a>
+        </div>
+      </nav><!-- END Header Navigation Bar -->
+
+    </header><!-- END SECTION HEADER -->
+
+    <div class="content">
+
+      <div class="row row-vCentered">
+      <!-- Documentation Navigation Bar -->
+      <nav id="docs-nav" class="nav-bar-2">
+        <div class="menu-item">
+          <a href="/documentation/guide/">Guide</a>
+        </div>
+        <div class="menu-item">
+          <a href="/documentation/api/">API</a>
+        </div>
+        <div class="menu-item">
+          <a href="/documentation/examples/">Examples</a>
+        </div>
+      </nav><!-- END Documentation Navigation Bar -->
+
+        <div class="label highlight">
+          <span>0.2.8</span>
+        </div>
+      </div>
+
+      <hr class="hr-light">
+
+      <div class="cols">
+
+        <div class="col-2">
+      
+      <!-- Documentation Side Menu -->
+      <nav id="docs-side-menu" class="side-menu">
+        <ul>
+            <li>
+                <a href="/documentation/about">About</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/getting_started">Getting Started</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/project_layout">Project Layout</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/configuration">Configuration</a>
+            </li>
+        
+            <li>
+                <a href="/modules">Modules</a>
+                <ul>
+                
+                <li><a href="/documentation/core_modules">Core Modules</a> </li>
+                
+                <li><a href="/documentation/user_modules">User Modules</a> </li>
+                
+                </ul>
+                
+            </li>
+        
+            <li>
+                <a href="/documentation/commands">Commands</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/tool_belt">Toolbelt</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/environments">Environments</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/reference">Reference</a>
+            </li>
+        
+        </ul>
+        </nav><!-- END Documentation Side Menu -->
+        </div>
+
+        <div class="col-2">
+          <div id="guide" class="main-txt">
+            <!-- START CONENT BLOCK -->
+            
+                <h2>Main interface</h2>
+<p>Much like [connect][connect] where you have a simple interface for all middleware, <strong>core.io</strong> modules all have to conform to a simple interface.</p>
+<p>Each module has to provide an <code>init</code> function which will take two arguments; <code>context</code>, and <code>config</code>.</p>
+<p><code>context</code> is an instance of a core.io application, and <code>config</code> is the <a href="#configuration">configuration object</a> for that module.</p>
+<p>Inside the <code>init</code> function is where you would perform all the wiring needed for the module to integrate with your application. Some modules will extend the application by providing new functionality. See <a href="#extending-context">extending context</a> for more information and examples.</p>
+<p><code>init</code> acts as a middle tier between <strong>core.io</strong> and external libraries.</p>
+<pre><code class="language-js">module.exports.init = function(context, config) {
+    const repl = require(&apos;poke-repl&apos;);
+    context.provide(&apos;repl&apos;, repl);
+};
+</code></pre>
+<p><strong>core.io</strong> does not pollute the <code>global</code> namespace, the intended way to access the functionality is by keeping a reference of the <code>context</code> object if it&apos;s necessary.</p>
+<h3>Dependencies</h3>
+<p>If your module has dependencies most of the time <strong>core.io</strong> can handle those.
+It can wait for dependencies</p>
+<h4>Promises</h4>
+<h3>Extending context</h3>
+<p>The <strong>core.io</strong> application context exposes a function to provide new functionality through modules.</p>
+<pre><code class="language-js">context.provide(name, capability);
+</code></pre>
+<h3>Modules</h3>
+<p>A Node.js package is a convenient way to organize, distribute and reuse source code between Node.js programs.</p>
+<p>A Node.js module is anything that can be loaded with <code>require</code>.</p>
+<p><strong>core.io</strong> modules are intended to encapsulate logic in a way that can be reused between projects, in that sense <strong>core.io</strong> modules are similar to [npm packages][npm-packages].</p>
+<p>Perhaps the modules contain logic specific to your application since modules are used to integrate packages into the application. You could think about <strong>modules</strong> as plugins or middleware.</p>
+<h4>Defining a <strong>core.io</strong> Module</h4>
+<p><strong>core.io</strong> modules need to conform to a simple interface.</p>
+<ul>
+<li>They need to expose an <code>init</code> function.</li>
+<li>The init function will be given two arguments: <code>context</code> and <code>config</code>.</li>
+</ul>
+<p>For the most part, that&apos;s it. There are more options like exporting an <code>alias</code> or a <code>priority</code> property.</p>
+<h4>Modules Names</h4>
+<ul>
+<li>
+<p><code>sanitizeName</code>: It ensures the resulting string is a valid JavaScript variable name.</p>
+</li>
+<li>
+<p><code>alias</code>: Modules can export an <code>alias</code> property that will be used instead of the filename.</p>
+</li>
+<li>
+<p><code>moduleid</code>: If no module id is provided in the configuration file, the sanitized name will be used.</p>
+</li>
+</ul>
+<p>Conventions around modules names:</p>
+<ul>
+<li>configuration file: matching configuration files will de passed to module.</li>
+<li>child logger: receives the name of the module.</li>
+</ul>
+<h4>Core Modules</h4>
+<p>Core modules are optional and can be replaced by any module as long as it provides the same interface.</p>
+<p>Some are optional, like the REPL module. If you don&apos;t need or don&apos;t want a REPL you can remove it from the list of <code>coremodules</code> using the configuration object that you pass to the application instance during the initialization of your program, in the entry point file.</p>
+<p>The most likely scenario is that you might want to enable it during development but not on production.</p>
+<h3>Modules</h3>
+<p>A module adds a specific feature to an existing application context, providing a means to extend your application with specific behavior for a given project in an encapsulated way.</p>
+<p>All modules are stored in the <strong>modules</strong> folder of your application project directory.</p>
+<p>thus maximizing the amount of code you can reuse between applications.</p>
+<p>Modules follow a simple convention: they should export an init function that take an instance of the application <code>context</code> and a configuration object as arguments.</p>
+<p>Modules should have a name that is unique in your application. This name will be used to access the module later on from other parts of your application.
+By default the module loader will infer this name from the file that registers the module.</p>
+<p>Your module does not need to return anything, but if it does it should be either an object or a Promise.</p>
+<p>If you return an object, you then will be able to access it through the application instance- <code>app[moduleName]</code>.</p>
+<p>If you return a <code>Promise</code> instance, then once it resolves the process is the same.</p>
+<p>Once the module is registered, the app instance will emit an event: <code>moduleName + &apos;.&apos; + config.app.registerReadyEvent</code>, in the case for the core logger module and using the default value for <code>registerReadyEvent</code> the event type would be <code>logger.registered</code>.</p>
+<p>Once all core plugins are loaded, the application emits the event <code>coreplugins.registered</code>.</p>
+<h4>Module autoloading</h4>
+<h4>Module instantiation</h4>
+<p>The modules instantiation follows a simple registration process.</p>
+<ul>
+<li>users module:</li>
+</ul>
+<p><strong>./modules/users.js</strong></p>
+<pre><code class="language-js">module.exports.init = function(core, config) {
+    ...
+    return users;
+};
+</code></pre>
+<pre><code class="language-js">core.once(&apos;users.registered&apos;, function() {
+
+});
+</code></pre>
+<h4>Modules configuration</h4>
+<p>Configuration files located in the&#xA0;<a href="#configuration-loader"><code>config/</code></a>&#xA0;folder of projects will be merged together in a single object, which will be available at runtime as a property of your application instance, i.e.&#xA0;<code>context.config</code>.</p>
+<p>The top-level keys on the&#xA0;<code>context.config</code> (i.e. <code>context.config.repl</code>)&#xA0;object correspond to a particular configuration file name under your <code>config/</code> directory (i.e. <code>config/repl.js</code>). Most individual configuration files are specific to a module, with the exception of <code>config/app.js</code>  which should hold options for your current application, like the application&apos;s name, it&apos;s base directory, environment in run under, etc.</p>
+<p>The intention of these files is to provide modules with configuration options. When a module is loaded, it will be called with the application&apos;s instance and a <code>config</code> top-level key that matches the module&apos;s name.</p>
+
+            
+            <!-- END CONENT BLOCK -->
+            <div class="link-pagination">
+              <a href="#">Next: Application</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- END CONTENT -->
+
+    <footer>
+      <div class="cols cols-centered">
+
+        <div class="col-3">
+          <div class="footer-logo">
+            <a href="/features"><img src="/img/logo/mosca.svg" title="Core.io" alt="Core.io"></a>
+          </div>
+
+          <div class="footer-menu">
+            <a href="/">Features</a>
+            <a href="/quickstart">Quickstart</a>
+            <a href="/documentation">Documentation</a>
+            <a href="/modules">Modules</a>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="footer-releases">
+            <p>Latest Release: 0.2.8 (Jun 01, 2017)</p>
+            <p>Documentation Generated: 2017-12-20</p>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="footer-github">
+            <a href="#" class="row row-vCentered">
+              <img src="/img/icons/github-icon-2.png" alt="Core.io in Github" title="Github">Github
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-centered copyright">
+        <p>Copyright &#xA9; 2017 goliatone. The contents of this page are licensed MIT license.</p>
+      </div>
+    </footer>
+  </div><!-- END docs midnight-mode layout-app -->
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.1.1.min.js"><\/script>')</script>
+  <script src="/js/main.js"></script>
+
+
+
+
+</body></html>

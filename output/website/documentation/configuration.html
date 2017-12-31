@@ -1,0 +1,393 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>Documentation</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/css/main.css">
+
+  <!-- highlight js -->
+  <link rel="stylesheet" href="/js/vendor/highlight-common/styles/atelier-dune-dark.css">
+  <script src="/js/vendor/highlight-common/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+
+  <div class="docs midnight-mode layout-app">
+
+    <div class="highlight-bar"></div>
+
+    <header class="row row-vCentered">
+
+      <!-- HEADER LOGO -->
+      <div class="logo">
+        <a href="/"><img src="/img/logo/c_core.svg" alt="Core.io" title="Core.io"></a>
+      </div><!-- END HEADER LOGO -->
+
+      <!-- Header Navigation Bar -->
+      <nav id="main-nav" class="nav-bar-1">
+        <div class="menu-item">
+          <a href="/">Features</a>
+        </div>
+        <div class="menu-item">
+          <a href="/quickstart">Quickstart</a>
+        </div>
+        <div class="menu-item">
+          <a href="/documentation/about">Documentation</a>
+        </div>
+        <div class="menu-item">
+          <a href="/modules">Modules</a>
+        </div>
+      </nav><!-- END Header Navigation Bar -->
+
+    </header><!-- END SECTION HEADER -->
+
+    <div class="content">
+
+      <div class="row row-vCentered">
+      <!-- Documentation Navigation Bar -->
+      <nav id="docs-nav" class="nav-bar-2">
+        <div class="menu-item">
+          <a href="/documentation/guide/">Guide</a>
+        </div>
+        <div class="menu-item">
+          <a href="/documentation/api/">API</a>
+        </div>
+        <div class="menu-item">
+          <a href="/documentation/examples/">Examples</a>
+        </div>
+      </nav><!-- END Documentation Navigation Bar -->
+
+        <div class="label highlight">
+          <span></span>
+        </div>
+      </div>
+
+      <hr class="hr-light">
+
+      <div class="cols">
+
+        <div class="col-2">
+      
+      <!-- Documentation Side Menu -->
+      <nav id="docs-side-menu" class="side-menu">
+        <ul>
+            <li>
+                <a href="/documentation/about">About</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/getting_started">Getting Started</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/project_layout">Project Layout</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/configuration">Configuration</a>
+            </li>
+        
+            <li>
+                <a href="/modules">Modules</a>
+                <ul>
+                
+                <li><a href="/documentation/core_modules">Core Modules</a> </li>
+                
+                <li><a href="/documentation/user_modules">User Modules</a> </li>
+                
+                </ul>
+                
+            </li>
+        
+            <li>
+                <a href="/documentation/commands">Commands</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/tool_belt">Toolbelt</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/environments">Environments</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/reference">Reference</a>
+            </li>
+        
+        </ul>
+        </nav><!-- END Documentation Side Menu -->
+        </div>
+
+        <div class="col-2">
+          <div id="guide" class="main-txt">
+            <!-- START CONENT BLOCK -->
+            
+                <h2>Configuration</h2>
+<p>While the intention of <strong>core.io</strong> is to adhere to the idea of convention over configuration, it still grants you, the developer, full control over most aspects of <em>your</em> application by letting you override default values.</p>
+<p><strong>core.io</strong> configuration process is purportedly simple, a <strong>core.io</strong> application takes an options object with configuration parameters and override values. <strong>core.io</strong> does not really care how you come up with that object.</p>
+<p>However, the <code>Application</code> class provides a helper static method to collect, merge, and resolve dependencies of configuration files that are located in the <code>./config</code> folder of a project.</p>
+<p>The resulting configuration object will be made available at runtime on the application context as <code>context.config</code>.</p>
+<p>When you create a new <code>Application</code> instance you can pass an <code>options</code> object to it&apos;s constructor.</p>
+<p>This <code>options</code> object has two purposes. If you define a <code>configuration</code> key, it&apos;s value will be added to <code>context.config</code>.</p>
+<p>All other keys in this object will extend the application instance, like a [mixin][mixin]. The application instance extends itself with this object in it&apos;s <code>init</code> method which is called directly from the constructor.</p>
+<p>You can use it to override methods before the instance makes use of any of them or to add new methods to your instance.</p>
+<pre><code class="language-javascript">const App = require(&apos;core.io&apos;).Application;
+
+/*
+ * Autoload and merge files inside
+ * `config/` directory.
+ */
+const config = App.loadConfig({
+    //...default values
+}, true);
+
+const app = new App({
+    myCustomMethod: function(e) {
+        this.emit(&apos;custom.event&apos;, e);
+    },
+    config: config
+});
+
+app.myCustomMethod({});
+</code></pre>
+<h4>Configuration instance</h4>
+<p>For convenience <strong>core.io</strong> wraps the <code>config</code> object with a <code>get</code> and <code>set</code> methods.</p>
+<p>This is so that you can access a deep object without fear of some object in the path not being defined. It also enables you to provide a default value for such cases.</p>
+<pre><code class="language-js">/*
+ * Get the value of &quot;environment&quot; defined in config/app.js
+ * return &quot;production&quot; if undefined.
+ */
+let environment = context.config.get(&apos;app.environment&apos;, &apos;production&apos;);
+</code></pre>
+<p>It&apos;s more useful when you need to access a deeply nested object:</p>
+<pre><code class="language-js">//Get the value of &quot;repl.options.prompt&quot;, return &quot;poke-repl &gt;&quot; if undefined.
+let prompt = context.config.get(&apos;repl.options.prompt&apos;, &apos;poke-repl &gt;&apos;);
+</code></pre>
+<h4>Module configuration</h4>
+<p>When <strong>core.io</strong> registers a module, first it will <code>require</code> the module and then will look for a key in <code>context.config</code> that matches the module&apos;s <a href="#modules-names">moduleid</a>. It will then call <code>module.init</code> with a reference to the value of this key.</p>
+<p>Pseudo code to illustrate:</p>
+<pre><code class="language-js">let moduleId = &apos;persistence&apos;;
+let config = this.config.get(moduleId, {});
+module.init(this, config);
+</code></pre>
+<h4>Configuration Files</h4>
+<p><code>Application.loadConfig</code> will load all configuration files found inside the <code>./config</code> directory of your application.</p>
+<p>It will then load the files, and merge them in a single object using the file name as a key.</p>
+<p>If you have a configuration file that has the same name as a given module&apos;s <code>moduleId</code> then the contents of that file will be passed to the module during the initialization phase.</p>
+<p>In a configuration file you can reference values from the same configuration object or from other configuration objects. Using two different syntaxes you can reference strings or objects:</p>
+<ul>
+<li>Strings: <code>${app.name}</code></li>
+<li>Objects: <code>@{app.locals}</code></li>
+</ul>
+<p>The configuration <strong>solve</strong> routine will solve all cross references between configuration files. It runs after merging all files into a single object.</p>
+<p>As an example, <code>${app.name}</code> will be resolved to <code>config.app.name</code>:</p>
+<ul>
+<li><code>config/app.js</code>:</li>
+</ul>
+<pre><code class="language-javascript">module.exports = {
+  name: &apos;MyApplication&apos;
+};
+</code></pre>
+<ul>
+<li><code>config/repl.js</code>:</li>
+</ul>
+<pre><code class="language-javascript">module.exports = {
+  prompt: &apos;${app.name}&apos;
+};
+</code></pre>
+<p>There is also the possibility of processing the contents of a configuration file <strong>after</strong> it has been merged and loaded.</p>
+<p>If you export a function named <code>afterSolver</code> it will be called after all dependencies have been resolved. The function will be called with the whole configuration object.</p>
+<pre><code class="language-js">module.exports.afterSolver = function(config) {
+    config.set(&apos;amqp.amqp&apos;, require(&apos;amqp&apos;));
+};
+</code></pre>
+<p>Configuration files are regular JavaScript files, which means you can build different logic into them.</p>
+<p>Under the hood <strong>core.io</strong> uses the [simple config loader][scl] package. You can read more in the packages repository.</p>
+<p><strong>core.io</strong> provides a convenience method to collect these configuration files.</p>
+<pre><code class="language-javascript">var App = require(&apos;core.io&apos;).Application;
+
+/*
+ * Autoload and merge files inside
+ * `config/`
+ */
+var config = App.loadConfig({
+    //...default values
+}, true);
+
+var app = new App({
+    //Top level attributes will extend the application
+    //instance.
+    myCustomMethod: function(){},
+    config: config
+});
+</code></pre>
+<p>You can specify the path from where to look for the configuration files.</p>
+<h4>Supporting Different Environments</h4>
+<p>Another aspect in which <strong>core.io</strong> tries to simplify the configuration process is by <em>how</em> it supports different development environments, like <strong>staging</strong>, <strong>development</strong>, <strong>production</strong>, etc.</p>
+<p>In short: <em>it does not</em>.</p>
+<p>To be more precise, <strong>core.io</strong> takes a very pragmatic stance and does not provide any way to (directly) manage different environments but has some <em>recommendations</em> that make having configuration files per environment unnecessary.</p>
+<p>A lot of the things that need to change on each environment are <em>secrets</em> like service tokens or user keys. We chose to manage those by using <code>process.env</code> and environment variables.</p>
+<p>If you use the provided <code>Application.loadConfig</code> then your configuration files are javascript files which, obviously, can have logic in it. Meaning that you can check the value of <code>process.env.NODE_ENV</code> and export different objects based on that value.</p>
+<p>Another benefit of <code>Application.loadConfig</code> is that you can reference other parts of your configuration files and solve them at runtime, making your configuration files modular.</p>
+<p>You can also make use of the <code>afterSolver</code> facility which gets access to the merged configuration object. In it you can access the <code>environment</code> key which holds the value of the current environment and modify your configuration file at runtime.</p>
+<p>Case in point, you have options.</p>
+<p>Ideally your configuration files should be logic lightweight in order to reduce possible errors and keep things simple, but you are free to do as you please.</p>
+<p>You can also use an environment manager like [envset][envset] to dynamically populate your <code>process.env</code> variables. All you need is an <code>.envset</code> file where you define your environments, environment variables and their values:</p>
+<pre><code>[production]
+NODE_AWS_SECRET_ACCESS_KEY=FS40N0QY22p2bpciAh7wuAeHjJURgXIBQ2cGodpJD3FRjw2EyYGjyXpi73Ld8zWO
+NODE_AWS_ACCESS_KEY_ID=LSLhv74Q1vH8auQKUt5pFwnix0FUl0Ml
+NODE_HONEYBADGER_KEY=LCgZgqsxKfhO
+NODE_POSTGRES_ENDPOINT=50.23.54.25
+NODE_POSTGRES_DATABASE=myproject
+NODE_POSTGRES_PSWD=Pa$sW03d
+NODE_POSTGRES_USER=myproject
+
+[development]
+NODE_AWS_SECRET_ACCESS_KEY=HN5ITok3lDaA1ASHxtEpy1U9XCjZwThmfgoIYZk8bkOqc5yk6sT7AWd3ooNeRFV9
+NODE_AWS_ACCESS_KEY_ID=m35W4PGGVZfj1gOxYvztFxBD5F2605B3
+NODE_HONEYBADGER_KEY=f3MNPUhZoki6
+NODE_POSTGRES_ENDPOINT=localhost
+NODE_POSTGRES_DATABASE=postgres
+NODE_POSTGRES_PSWD=postgres
+NODE_POSTGRES_USER=postgres
+</code></pre>
+<p><strong>NOTE</strong>: If you use <code>.envset</code> remember to add it to your <code>.gitignore</code> file.</p>
+<p>Lastly but more importantly, you can <strong>BYOS</strong>- bring your own solution- and use whatever configuration system you prefer.</p>
+<p>Configuration files located in the&#xA0;<a href="#configuration-loader"><code>config/</code></a>&#xA0;folder of projects will be merged together in a single object, which will be available at runtime as a property of your application instance, i.e.&#xA0;<code>context.config</code>.</p>
+<p>The top-level keys on the&#xA0;<code>context.config</code> (i.e. <code>context.config.repl</code>)&#xA0;object correspond to a particular configuration file name under your <code>config/</code> directory (i.e. <code>config/repl.js</code>). Most individual configuration files are specific to a module, <strong>with the exception of <code>config/app.js</code></strong>  which should hold options for the current application, like the application&apos;s name, it&apos;s base directory, environment in run under, etc.</p>
+<p>The intention of these files is to provide modules with configuration options. When a module is loaded, it will be called with the application&apos;s instance and a <code>config</code> top-level key that matches the module&apos;s name.</p>
+<h3>Configuration dependencies</h3>
+<p>Your configuration files can contain references to a value found in other configuration files using a simple syntax that will get resolved after merging all files into a single object.</p>
+<p>As an example, <code>${moduleA.name}</code> will be resolved with <code>config.moduleA.name</code>:</p>
+<ul>
+<li><code>config/moduleA.js</code>:</li>
+</ul>
+<pre><code class="language-javascript">module.exports = {
+  name: &apos;ModuleA&apos;
+};
+</code></pre>
+<ul>
+<li><code>config/moduleB.js</code>:</li>
+</ul>
+<pre><code class="language-javascript">module.exports = {
+  prompt: &apos;${moduleA.name}&apos;
+};
+</code></pre>
+<p><strong>core.io</strong> provides a convenience method to collect these configuration files.</p>
+<pre><code class="language-javascript">const Application = require(&apos;application-core&apos;).Application;
+
+/*
+ * Autoload and merge files inside
+ * `config/`
+ */
+const config = Application.loadConfig({
+    //...default values
+}, true);
+
+const app = new Application({config});
+</code></pre>
+<h4>Configuration Extra Properties</h4>
+<p>The configuration process attaches two properties to the config object:</p>
+<ul>
+<li>package: contents of <code>package.json</code> file minus the <strong>readme</strong></li>
+<li>environment: value of <code>process.env.NODE_ENV</code></li>
+</ul>
+<h4>Application configuration file</h4>
+<ul>
+<li>banner: String|Function</li>
+</ul>
+<p>The <code>./config/app.js</code> is different than other configuration files in that the application will extend itself with the object like if it was a mixin.</p>
+<h4>Module configuration</h4>
+<p>When <strong>core.io</strong> registers a module, first it will <code>require</code> the module and then will look for a key in <code>context.config</code> that matches the module&apos;s <a href="#modules-names">moduleid</a>. It will then call <code>module.init</code> with a reference to the value of this key.</p>
+<p>Pseudo code to illustrate:</p>
+<pre><code class="language-js">let moduleId = &apos;persistence&apos;;
+let config = this.config.get(moduleId, {});
+module.init(this, config);
+</code></pre>
+<h6>Solving Configuration Dependencies</h6>
+<p>Configuration files can have interpolated values where you reference the value of any attribute of the configuration object using the attribute&apos;s keypath.</p>
+<p>You reference objects or properties by their keypath. A keypath is a string representing the location of a piece of data.</p>
+<pre><code class="language-js">var data = {
+    user: {
+        name: &apos;Peperone&apos;,
+        address: {
+            city: &apos;New York&apos;
+        }
+    }
+};
+</code></pre>
+<p>You can reference strings or objects using two different syntaxes:</p>
+<ul>
+<li>Object interpolation: <code>@{user}</code> or <code>@{user.address}</code></li>
+<li>String interpolation: <code>${user.name}</code> or <code>${user.address.city}</code></li>
+</ul>
+
+            
+            <!-- END CONENT BLOCK -->
+            <div class="link-pagination">
+              <a href="#">Next: Application</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- END CONTENT -->
+
+    <footer>
+      <div class="cols cols-centered">
+
+        <div class="col-3">
+          <div class="footer-logo">
+            <a href="/features"><img src="/img/logo/mosca.svg" title="Core.io" alt="Core.io"></a>
+          </div>
+
+          <div class="footer-menu">
+            <a href="/">Features</a>
+            <a href="/quickstart">Quickstart</a>
+            <a href="/documentation">Documentation</a>
+            <a href="/modules">Modules</a>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="footer-releases">
+            <p>Latest Release: 0.2.8 (Jun 01, 2017)</p>
+            <p>Documentation Generated: 2017-12-20</p>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="footer-github">
+            <a href="#" class="row row-vCentered">
+              <img src="/img/icons/github-icon-2.png" alt="Core.io in Github" title="Github">Github
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-centered copyright">
+        <p>Copyright &#xA9; 2017 goliatone. The contents of this page are licensed MIT license.</p>
+      </div>
+    </footer>
+  </div><!-- END docs midnight-mode layout-app -->
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.1.1.min.js"><\/script>')</script>
+  <script src="/js/main.js"></script>
+
+
+
+
+</body></html>

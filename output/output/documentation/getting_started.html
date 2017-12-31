@@ -1,0 +1,265 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>Documentation</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/css/main.css">
+
+  <!-- highlight js -->
+  <link rel="stylesheet" href="/js/vendor/highlight-common/styles/atelier-dune-dark.css">
+  <script src="/js/vendor/highlight-common/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+
+  <div class="docs midnight-mode layout-app">
+
+    <div class="highlight-bar"></div>
+
+    <header class="row row-vCentered">
+
+      <!-- HEADER LOGO -->
+      <div class="logo">
+        <a href="/"><img src="/img/logo/c_core.svg" alt="Core.io" title="Core.io"></a>
+      </div><!-- END HEADER LOGO -->
+
+      <!-- Header Navigation Bar -->
+      <nav id="main-nav" class="nav-bar-1">
+        <div class="menu-item">
+          <a href="/">Features</a>
+        </div>
+        <div class="menu-item">
+          <a href="/quickstart">Quickstart</a>
+        </div>
+        <div class="menu-item">
+          <a href="/documentation/about">Documentation</a>
+        </div>
+        <div class="menu-item">
+          <a href="/modules">Modules</a>
+        </div>
+      </nav><!-- END Header Navigation Bar -->
+
+    </header><!-- END SECTION HEADER -->
+
+    <div class="content">
+
+      <div class="row row-vCentered">
+      <!-- Documentation Navigation Bar -->
+      <nav id="docs-nav" class="nav-bar-2">
+        <div class="menu-item">
+          <a href="/documentation/guide">Guide</a>
+        </div>
+        <div class="menu-item">
+          <a href="/documentation/api/">API</a>
+        </div>
+        <div class="menu-item">
+          <a href="/documentation/examples">Examples</a>
+        </div>
+      </nav><!-- END Documentation Navigation Bar -->
+
+        <div class="label highlight">
+          <span></span>
+        </div>
+      </div>
+
+      <hr class="hr-light">
+
+      <div class="cols">
+
+        <div class="col-2">
+      
+      <!-- Documentation Side Menu -->
+      <nav id="docs-side-menu" class="side-menu">
+        <ul>
+            <li>
+                <a href="/documentation/about">About</a>
+            </li>
+        
+            <li>
+                <a href="#" class="selected">Getting Started</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/project_layout">Project Layout</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/configuration">Configuration</a>
+            </li>
+        
+            <li>
+                <a href="/modules">Modules</a>
+                <ul>
+                
+                <li><a href="/documentation/core_modules">Core Modules</a> </li>
+                
+                <li><a href="/documentation/user_modules">User Modules</a> </li>
+                
+                </ul>
+                
+            </li>
+        
+            <li>
+                <a href="/documentation/commands">Commands</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/tool_belt">Toolbelt</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/environments">Environments</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/reference">Reference</a>
+            </li>
+        
+        </ul>
+        </nav><!-- END Documentation Side Menu -->
+        </div>
+
+        <div class="col-2">
+          <div id="guide" class="main-txt">
+            <!-- START CONENT BLOCK -->
+            
+                <h2>Getting Started</h2>
+<p>In order to develop <strong>core.io</strong> applications you will need to have Node.js and npm installed. You can follow instructions in the <a href="http://nodejs.org/">Node.js</a> website to download and install these dependencies on your computer.</p>
+<p><strong>core.io</strong> is compromised of multiple modules each distributed as a Node.js package through <a href="http://npmjs.com">npm</a> or other package managers.</p>
+<p>The fastest way to get up and running is by installing and using the <a href="https://www.npmjs.com/package/core.io-cli">core CLI tool</a> which enables you to create new projects using the command line. You can read more about the <strong>core.io</strong> CLI tool in it&apos;s <a href="https://github.com/goliatone/core.io-cli/tree/master/docs">documentation</a> page.</p>
+<p>Writing documentation is hard, and keeping it up to date is also hard. If you come across a step that does not work as expected you could create an issue on <a href="https://github.com/goliatone/core.io-docs/issues">github</a>.</p>
+<h3>1. Install core.io cli tool belt:</h3>
+<p>Open a new terminal window and type the following command:</p>
+<pre><code>$ npm i -g core.io-cli
+</code></pre>
+<p>This will install <strong>core.io-cli</strong> and make the <strong>core</strong>  command available in your terminal. To verify it was installed correctly, if you type <code>core</code> in your terminal you should see a help output.</p>
+<pre><code>$ core
+
+core 0.0.3 - core.io CLI tool belt manager
+
+USAGE
+
+  core &lt;command&gt; [options]
+
+COMMANDS
+
+  shuttle install                          Install all dependencies. Needs sudo
+  shuttle list                             List all local domains
+  shuttle open &lt;domain&gt;                    Open domain in default browser
+  shuttle share &lt;project&gt;                  Generate a shareable URL for a project
+  shuttle restart                          Restart Caddy and Dnsmasq services
+  shuttle stop                             Stop Caddy and Dnsmasq services
+  shuttle start                            Start Caddy and Dnsmasq services
+  shuttle serve &lt;domain&gt; &lt;proxy&gt;           Proxy a local domain and save it for quick access
+  shuttle update                           Update toolchain
+  generator add &lt;source&gt; [alias]           Add a project template from github or a local directory
+  generator list                           List available templates
+  generator new &lt;template&gt; [output]        Create a new project from a project template
+  generator link &lt;source&gt; [alias]          Link local template for development
+  schema collect [source] [output]         Collect metadata from waterline models and generates a JSON schema file
+  schema generate [source] [output]        Generate schema from model data
+  scaffold compile [source] [output]       Generate views from a GUI schema
+  scaffold generate [source] [output]      Generate views from a JSON schema
+  run [application] [environment]          Run a core.io application
+  repl                                     Open REPL window
+  help &lt;command&gt;                           Display help for a specific command
+
+GLOBAL OPTIONS
+
+  -h, --help         Display help
+  -V, --version      Display version
+  --no-color         Disable colors
+  --quiet            Quiet mode - only displays warn and error messages
+  -v, --verbose      Verbose mode - will also output debug messages
+</code></pre>
+<h3>2. Create a project</h3>
+<p>Once you have the tool belt installed, you can create a project from your terminal.</p>
+<pre><code>$ core generator new myProject
+</code></pre>
+<p>The generator will create a new folder for your application in your current directory, set up an empty project and download all the necessary dependencies.</p>
+<p><strong>NOTE</strong>:
+By default it will use the <a href="https://github.com/goliatone/core.io-starter-template">core.io project starter</a>. You can create and install your custom project templates. Read more in the documentation.</p>
+<h3>3. Run project</h3>
+<p>Last step is to run your project, which could be as simple as opening a terminal window and typing the following command:</p>
+<pre><code>$ npm start
+</code></pre>
+<p>You should see the banner ASCII art followed by the logger output in your terminal.</p>
+<h2>What to do next?</h2>
+<p>As it stands, our application doesn&apos;t do much, and that is by design. Out of the box it provides basic functionality like logging, module and command management, and an interactive REPL.</p>
+<p>The next step will be to learn about the [project layout][#project-layout]</p>
+<p>To learn more about <strong>core.io</strong> follow the links:</p>
+<ul>
+<li><a href="/documentation">Documentation</a></li>
+<li><a href="/examples">Examples</a></li>
+<li><a href="/plugins">Plugins</a></li>
+</ul>
+<p>&lt;!-- LINKS --&gt;</p>
+
+            
+            <!-- END CONENT BLOCK -->
+            <div class="link-pagination">
+              <a href="#">Next: Application</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- END CONTENT -->
+
+    <footer>
+      <div class="cols cols-centered">
+
+        <div class="col-3">
+          <div class="footer-logo">
+            <a href="/features"><img src="/img/logo/mosca.svg" title="Core.io" alt="Core.io"></a>
+          </div>
+
+          <div class="footer-menu">
+            <a href="/">Features</a>
+            <a href="/quickstart">Quickstart</a>
+            <a href="/documentation">Documentation</a>
+            <a href="/modules">Modules</a>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="footer-releases">
+            <p>Latest Release: 0.2.8 (Jun 01, 2017)</p>
+            <p>Documentation Generated: 2017-12-20</p>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="footer-github">
+            <a href="#" class="row row-vCentered">
+              <img src="/img/icons/github-icon-2.png" alt="Core.io in Github" title="Github">Github
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-centered copyright">
+        <p>Copyright &#xA9; 2017 goliatone. The contents of this page are licensed MIT license.</p>
+      </div>
+    </footer>
+  </div><!-- END docs midnight-mode layout-app -->
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.1.1.min.js"><\/script>')</script>
+  <script src="/js/main.js"></script>
+
+
+
+
+</body></html>

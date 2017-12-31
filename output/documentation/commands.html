@@ -1,0 +1,209 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>Documentation</title>
+  <meta name="description" content="add_description">
+  <meta name="keywords" content="add_keywords">
+  <meta name="author" content="add_author">
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/css/main.css">
+
+  <!-- highlight js -->
+  <link rel="stylesheet" href="/js/vendor/highlight-common/styles/atelier-dune-dark.css">
+  <script src="/js/vendor/highlight-common/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+
+  <div class="docs midnight-mode layout-app">
+
+    <div class="highlight-bar"></div>
+
+    <header class="row row-vCentered">
+
+      <!-- HEADER LOGO -->
+      <div class="logo">
+        <a href="/"><img src="/img/logo/c_core.svg" alt="Core.io" title="Core.io"></a>
+      </div><!-- END HEADER LOGO -->
+
+      <!-- Header Navigation Bar -->
+      <nav id="main-nav" class="nav-bar-1">
+        <div class="menu-item">
+          <a href="/">Features</a>
+        </div>
+        <div class="menu-item">
+          <a href="/quickstart">Quickstart</a>
+        </div>
+        <div class="menu-item">
+          <a href="/documentation/about">Documentation</a>
+        </div>
+        <div class="menu-item">
+          <a href="/modules">Modules</a>
+        </div>
+      </nav><!-- END Header Navigation Bar -->
+
+    </header><!-- END SECTION HEADER -->
+
+    <div class="content">
+
+      <div class="row row-vCentered">
+      <!-- Documentation Navigation Bar -->
+      <nav id="docs-nav" class="nav-bar-2">
+        <div class="menu-item">
+          <a href="/documentation/guide/">Guide</a>
+        </div>
+        <div class="menu-item">
+          <a href="/documentation/api/">API</a>
+        </div>
+        <div class="menu-item">
+          <a href="/documentation/examples/">Examples</a>
+        </div>
+      </nav><!-- END Documentation Navigation Bar -->
+
+        <div class="label highlight">
+          <span>0.2.8</span>
+        </div>
+      </div>
+
+      <hr class="hr-light">
+
+      <div class="cols">
+
+        <div class="col-2">
+      
+      <!-- Documentation Side Menu -->
+      <nav id="docs-side-menu" class="side-menu">
+        <ul>
+            <li>
+                <a href="/documentation/about">About</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/getting_started">Getting Started</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/project_layout">Project Layout</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/configuration">Configuration</a>
+            </li>
+        
+            <li>
+                <a href="/modules">Modules</a>
+                <ul>
+                
+                <li><a href="/documentation/core_modules">Core Modules</a> </li>
+                
+                <li><a href="/documentation/user_modules">User Modules</a> </li>
+                
+                </ul>
+                
+            </li>
+        
+            <li>
+                <a href="#" class="selected">Commands</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/tool_belt">Toolbelt</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/environments">Environments</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/reference">Reference</a>
+            </li>
+        
+        </ul>
+        </nav><!-- END Documentation Side Menu -->
+        </div>
+
+        <div class="col-2">
+          <div id="guide" class="main-txt">
+            <!-- START CONENT BLOCK -->
+            
+                <h2>Commands</h2>
+<p>Set unique signature:</p>
+<pre><code class="language-js">function execute(event){}
+event = {
+    type: &apos;event.type&apos;,
+    payload: {},
+    complete: function(){}
+}
+</code></pre>
+<p>Module properties:</p>
+<ul>
+<li><code>execute</code>: main function</li>
+<li><code>undo</code>: provide undo</li>
+<li><code>eventSample</code>: For testing purposes</li>
+</ul>
+
+            
+            <!-- END CONENT BLOCK -->
+            <div class="link-pagination">
+              <a href="#">Next: Application</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- END CONTENT -->
+
+    <footer>
+      <div class="cols cols-centered">
+
+        <div class="col-3">
+          <div class="footer-logo">
+            <a href="/features"><img src="/img/logo/mosca.svg" title="Core.io" alt="Core.io"></a>
+          </div>
+
+          <div class="footer-menu">
+            <a href="/">Features</a>
+            <a href="/quickstart">Quickstart</a>
+            <a href="/documentation">Documentation</a>
+            <a href="/modules">Modules</a>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="footer-releases">
+            <p>Latest Release: 0.2.8 (Jun 01, 2017)</p>
+            <p>Documentation Generated: 2017-12-20</p>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="footer-github">
+            <a href="#" class="row row-vCentered">
+              <img src="/img/icons/github-icon-2.png" alt="Core.io in Github" title="Github">Github
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-centered copyright">
+        <p>Copyright &#xA9; 2017 goliatone. The contents of this page are licensed MIT license.</p>
+      </div>
+    </footer>
+  </div><!-- END docs midnight-mode layout-app -->
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.1.1.min.js"><\/script>')</script>
+  <script src="/js/main.min.js"></script>
+
+
+
+
+</body></html>

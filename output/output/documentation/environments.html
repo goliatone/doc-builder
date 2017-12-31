@@ -1,0 +1,228 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>Documentation</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/css/main.css">
+
+  <!-- highlight js -->
+  <link rel="stylesheet" href="/js/vendor/highlight-common/styles/atelier-dune-dark.css">
+  <script src="/js/vendor/highlight-common/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+
+  <div class="docs midnight-mode layout-app">
+
+    <div class="highlight-bar"></div>
+
+    <header class="row row-vCentered">
+
+      <!-- HEADER LOGO -->
+      <div class="logo">
+        <a href="/"><img src="/img/logo/c_core.svg" alt="Core.io" title="Core.io"></a>
+      </div><!-- END HEADER LOGO -->
+
+      <!-- Header Navigation Bar -->
+      <nav id="main-nav" class="nav-bar-1">
+        <div class="menu-item">
+          <a href="/">Features</a>
+        </div>
+        <div class="menu-item">
+          <a href="/quickstart">Quickstart</a>
+        </div>
+        <div class="menu-item">
+          <a href="/documentation/about">Documentation</a>
+        </div>
+        <div class="menu-item">
+          <a href="/modules">Modules</a>
+        </div>
+      </nav><!-- END Header Navigation Bar -->
+
+    </header><!-- END SECTION HEADER -->
+
+    <div class="content">
+
+      <div class="row row-vCentered">
+      <!-- Documentation Navigation Bar -->
+      <nav id="docs-nav" class="nav-bar-2">
+        <div class="menu-item">
+          <a href="/documentation/guide">Guide</a>
+        </div>
+        <div class="menu-item">
+          <a href="/documentation/api/">API</a>
+        </div>
+        <div class="menu-item">
+          <a href="/documentation/examples">Examples</a>
+        </div>
+      </nav><!-- END Documentation Navigation Bar -->
+
+        <div class="label highlight">
+          <span></span>
+        </div>
+      </div>
+
+      <hr class="hr-light">
+
+      <div class="cols">
+
+        <div class="col-2">
+      
+      <!-- Documentation Side Menu -->
+      <nav id="docs-side-menu" class="side-menu">
+        <ul>
+            <li>
+                <a href="/documentation/about">About</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/getting_started">Getting Started</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/project_layout">Project Layout</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/configuration">Configuration</a>
+            </li>
+        
+            <li>
+                <a href="/modules">Modules</a>
+                <ul>
+                
+                <li><a href="/documentation/core_modules">Core Modules</a> </li>
+                
+                <li><a href="/documentation/user_modules">User Modules</a> </li>
+                
+                </ul>
+                
+            </li>
+        
+            <li>
+                <a href="/documentation/commands">Commands</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/tool_belt">Toolbelt</a>
+            </li>
+        
+            <li>
+                <a href="#" class="selected">Environments</a>
+            </li>
+        
+            <li>
+                <a href="/documentation/reference">Reference</a>
+            </li>
+        
+        </ul>
+        </nav><!-- END Documentation Side Menu -->
+        </div>
+
+        <div class="col-2">
+          <div id="guide" class="main-txt">
+            <!-- START CONENT BLOCK -->
+            
+                <h2>Supporting Different Environments</h2>
+<p>Another aspect in which <strong>core.io</strong> tries to simplify the configuration process is by <em>how</em> it supports different development environments, like <strong>staging</strong>, <strong>development</strong>, <strong>production</strong>, etc.</p>
+<p>In short: <em>it does not</em>.</p>
+<p>To be more precise, <strong>core.io</strong> takes a very pragmatic stance and does not provide any way to (directly) manage different environments but has some <em>recommendations</em> that make having configuration files per environment unnecessary.</p>
+<p>A lot of the things that need to change on each environment are <em>secrets</em> like service tokens or user keys. We chose to manage those by using <code>process.env</code> and environment variables.</p>
+<p>If you use the provided <code>Application.loadConfig</code> then your configuration files are javascript files which, obviously, can have logic in it. Meaning that you can check the value of <code>process.env.NODE_ENV</code> and export different objects based on that value.</p>
+<p>Another benefit of <code>Application.loadConfig</code> is that you can reference other parts of your configuration files and solve them at runtime, making your configuration files modular.</p>
+<p>You can also make use of the <code>afterSolver</code> facility which gets access to the merged configuration object. In it you can access the <code>environment</code> key which holds the value of the current environment and modify your configuration file at runtime.</p>
+<p>Case in point, you have options.</p>
+<p>Ideally your configuration files should be logic lightweight in order to reduce possible errors and keep things simple, but you are free to do as you please.</p>
+<p>You can also use an environment manager like [envset][envset] to dynamically populate your <code>process.env</code> variables. All you need is an <code>.envset</code> file where you define your environments, environment variables and their values:</p>
+<pre><code>[production]
+NODE_AWS_SECRET_ACCESS_KEY=FS40N0QY22p2bpciAh7wuAeHjJURgXIBQ2cGodpJD3FRjw2EyYGjyXpi73Ld8zWO
+NODE_AWS_ACCESS_KEY_ID=LSLhv74Q1vH8auQKUt5pFwnix0FUl0Ml
+NODE_HONEYBADGER_KEY=LCgZgqsxKfhO
+NODE_POSTGRES_ENDPOINT=50.23.54.25
+NODE_POSTGRES_DATABASE=myproject
+NODE_POSTGRES_PSWD=Pa$sW03d
+NODE_POSTGRES_USER=myproject
+
+[development]
+NODE_AWS_SECRET_ACCESS_KEY=HN5ITok3lDaA1ASHxtEpy1U9XCjZwThmfgoIYZk8bkOqc5yk6sT7AWd3ooNeRFV9
+NODE_AWS_ACCESS_KEY_ID=m35W4PGGVZfj1gOxYvztFxBD5F2605B3
+NODE_HONEYBADGER_KEY=f3MNPUhZoki6
+NODE_POSTGRES_ENDPOINT=localhost
+NODE_POSTGRES_DATABASE=postgres
+NODE_POSTGRES_PSWD=postgres
+NODE_POSTGRES_USER=postgres
+</code></pre>
+<p><strong>NOTE</strong>: If you use <code>.envset</code> remember to add it to your <code>.gitignore</code> file.</p>
+<p>Lastly but more importantly, you can <strong>BYOS</strong>- bring your own solution- and use whatever configuration system you prefer.</p>
+<p><strong>TIP:</strong> To manage different environments you can always use [envset][envset]:</p>
+<pre><code>$ envset development -- npm start
+</code></pre>
+
+            
+            <!-- END CONENT BLOCK -->
+            <div class="link-pagination">
+              <a href="#">Next: Application</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- END CONTENT -->
+
+    <footer>
+      <div class="cols cols-centered">
+
+        <div class="col-3">
+          <div class="footer-logo">
+            <a href="/features"><img src="/img/logo/mosca.svg" title="Core.io" alt="Core.io"></a>
+          </div>
+
+          <div class="footer-menu">
+            <a href="/">Features</a>
+            <a href="/quickstart">Quickstart</a>
+            <a href="/documentation">Documentation</a>
+            <a href="/modules">Modules</a>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="footer-releases">
+            <p>Latest Release: 0.2.8 (Jun 01, 2017)</p>
+            <p>Documentation Generated: 2017-12-20</p>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="footer-github">
+            <a href="#" class="row row-vCentered">
+              <img src="/img/icons/github-icon-2.png" alt="Core.io in Github" title="Github">Github
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-centered copyright">
+        <p>Copyright &#xA9; 2017 goliatone. The contents of this page are licensed MIT license.</p>
+      </div>
+    </footer>
+  </div><!-- END docs midnight-mode layout-app -->
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.1.1.min.js"><\/script>')</script>
+  <script src="/js/main.js"></script>
+
+
+
+
+</body></html>
