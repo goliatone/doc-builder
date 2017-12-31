@@ -1,0 +1,53 @@
+#!/usr/bin/env node
+'use strict';
+const copy = require('../lib/tasks/copy-dir');
+const clone = require('../lib/tasks/get-repo');
+const install = require('../lib/tasks/npm-install');
+const runTaskfile = require('../lib/tasks/run-taskfile');
+
+
+module.exports = async function gatherDocumentation(options) {
+    console.log('cloning repository...');
+    await clone(options.clone);
+
+    console.log('npm install');
+
+    await install(options.install);
+
+    console.log('run taskfile');
+
+    await runTaskfile(options.taskfile);
+
+    await copy(options.copy);
+};
+
+(async () => {
+
+    const target = '/tmp/core.io';
+
+    module.exports({
+        clone: {
+            repository: 'goliatone/application-core#build_docs', 
+            target
+        },
+        install: {
+            dryRun: false,
+            target: `${target}/application-core`
+        },
+        copy: {
+            source: `${target}/application-core/docs`,
+            target: '/tmp/core.io/output'
+        },
+
+        taskfile: {
+            cwd: `${target}/application-core`,
+            shell: false,
+            stdio: 'inherit',
+            argv: ['docs:html']
+        },
+        copy: {
+            source: `/tmp/core.io/application-core/docs/api`,
+            target: '/tmp/core.io/output/documentation/api'
+        }
+    });
+})();
