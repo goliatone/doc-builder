@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 'use strict';
 
 const fx = require('../lib/fx');
@@ -63,22 +65,25 @@ const LINK_RULES = [
     }
 ];
 
-processDirectory('./output', process.cwd() + '/output');
+// processDirectory('./output', process.cwd() + '/output');
+
+processDirectory('/tmp/core.io/output', '/tmp/core.io/output');
 
 async function processDirectory(dirpath, cwd) {
-    let collection = await collectFiles('./output');
+
+    let collection = await collectFiles(dirpath);
 
     let htmlFiles = collection.filterByExt('.html');
 
-    let file = new FileDescriptor({source: './output/documentation/api/index.html', cwd});
+    // let file = new FileDescriptor({source: './output/documentation/api/index.html', cwd});
     
-    try {
-        await processFile(file, collection);
-    } catch (error) {
-        console.log('error', error);
-    }
+    // try {
+    //     await processFile(file, collection);
+    // } catch (error) {
+    //     console.log('error', error);
+    // }
 
-    process.exit();
+    // process.exit();
 
     htmlFiles.forEachAsync(async (fd)=>{
         fd.cwd = cwd;
@@ -121,7 +126,9 @@ async function processHtml(indexFile, collection) {
     indexFile.content = $.html();
     await indexFile.writeFile();
 
+    console.log('*********************************');
     console.log('done: ', indexFile.relativePath);
+    console.log('saved file:', indexFile.source);
 }
 
 function processScriptTags($, collection) {
@@ -146,7 +153,8 @@ function processImageTags($, collection) {
     $('img').each(function(i, el) {
         let src = $(el).attr('src');
         let fd = files.findOneIncludingPath(src, false);
-        console.log(src, fd.relativePath);
+
+        console.log(src, fd && fd.relativePath);
 
         if (fd) {
             src = fd.relativePath;
