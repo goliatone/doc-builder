@@ -4,7 +4,7 @@ const copy = require('../lib/tasks/copy-dir');
 const clone = require('../lib/tasks/get-repo');
 const install = require('../lib/tasks/npm-install');
 const runTaskfile = require('../lib/tasks/run-taskfile');
-
+const renderApiDocs = require('./generate-api');
 
 module.exports = async function gatherDocumentation(options) {
     console.log('cloning repository...');
@@ -18,7 +18,11 @@ module.exports = async function gatherDocumentation(options) {
 
     await runTaskfile(options.taskfile);
 
+    console.log('copy documentation over...');
     await copy(options.copy);
+
+    console.log('rendering api documentation');
+    await renderApiDocs(options.renderDocs).catch(console.error)
 };
 
 (async () => {
@@ -34,10 +38,6 @@ module.exports = async function gatherDocumentation(options) {
             dryRun: false,
             target: `${target}/application-core`
         },
-        copy: {
-            source: `${target}/application-core/docs`,
-            target: '/tmp/core.io/output'
-        },
 
         taskfile: {
             cwd: `${target}/application-core`,
@@ -46,8 +46,13 @@ module.exports = async function gatherDocumentation(options) {
             argv: ['docs:html']
         },
         copy: {
-            source: `/tmp/core.io/application-core/docs/api`,
-            target: '/tmp/core.io/output/documentation/api'
-        }
+            source: `${target}/application-core/docs/api`,
+            target: `${target}/output/documentation/api`
+        },
+        renderDocs: {
+            cwd: `${target}/output`,
+            source: `${target}/output/documentation/api/index.html`,
+            template: './templates/api/index.swig'
+        },
     });
 })();
