@@ -3,5 +3,6 @@ npm-debug.log
 *
 
 !output
+!website
 !ops/nginx/conf.d/*
 !ops/nginx/conf.d/coreio.nginx.conf
