@@ -1,80 +1,65 @@
 <!DOCTYPE html><html><head>
-    <meta charset="utf-8">
-    <title>Documentation | application-core </title>
-
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
-
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="/documentation/api/assets/css/main.css">
-    <link rel="stylesheet" href="/documentation/api/assets/css/style.css">
+  <meta charset="utf-8">
+  <title>application-core 0.8.2 | Documentation</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="/documentation/api/assets/css/dev/main.css">
+  <link rel="stylesheet" href="/documentation/api/assets/css/style.css">
 
 </head>
-
 <body>
 
-    <div class="docs midnight-mode layout-app">
-        <div class="highlight-bar"></div>
+  <div class="docs midnight-mode layout-app">
+    <header class="row row-vCentered">
 
-        <header class="row row-vCentered">
+      <!-- HEADER LOGO -->
+      <div class="logo">
+        <a href="/"><img src="/documentation/api/assets/img/logo/c_core.svg" alt="Core.io" title="Core.io"></a>
+      </div><!-- END HEADER LOGO -->
 
-            <!-- HEADER LOGO -->
-            <div class="logo">
-                <a href="/">
-                    <img src="/documentation/api/assets/img/logo/c_core.svg" alt="Core.io" title="Core.io">
-                </a>
+      <!-- Header Navigation Bar -->
+      <nav id="main-nav" class="nav-bar-1">
+        <div class="menu-item">
+          <a href="/">Features</a>
+        </div>
+        <div class="menu-item">
+          <a href="/quickstart">Quickstart</a>
+        </div>
+        <div class="menu-item">
+          <a href="/documentation">Documentation</a>
+        </div>
+        <div class="menu-item">
+          <a href="/modules">Modules</a>
+        </div>
+      </nav><!-- END Header Navigation Bar -->
+    </header><!-- END SECTION HEADER -->
+
+    <div class="content api">
+
+      <div class="sticky nav">
+        <div class="bg-menu"></div>
+        <div class="row row-vCentered">
+          <!-- Documentation Navigation Bar -->
+          <nav id="docs-nav" class="nav-bar-2">
+            <div class="menu-item">
+              <a href="/guide">Guide</a>
             </div>
-            <!-- END HEADER LOGO -->
-
-            <!-- Header Navigation Bar -->
-            <nav id="main-nav" class="nav-bar-1">
-                <div class="menu-item">
-                    <a href="/">Features</a>
-                </div>
-                <div class="menu-item">
-                    <a href="/quickstart">Quickstart</a>
-                </div>
-                <div class="menu-item">
-                    <a class="selected" href="/documentation">Documentation</a>
-                </div>
-                <div class="menu-item">
-                    <a href="/modules">Modules</a>
-                </div>
-            </nav>
-            <!-- END Header Navigation Bar -->
-        </header>
-        <!-- END SECTION HEADER -->
-
-        <div class="content api">
-            <div class="sticky nav">
-                <div class="bg-menu"></div>
-                <div class="row row-vCentered">
-                    <!-- Documentation Navigation Bar -->
-                    <nav id="docs-nav" class="nav-bar-2">
-                        <div class="menu-item">
-                            <a href="/documentation/about">Guide</a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="selected" href="#">API</a>
-                        </div>
-                        <div class="menu-item">
-                            <a href="/examples">Examples</a>
-                        </div>
-                    </nav>
-                    <!-- END Documentation Navigation Bar -->
-
-                    <div class="label highlight">
-                        <span>0.8.1</span>
-                    </div>
-                </div>
-
-                <hr class="sticky hr-light">
+            <div class="menu-item">
+              <a href="/api">API</a>
             </div>
+            <div class="menu-item">
+              <a href="/examples">Examples</a>
+            </div>
+          </nav><!-- END Documentation Navigation Bar -->
 
-            <!-- START CONENT BLOCK -->
-            <div class="cols">
-             
+          <div class="label highlight">
+            <span>0.8.2</span>
+          </div>
+        </div>
+
+        <hr class="sticky hr-light">
+      </div>
+
+      <div class="cols">
         <div id="split-left" class="col-2">
           <div class="side-menu sticky">
             <nav id="prime-nav">
@@ -531,6 +516,14 @@
                     
                     <li class="menu-item"><a href="#commandlike" class="">
                       CommandLike
+                      
+                    </a>
+                    
+                    </li>
+                  
+                    
+                    <li class="menu-item"><a href="#getuid" class="">
+                      getUid
                       
                     </a>
                     
@@ -7309,7 +7302,8 @@ exclude files NOT matching those names.</p>
     <div class="prose">
       
           <div>
-            <code>options</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+            <code>options</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+            = <code>{}</code>)</code>
 	    
           </div>
           
@@ -7748,59 +7742,121 @@ has for a given event type.</p>
 
             
           
-        </main>
-       
-            <!-- END CONENT BLOCK -->
-            </div>
-        </div>
-    </div>
+            
+              <section>
+
+  
     
+    <h3 id="getuid">
+      getUid
+    </h3>
+    
+    
+  
+
+  <div class="markdown-body">
+    <p>Generate an unique identifier in
+the form or:
+&quot;jce1t9gu-sg69zzohk7&quot;</p>
+
+  </div>
+
+  <div class="code-line">getUid(len: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class="quiet">Parameters</div>
+    <div class="prose">
+      
+          <div>
+            <code>len</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>
+            = <code>20</code>)</code>
+	    Output length
+
+          </div>
+          
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class="quiet">Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+            
+          
+        </main>
+      </div>
+    </div>
 
     <footer>
-        <div class="cols cols-centered">
+      <div class="cols cols-centered">
 
-            <div class="col-3">
-                <div class="footer-logo">
-                    <a href="/">
-                        <img src="/documentation/api/assets/img/logo/mosca.svg" title="Core.io" alt="Core.io">
-                    </a>
-                </div>
+        <div class="col-3">
+          <div class="footer-logo">
+            <a href="/"><img src="/documentation/api/assets/img/logo/mosca.svg" title="Core.io" alt="Core.io"></a>
+          </div>
 
-                <div class="footer-menu">
-                    <a href="/">Features</a>
-                    <a href="/quickstart">Quickstart</a>
-                    <a href="/documentation">Documentation</a>
-                    <a href="/modules">Modules</a>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="footer-releases">
-                    <p>Latest Release: 0.2.8 (Jun 01, 2017)</p>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="footer-github">
-                    <a href="#" class="row row-vCentered">
-                        <img src="/documentation/api/assets/img/icons/github-icon-2.png" alt="Core.io in Github" title="Github">Github
-                    </a>
-                </div>
-            </div>
+          <div class="footer-menu">
+            <a href="/">Features</a>
+            <a href="/quickstart">Quickstart</a>
+            <a href="/documentation">Documentation</a>
+            <a href="/modules">Modules</a>
+          </div>
         </div>
 
-        <div class="row row-centered copyright">
-            <p>Copyright &#xA9; 2017 goliatone. The contents of this page are licensed MIT license.</p>
+        <div class="col-3">
+          <div class="footer-releases">
+            <p>Latest Release: 0.2.8 (Jun 01, 2017)</p>
+          </div>
         </div>
+
+        <div class="col-3">
+          <div class="footer-github">
+            <a href="#" class="row row-vCentered">
+              <img src="/documentation/api/assets/img/icons/github-icon-2.png" alt="Core.io in Github" title="Github">Github
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-centered copyright">
+        <p>Copyright &#xA9; 2017 goliatone. The contents of this page are licensed MIT license.</p>
+      </div>
     </footer>
-    
+  </div>
 
-    <script src="/documentation/api/assets/anchor.js"></script>
-    <!-- <script src='assets/split.js'></script> -->
-    <script src="/documentation/api/assets/site.js"></script>
-    <!-- <script src='assets/nav.js'></script> -->
-
-
+  <script src="/documentation/api/assets/anchor.js"></script>
+  <!-- <script src='assets/split.js'></script> -->
+  <script src="/documentation/api/assets/site.js"></script>
+  <!-- <script src='assets/nav.js'></script> -->
 
 
 </body></html>

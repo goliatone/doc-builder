@@ -55,7 +55,7 @@
       <!-- Documentation Navigation Bar -->
       <nav id="docs-nav" class="nav-bar-2">
         <div class="menu-item">
-          <a class="selected" href="#">Guide</a>
+          <a href="/documentation/guide">Guide</a>
         </div>
         <div class="menu-item">
           <a href="/documentation/api/">API</a>
@@ -73,58 +73,56 @@
       <hr class="hr-light">
 
       <div class="cols">
-
         <div class="col-2">
-      
-      <!-- Documentation Side Menu -->
-      <nav id="docs-side-menu" class="side-menu">
-        <ul>
-            <li>
-                <a href="#" class="selected">About</a>
-            </li>
-        
-            <li>
-                <a href="/documentation/getting_started">Getting Started</a>
-            </li>
-        
-            <li>
-                <a href="/documentation/project_layout">Project Layout</a>
-            </li>
-        
-            <li>
-                <a href="/documentation/configuration">Configuration</a>
-            </li>
-        
-            <li>
-                <a href="/modules">Modules</a>
-                <ul>
-                
-                <li><a href="/documentation/core_modules">Core Modules</a> </li>
-                
-                <li><a href="/documentation/user_modules">User Modules</a> </li>
-                
-                </ul>
-                
-            </li>
-        
-            <li>
-                <a href="/documentation/commands">Commands</a>
-            </li>
-        
-            <li>
-                <a href="/documentation/tool_belt">Toolbelt</a>
-            </li>
-        
-            <li>
-                <a href="/documentation/environments">Environments</a>
-            </li>
-        
-            <li>
-                <a href="/documentation/reference">Reference</a>
-            </li>
-        
-        </ul>
-        </nav><!-- END Documentation Side Menu -->
+          <!-- Documentation Side Menu -->
+          <nav id="docs-side-menu" class="side-menu">
+            <ul>
+                <li>
+                    <a href="#" class="selected">About</a>
+                </li>
+            
+                <li>
+                    <a href="/documentation/getting_started">Getting Started</a>
+                </li>
+            
+                <li>
+                    <a href="/documentation/project_layout">Project Layout</a>
+                </li>
+            
+                <li>
+                    <a href="/documentation/configuration">Configuration</a>
+                </li>
+            
+                <li>
+                    <a href="/modules">Modules</a>
+                    <ul>
+                    
+                    <li><a href="/documentation/core_modules">Core Modules</a> </li>
+                    
+                    <li><a href="/documentation/user_modules">User Modules</a> </li>
+                    
+                    </ul>
+                    
+                </li>
+            
+                <li>
+                    <a href="/documentation/commands">Commands</a>
+                </li>
+            
+                <li>
+                    <a href="/documentation/tool_belt">Toolbelt</a>
+                </li>
+            
+                <li>
+                    <a href="/documentation/environments">Environments</a>
+                </li>
+            
+                <li>
+                    <a href="/documentation/reference">Reference</a>
+                </li>
+            
+            </ul>
+            </nav><!-- END Documentation Side Menu -->
         </div>
 
         <div class="col-2">
@@ -136,13 +134,13 @@
 <p>In a way <strong>core.io</strong> aims to be a workflow rather than a framework by providing a common application structure regardless if your project is a web application, a desktop application, a terminal application, a microservice or data processing pipeline.</p>
 <p><strong>core.io</strong> provides basic building blocks which are useful in any context and help with common tasks like configuration and dependency management, logging, and basic needs of most applications.</p>
 <p>It also provides a set of tools to ease development like the built in REPL which you can access remotely and execute commands or query data.</p>
-<p>The heart of <strong>core.io</strong> is the <a href="#application-core">application context</a>, which loads and manages a set of core modules and which you can extend directly with custom logic or indirectly with application specific or more generic community modules.</p>
+<p>The heart of <strong>core.io</strong> is the <a href="/documentation/api#application">application context</a>, which loads and manages a set of core modules and which you can extend directly with custom logic or indirectly with application specific or more generic community modules.</p>
 <p>In a sense, the application context is the kernel around which your application will grow with custom features.</p>
 <p>Modules are intended to encapsulate code and make it portable between projects. They also serve as glue to integrate libraries like Socket.IO or AMQP into your project.</p>
 <p>Following simple conventions on how files should be named and where those files should be placed <strong>core.io</strong> will auto-load, auto-configure, and auto-wire components while leaving to the developer the choice of overriding default behaviors. Developers can also create custom modules to replace functionality provided by core modules.</p>
 <p>The following sections would introduce you to different topics from which you can learn more about how <strong>core.io</strong> works.</p>
 <h2>Modules</h2>
-<p>The heart of <strong>core.io</strong> is the <a href="#application-core">application context</a>, which loads and manages a set of core modules and which you can extend directly with custom logic or indirectly with application specific or community modules.</p>
+<p>The heart of <strong>core.io</strong> is the <a href="/documentation/api#application">application context</a>, which loads and manages a set of core modules and which you can extend directly with custom logic or indirectly with application specific or community modules.</p>
 <p>Modules are intended to encapsulate code and make it portable. They also serve as glue to integrate libraries like Socket.IO or AMQP into your project.</p>
 <p>Many of the bundled modules are available to be used outside of <strong>core.io</strong>. Some of them might have up to date documentation and examples:</p>
 <ul>
@@ -154,10 +152,10 @@
 <p>You can find and search for more modules in the <a href="https://node-core.io/modules">modules page</a>.</p>
 <h2>Getting Started</h2>
 <p>In order to develop <strong>core.io</strong> applications you will need to have Node.js and npm installed. You can follow instructions in the [Node.js][node] website to download and install these dependencies on your computer.</p>
-<p>Make sure to go through the [getting started guide][#getting-started] to get a sense of what you can do with <strong>core.io</strong>.</p>
+<p>Make sure to go through the <a href="/quickstart">getting started guide</a> to get a sense of what you can do with <strong>core.io</strong>.</p>
 <h2>Resources</h2>
 <ol>
-<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="/quickstart">Getting Started</a></li>
 <li><a href="#reference">Reference</a></li>
 <li><a href="#concepts">Concepts</a></li>
 <li><a href="#project-structure">Project Structure</a></li>
@@ -166,9 +164,6 @@
 <ul>
 <li><a href="https://node-core.io/core.io-registry-service">Registry Service</a></li>
 </ul>
-<p>&lt;!--</p>
-<h2>F.A.Q.</h2>
-<p>--&gt;</p>
 
             
             <!-- END CONENT BLOCK -->
