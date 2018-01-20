@@ -3,31 +3,36 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <title>Documentation</title>
+
   <meta name="description" content="add_description">
   <meta name="keywords" content="add_keywords">
   <meta name="author" content="add_author">
 
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <!-- Place favicon.ico in the root directory -->
-  
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="/css/main.css">
-
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  
   <!-- highlight js -->
   <link rel="stylesheet" href="/js/vendor/highlight-common/styles/hybrid.css">
   <script src="/js/vendor/highlight-common/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
+
+
 </head>
 
 <body>
 
   <div class="docs midnight-mode layout-app">
-    
+
     <div class="highlight-bar"></div>
 
     <header class="row row-vCentered">
-  
+
       <!-- HEADER LOGO -->
       <div class="logo">
         <a href="/"><img src="/img/logo/c_core.svg" alt="Core.io" title="Core.io"></a>
@@ -36,95 +41,85 @@
       <!-- Header Navigation Bar -->
       <nav id="main-nav" class="nav-bar-1">
         <div class="menu-item">
-          <a href="/">Features</a> 
+          <a href="/">Features</a>
         </div>
         <div class="menu-item">
-          <a href="/quickstart">Quickstart</a> 
+          <a href="/quickstart">Quickstart</a>
         </div>
         <div class="menu-item">
-          <a href="/documentation/about">Documentation</a> 
+          <a href="/documentation/about">Documentation</a>
         </div>
         <div class="menu-item">
-          <a href="/modules">Modules</a> 
+          <a href="/modules">Modules</a>
         </div>
       </nav><!-- END Header Navigation Bar -->
 
     </header><!-- END SECTION HEADER -->
 
-    <div class="content">
-
+    <div class=" content">
+      
       <div class="sticky nav">
+        <div class="bg-menu"></div>
+        <!-- Documentation Navigation Bar -->
         <div class="row row-vCentered">
-      <!-- Documentation Navigation Bar -->
-      <nav id="docs-nav" class="nav-bar-2">
-        <div class="menu-item">
-          <a href="/documentation/guide">Guide</a> 
-        </div>
-        <div class="menu-item">
-          <a href="/documentation/api/">API</a> 
-        </div>
-        <div class="menu-item">
-          <a href="/documentation/examples">Examples</a> 
-        </div>
-      </nav><!-- END Documentation Navigation Bar -->
-
-          <div class="label highlight">
-            <span>0.2.8</span>
-          </div>
-        </div>
-
+          <nav id="docs-nav" class="nav-bar-2">
+            <div class="menu-item">
+              <a href="/documentation/guide">Guide</a>
+            </div>
+            <div class="menu-item">
+              <a href="/documentation/api/">API</a>
+            </div>
+            <div class="menu-item">
+              <a href="/documentation/examples">Examples</a>
+            </div>
+            
+          </nav>
+          <span class="label highlight">0.2.8</span>
+        </div><!-- END Documentation Navigation Bar -->
         <hr class="sticky hr-light">
       </div>
 
       <div class="cols">
-
-        <div class="col-2">
-      <!-- Documentation Side Menu -->
-      <nav id="docs-side-menu" class="side-menu sticky">
-        <div class="menu-item">
-          <a href="#">Application</a> 
-            <div class="submenu">
-              <div class="menu-item-submenu">
-                <a href="#">Context</a>
-              </div>
-              <div class="menu-item-submenu">
-                <a href="#">Lifecycle</a>
-              </div>
-            </div>
-        </div>
-        <div class="menu-item">
-          <a href="#">Configuration</a> 
-        </div>
-        <div class="menu-item">
-          <a href="#">Modules</a> 
-            <div class="submenu">
-              <div class="menu-item-submenu">
-                <a href="#">Core</a>
-              </div>
-              <div class="menu-item-submenu">
-                <a href="#">Community</a>
-              </div>
-            </div>
-        </div>
-        <div class="menu-item">
-          <a href="#">Commands</a> 
-        </div>
-        <div class="menu-item">
-          <a href="#">Autoloading</a> 
-            <div class="submenu">
-              <div class="menu-item-submenu">
-                <a href="#">Modules</a>
-              </div>
-              <div class="menu-item-submenu">
-                <a href="#">Commands</a>
-              </div>
-            </div>
-        </div>
-        <div class="menu-item">
-          <a href="#">Concepts</a> 
-        </div>
-      </nav><!-- END Documentation Side Menu -->
-        </div>
+        <!-- Documentation Side Menu -->
+        <nav id="docs-side-menu" class="side-menu">
+          <ul>
+            <li>
+              <a href="#">Application</a>
+              <ul>
+              <li><a href="#">Context</a></li>
+              <li><a href="#">Lifecycle</a></li>
+              </ul>
+              </li>
+          
+            <li>
+              <a href="#">Configuration</a>
+              </li>
+          
+            <li>
+              <a href="#">Modules</a>
+              <ul>
+              <li><a href="#">Core</a></li>
+              <li><a href="#">Community</a></li>
+              </ul>
+              </li>
+          
+            <li>
+              <a href="#">Commands</a>
+              </li>
+          
+            <li>
+              <a href="#">Autoloading</a>
+              <ul>
+              <li><a href="#">Modules</a></li>
+              <li><a href="#">Commands</a></li>
+              </ul>
+              </li>
+          
+            <li>
+              <a href="#">Concepts</a>
+              </li>
+          </ul>
+        </nav><!-- END Documentation Side Menu -->
 
         <div class="col-2">
           <div id="guide" class="main-txt">
@@ -142,24 +137,24 @@
             <div class="code-block">
               <pre><code>
 class MyClass {
-    constructor(options){
-        options = extend({}, MyClass.DEFAULTS, options);
-        if(options.autoinitialize) {
-            this.init(options);
-        }
-    }
+constructor(options){
+  options = extend({}, MyClass.DEFAULTS, options);
+  if(options.autoinitialize) {
+      this.init(options);
+  }
+}
 
-    init(options={}) {
-        extend(this, options);
-    }
+init(options={}) {
+  extend(this, options);
+}
 }
 
 MyClass.DEFAULTS = {
-    autoinitialize: true;
-    getName: function() {
-        return this.name;
-    },
-    name: &apos;MyClass&apos;
+autoinitialize: true;
+getName: function() {
+  return this.name;
+},
+name: &apos;MyClass&apos;
 }
               </code></pre>
             </div><!-- END CODE BLOCK -->
@@ -176,26 +171,26 @@ MyClass.DEFAULTS = {
 
     <footer>
       <div class="cols cols-centered">
-        
+
         <div class="col-3">
           <div class="footer-logo">
             <a href="/"><img src="/img/logo/mosca.svg" title="Core.io" alt="Core.io"></a>
           </div>
-          
+
           <div class="footer-menu">
             <a href="/">Features</a>
             <a href="/quickstart">Quickstart</a>
             <a href="/documentation/about">Documentation</a>
             <a href="/modules">Modules</a>
           </div>
-        </div> 
-        
+        </div>
+
         <div class="col-3">
           <div class="footer-releases">
             <p>Latest Release: 0.2.8 (Jun 01, 2017)</p>
           </div>
         </div>
-        
+
         <div class="col-3">
           <div class="footer-github">
             <a href="#" class="row row-vCentered">
@@ -208,15 +203,16 @@ MyClass.DEFAULTS = {
       <div class="row row-centered copyright">
         <p>Copyright &#xA9; 2017 goliatone. The contents of this page are licensed MIT license.</p>
       </div>
-    </footer>    
-  </div><!-- END docs midnight-mode layout-app -->
-  
+    </footer>
 
+    
+  </div><!-- END docs midnight-mode layout-app -->
+
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.1.1.min.js"><\/script>')</script>
-  <script src="/js/main.js"></script>
-
-
+  <script src="/js/main.min.js"></script>
+  
 
 
 
