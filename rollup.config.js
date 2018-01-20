@@ -5,6 +5,7 @@ import livereload from 'rollup-plugin-livereload';
 
 let dev = process.env.NODE_ENV === 'development'; 
 
+//use reshape for HTML rendering https://reshape.ml/
 export default {
   input: 'output/js/app.js',
   output: {
