@@ -30,3 +30,28 @@ run ->
 * mode
 * output
 * stats
+
+
+
+## Deploy
+
+```
+docker build -t goliatone/coreio.tech:v0.0.1 -t goliatone/core.iotech:latest .
+```
+
+
+docker tag 85b3813be77b goliatone/core.iotech:latest
+
+
+
+```
+docker run --name coreio \
+    --network nginx-proxy \
+    --restart always \
+    --expose 80 \
+    -e VIRTUAL_HOST=coreio.lan \
+    -v $PWD/output:/usr/share/nginx/html:ro \
+    -v $PWD/ops/nginx/conf.d:/etc/nginx/conf.d:ro \
+    -d \
+    goliatone/core.iotech:latest
+```        
