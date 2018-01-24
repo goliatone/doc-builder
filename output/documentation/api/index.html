@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head>
   <meta charset="utf-8">
-  <title>application-core 0.8.2 | Documentation</title>
+  <title>application-core 0.8.4 | Documentation</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="/documentation/api/assets/css/dev/main.css">
   <link rel="stylesheet" href="/documentation/api/assets/css/style.css">
@@ -52,7 +52,7 @@
           </nav><!-- END Documentation Navigation Bar -->
 
           <div class="label highlight">
-            <span>0.8.2</span>
+            <span>0.8.4</span>
           </div>
         </div>
 
@@ -2926,7 +2926,7 @@ context.</p>
       <div class="toggle-sibling">
         <div>
             <a class="icon">&#x25B8;</a>
-            <code>resolve(id)</code>
+            <code>resolve(id, ignoreUndefinedIds)</code>
         </div>
       </div>
       <div class="display-none toggle-target">
@@ -2943,10 +2943,17 @@ module to be registered.</p>
 <p>If after <code>context.resolveTimeout</code> milliseconds the
 module has not been registered the promise will be
 rejected.</p>
+<p>If <code>id</code> is <code>undefined</code> this method will
+throw an Error.
+If we are trying to resolve a set of dependencies
+that might or might not be there you can pass
+<code>ignoreUndefinedIds</code> as true to not generate an error.
+This might be the case if we are loading optional
+dependencies from a user configuration file</p>
 
   </div>
 
-  <div class="code-line">resolve(id: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
+  <div class="code-line">resolve(id: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>), ignoreUndefinedIds: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
   
   
 
@@ -2968,6 +2975,14 @@ rejected.</p>
           </div>
           
       
+          <div>
+            <code>ignoreUndefinedIds</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>
+            = <code>false</code>)</code>
+	    Wether to ignore undefined ids.
+
+          </div>
+          
+      
     </div>
   
 
@@ -2983,6 +2998,21 @@ rejected.</p>
     
   
 
+  
+    <div class="quiet">Throws</div>
+    <ul>
+      
+        <li><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a>: If 
+<code>id</code>
+ are undefined.
+</li>
+      
+        <li><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a>: If resolving a dep takes longer than 
+<code>resolveTimeout</code>
+.
+</li>
+      
+    </ul>
   
 
   
