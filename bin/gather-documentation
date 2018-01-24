@@ -7,22 +7,29 @@ const runTaskfile = require('../lib/tasks/run-taskfile');
 const renderApiDocs = require('./generate-api');
 
 module.exports = async function gatherDocumentation(options) {
-    console.log('cloning repository...');
+    console.log('1) cloning repository...');
+    console.log();
     await clone(options.clone);
 
-    console.log('npm install');
+    console.log();
+    console.log('2) npm install');
+    console.log();
+    await install(options.install).catch(console.error);
 
-    await install(options.install);
+    console.log();
+    console.log('3) run taskfile');
+    console.log();
+    await runTaskfile(options.taskfile).catch(console.error);
 
-    console.log('run taskfile');
+    console.log();
+    console.log('4) copy documentation over...');
+    console.log();
+    await copy(options.copy).catch(console.error);
 
-    await runTaskfile(options.taskfile);
-
-    console.log('copy documentation over...');
-    await copy(options.copy);
-
-    console.log('rendering api documentation');
-    await renderApiDocs(options.renderDocs).catch(console.error)
+    console.log();
+    console.log('5) rendering api documentation');
+    console.log();
+    await renderApiDocs(options.renderDocs).catch(console.error);
 };
 
 (async () => {
@@ -31,7 +38,7 @@ module.exports = async function gatherDocumentation(options) {
 
     module.exports({
         clone: {
-            repository: 'goliatone/application-core#build_docs', 
+            repository: 'goliatone/application-core', 
             target
         },
         install: {
@@ -52,7 +59,7 @@ module.exports = async function gatherDocumentation(options) {
         renderDocs: {
             cwd: `${target}/output`,
             source: `${target}/output/documentation/api/index.html`,
-            template: './templates/api/index.swig'
-        },
+            template: '/tmp/core.io/website/src/html/templates/documentation/api/index.swig'
+        }
     });
 })();
