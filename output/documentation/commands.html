@@ -12,196 +12,224 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- build:css /css/main.min.css -->
   <link rel="stylesheet" href="/css/main.css">
+  <!-- /build -->
 
   <!-- highlight js -->
   <link rel="stylesheet" href="/js/vendor/highlight-common/styles/atelier-dune-dark.css">
 </head>
 
-<body>
+<body class="docs">
 
-  <div class="docs midnight-mode layout-app">
+  <div class="highlight-bar"></div>
 
-    <div class="highlight-bar"></div>
+  <header class="main-header row row-vCentered">
 
-    <header class="row row-vCentered">
+    <a href="/"><img src="/img/logo/c_core.svg" alt="Core.io" title="Core.io"></a>
 
-      <!-- HEADER LOGO -->
-      <div class="logo">
-        <a href="/"><img src="/img/logo/c_core.svg" alt="Core.io" title="Core.io"></a>
-      </div><!-- END HEADER LOGO -->
+    <nav id="main-nav" class="nav-bar-1">
+      <ul>
+        <li class="menu-item"><a href="/">Features</a></li>
+        <li class="menu-item"><a href="/quickstart">Quickstart</a></li>
+        <li class="menu-item"><a href="/documentation/about">Documentation</a></li>
+        <li class="menu-item"><a href="/modules">Modules</a></li>
+      </ul>
+    </nav>
 
-      <!-- Header Navigation Bar -->
-      <nav id="main-nav" class="nav-bar-1">
-        <div class="menu-item">
-          <a href="/">Features</a>
-        </div>
-        <div class="menu-item">
-          <a href="/quickstart">Quickstart</a>
-        </div>
-        <div class="menu-item">
-          <a href="/documentation/about">Documentation</a>
-        </div>
-        <div class="menu-item">
-          <a href="/modules">Modules</a>
-        </div>
-      </nav><!-- END Header Navigation Bar -->
+  </header>
 
-    </header><!-- END SECTION HEADER -->
+  <main class="guide content">
 
-    <div class="content">
-
+    <div class="sticky nav">
+      <div class="bg-menu"></div>
       <div class="row row-vCentered">
-      <!-- Documentation Navigation Bar -->
-      <nav id="docs-nav" class="nav-bar-2">
-        <div class="menu-item">
-          <a href="/documentation/guide">Guide</a>
-        </div>
-        <div class="menu-item">
-          <a href="/documentation/api/">API</a>
-        </div>
-        <div class="menu-item">
-          <a href="/documentation/examples">Examples</a>
-        </div>
-      </nav><!-- END Documentation Navigation Bar -->
+        <nav id="docs-nav" class="nav-bar-2">
+          <ul>
+            <li class="menu-item"><a href="/documentation/guide/">Guide</a></li>
+            <li class="menu-item"><a href="/documentation/api/">API</a></li>
+            <li class="menu-item"><a href="/documentation/examples/">Examples</a></li>
+          </ul>
+        </nav>
+        <span class="label highlight">0.8.1</span>
+      </div>
+      <hr class="sticky hr-light">
+    </div>
 
-        <div class="label highlight">
-          <span>0.8.1</span>
-        </div>
+    <div class="row">
+      <div id="split-left">
+        <nav id="docs-side-menu" class="sticky side-menu">
+          <ul>
+            <li class="menu-item">
+              <a href="/documentation/about">About</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/documentation/getting_started">Getting Started</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/documentation/project_layout">Project Layout</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/documentation/configuration">Configuration</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/modules">Modules</a>
+              <ul class="submenu">
+                <li class="menu-item-submenu"><a href="/documentation/core_modules">Core Modules</a></li>
+                <li class="menu-item-submenu"><a href="/documentation/user_modules">User Modules</a></li>
+                </ul>
+              </li>
+          
+            <li class="menu-item">
+              <a href="#" class="selected">Commands</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/documentation/tool_belt">Toolbelt</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/documentation/environments">Environments</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/documentation/reference">Reference</a>
+              </li>
+          </ul>
+        </nav>
       </div>
 
-      <hr class="hr-light">
-
-      <div class="cols">
-        <div class="col-2">
-          <!-- Documentation Side Menu -->
-          <nav id="docs-side-menu" class="side-menu">
-            <ul>
-                <li>
-                    <a href="/documentation/about">About</a>
-                </li>
-            
-                <li>
-                    <a href="/documentation/getting_started">Getting Started</a>
-                </li>
-            
-                <li>
-                    <a href="/documentation/project_layout">Project Layout</a>
-                </li>
-            
-                <li>
-                    <a href="/documentation/configuration">Configuration</a>
-                </li>
-            
-                <li>
-                    <a href="/modules">Modules</a>
-                    <ul>
-                    
-                    <li><a href="/documentation/core_modules">Core Modules</a> </li>
-                    
-                    <li><a href="/documentation/user_modules">User Modules</a> </li>
-                    
-                    </ul>
-                    
-                </li>
-            
-                <li>
-                    <a href="#" class="selected">Commands</a>
-                </li>
-            
-                <li>
-                    <a href="/documentation/tool_belt">Toolbelt</a>
-                </li>
-            
-                <li>
-                    <a href="/documentation/environments">Environments</a>
-                </li>
-            
-                <li>
-                    <a href="/documentation/reference">Reference</a>
-                </li>
-            
-            </ul>
-            </nav><!-- END Documentation Side Menu -->
-        </div>
-
-        <div class="col-2">
-          <div id="guide" class="main-txt">
-            <!-- START CONENT BLOCK -->
-            
-                <h2>Commands</h2>
-<p>Set unique signature:</p>
-<pre><code class="language-js">function execute(event){}
-event = {
-    type: &apos;event.type&apos;,
-    payload: {},
-    complete: function(){}
-}
-</code></pre>
-<p>Module properties:</p>
+      <div id="split-right">
+        <main id="guide" class="main-txt">
+          <!-- START CONTENT BLOCK -->
+          
+            <h2>Commands</h2>
+<p>Commands are meant to encapsulate your business logic in a tightly bounded scope and executed by triggering an event. Commands are placed in the <code>./commands</code> directory of your project and are autoloaded during the application boot sequence. To trigger a command you emit an event using the <strong>core.io</strong> context, if the event type matches a file name then the handler exposed by it&apos;s module will be executed.</p>
+<h3>Handler</h3>
+<p>Commands are exposed as modules, so each command is mapped to a file. The module can expose the command as a function or as a class.</p>
+<p>Command exposed as a function :</p>
 <ul>
-<li><code>execute</code>: main function</li>
-<li><code>undo</code>: provide undo</li>
-<li><code>eventSample</code>: For testing purposes</li>
+<li><code>./commands/greet.js</code>:</li>
 </ul>
+<pre><code class="language-js">module.exports = function greetCommand(event) {
+    const context = event.context;
+    const logger = context.getLogger(&apos;greet-cmd&apos;);
+    logger.info(&apos;Executing greet command&apos;);
 
-            
-            <!-- END CONENT BLOCK -->
+    return {
+        message: `Hello ${event.name}!`
+    };
+};
+</code></pre>
+<p>Command exposed as a class:</p>
+<ul>
+<li><code>./commands/greet.js</code>:</li>
+</ul>
+<pre><code class="language-js">class GreetCommand {
+    execute(event) {
+        const context = event.context;
+        const logger = context.getLogger(&apos;greet-cmd&apos;);
+        logger.info(&apos;Executing greet command&apos;);
+    
+        return {
+            message: `Hello ${event.name}!`
+        };
+    }
+}
 
-            <!--div class="link-pagination">
-              <a href="#">Next: Application</a>
-            </div-->
-            
-          </div>
+module.exports = HelloCommand;
+</code></pre>
+<p>To dispatch this command:</p>
+<pre><code class="language-js">context.emit(&apos;hello&apos;, {name: &apos;Peperone&apos;});
+</code></pre>
+<h3>Event</h3>
+<p>The event object will with populated with a set of properties if not present:</p>
+<ul>
+<li><code>event.id</code>: A unique id</li>
+<li><code>event.type</code>: A string with the event type used to trigger the event.</li>
+<li><code>event.context</code>: A reference to the applications <strong>core.io</strong> instance.</li>
+</ul>
+<h4>Responses</h4>
+<p>If the executed command returns any value it will either emit an event with type <code>${eventType}.done</code> or if a <code>respondTo</code> function is present it will be invoked.</p>
+<h5>Event</h5>
+<p>To handle a response using an event listener:</p>
+<pre><code class="language-js">context.once(&apos;hello.done&apos;, resp =&gt; {
+    console.log(&apos;message: %s&apos;, resp.message);
+});
+
+context.emit(&apos;hello&apos;, {
+    name: &apos;Peperone&apos;,
+    respondTo(resp) {
+        console.log(&apos;message: %s&apos;, resp.message);
+    }
+});
+</code></pre>
+<h5>Respond To</h5>
+<p>If an event that triggers a command contains a <code>respondTo</code> field will use the field to automatically notify on command completion if the command execute handler returns a truthy value.</p>
+<p>To dispatch this command:</p>
+<pre><code class="language-js">context.emit(&apos;hello&apos;, {
+    name: &apos;Peperone&apos;,
+    respondTo: function(resp){
+        console.log(&apos;message: %s&apos;, resp.message);
+    }
+});
+</code></pre>
+
+          
+          <!-- END CONTENT BLOCK -->
+
+          <!-- <div class="row link-pagination">
+            <a href="#">Previous: Previous</a>
+            <a href="#">Next: Application</a>
+          </div> -->
+        </main>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="content cols">
+      <div class="row row-centered">
+        <div>
+          <a class="footer-logo" href="/"><img src="/img/logo/mosca.svg" title="Core.io" alt="Core.io"></a>
+
+          <nav class="footer-menu">
+            <ul>
+              <li class="menu-item"><a href="/">Features</a></li>
+              <li class="menu-item"><a href="/quickstart">Quickstart</a></li>
+              <li class="menu-item"><a href="/documentation/about">Documentation</a></li>
+              <li class="menu-item"><a href="/modules">Modules</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-releases">
+          <p>Latest Release: 0.2.8 (Jun 01, 2017)</p>
+          <p>Documentation Generated: 2019-07-03</p>
+        </div>
+
+        <div class="footer-github">
+          <a href="#" class="row row-vCentered">
+            <img src="/img/icons/github-icon-2.png" alt="Core.io in Github" title="Github">Github
+          </a>
         </div>
       </div>
 
-    </div><!-- END CONTENT -->
-
-    <footer>
-      <div class="cols cols-centered">
-
-        <div class="col-3">
-          <div class="footer-logo">
-            <a href="/features"><img src="/img/logo/mosca.svg" title="Core.io" alt="Core.io"></a>
-          </div>
-
-          <div class="footer-menu">
-            <a href="/">Features</a>
-            <a href="/quickstart">Quickstart</a>
-            <a href="/documentation">Documentation</a>
-            <a href="/modules">Modules</a>
-          </div>
-        </div>
-
-        <div class="col-3">
-          <div class="footer-releases">
-            <p>Latest Release: 0.2.8 (Jun 01, 2017)</p>
-            <p>Documentation Generated: 2017-12-20</p>
-          </div>
-        </div>
-
-        <div class="col-3">
-          <div class="footer-github">
-            <a href="#" class="row row-vCentered">
-              <img src="/img/icons/github-icon-2.png" alt="Core.io in Github" title="Github">Github
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="row row-centered copyright">
-        <p>Copyright &#xA9; 2017 goliatone. The contents of this page are licensed MIT license.</p>
-      </div>
-    </footer>
-  </div><!-- END docs midnight-mode layout-app -->
-
+      <p class="row row-centered copyright">Copyright &#xA9; 2017 goliatone. The contents of this page are licensed MIT license.</p>
+    </div>
+  </footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.1.1.min.js"><\/script>')</script>
-  <script src="/js/vendor/highlight-common/highlight.pack.js"></script>
+  <script src="../js/vendor/highlight-common/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
-  <script src="/js/main.min.js"></script>
+  <!-- build:js /js/main.min.js -->
+  <script src="/js/main.js"></script>
+  <!-- /build -->
 
 
 

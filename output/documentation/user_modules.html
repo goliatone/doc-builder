@@ -12,182 +12,154 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- build:css /css/main.min.css -->
   <link rel="stylesheet" href="/css/main.css">
+  <!-- /build -->
 
   <!-- highlight js -->
   <link rel="stylesheet" href="/js/vendor/highlight-common/styles/atelier-dune-dark.css">
 </head>
 
-<body>
+<body class="docs">
 
-  <div class="docs midnight-mode layout-app">
+  <div class="highlight-bar"></div>
 
-    <div class="highlight-bar"></div>
+  <header class="main-header row row-vCentered">
 
-    <header class="row row-vCentered">
+    <a href="/"><img src="/img/logo/c_core.svg" alt="Core.io" title="Core.io"></a>
 
-      <!-- HEADER LOGO -->
-      <div class="logo">
-        <a href="/"><img src="/img/logo/c_core.svg" alt="Core.io" title="Core.io"></a>
-      </div><!-- END HEADER LOGO -->
+    <nav id="main-nav" class="nav-bar-1">
+      <ul>
+        <li class="menu-item"><a href="/">Features</a></li>
+        <li class="menu-item"><a href="/quickstart">Quickstart</a></li>
+        <li class="menu-item"><a href="/documentation/about">Documentation</a></li>
+        <li class="menu-item"><a href="/modules">Modules</a></li>
+      </ul>
+    </nav>
 
-      <!-- Header Navigation Bar -->
-      <nav id="main-nav" class="nav-bar-1">
-        <div class="menu-item">
-          <a href="/">Features</a>
-        </div>
-        <div class="menu-item">
-          <a href="/quickstart">Quickstart</a>
-        </div>
-        <div class="menu-item">
-          <a href="/documentation/about">Documentation</a>
-        </div>
-        <div class="menu-item">
-          <a href="/modules">Modules</a>
-        </div>
-      </nav><!-- END Header Navigation Bar -->
+  </header>
 
-    </header><!-- END SECTION HEADER -->
+  <main class="guide content">
 
-    <div class="content">
-
+    <div class="sticky nav">
+      <div class="bg-menu"></div>
       <div class="row row-vCentered">
-      <!-- Documentation Navigation Bar -->
-      <nav id="docs-nav" class="nav-bar-2">
-        <div class="menu-item">
-          <a href="/documentation/guide">Guide</a>
-        </div>
-        <div class="menu-item">
-          <a href="/documentation/api/">API</a>
-        </div>
-        <div class="menu-item">
-          <a href="/documentation/examples">Examples</a>
-        </div>
-      </nav><!-- END Documentation Navigation Bar -->
+        <nav id="docs-nav" class="nav-bar-2">
+          <ul>
+            <li class="menu-item"><a href="/documentation/guide/">Guide</a></li>
+            <li class="menu-item"><a href="/documentation/api/">API</a></li>
+            <li class="menu-item"><a href="/documentation/examples/">Examples</a></li>
+          </ul>
+        </nav>
+        <span class="label highlight">0.8.1</span>
+      </div>
+      <hr class="sticky hr-light">
+    </div>
 
-        <div class="label highlight">
-          <span>0.8.1</span>
-        </div>
+    <div class="row">
+      <div id="split-left">
+        <nav id="docs-side-menu" class="sticky side-menu">
+          <ul>
+            <li class="menu-item">
+              <a href="/documentation/about">About</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/documentation/getting_started">Getting Started</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/documentation/project_layout">Project Layout</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/documentation/configuration">Configuration</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/modules">Modules</a>
+              <ul class="submenu">
+                <li class="menu-item-submenu"><a href="/documentation/core_modules">Core Modules</a></li>
+                <li class="menu-item-submenu"><a href="#" class="selected">User Modules</a></li>
+                </ul>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/documentation/commands">Commands</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/documentation/tool_belt">Toolbelt</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/documentation/environments">Environments</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/documentation/reference">Reference</a>
+              </li>
+          </ul>
+        </nav>
       </div>
 
-      <hr class="hr-light">
+      <div id="split-right">
+        <main id="guide" class="main-txt">
+          <!-- START CONTENT BLOCK -->
+          
+            <p>TODO</p>
 
-      <div class="cols">
-        <div class="col-2">
-          <!-- Documentation Side Menu -->
-          <nav id="docs-side-menu" class="side-menu">
+          
+          <!-- END CONTENT BLOCK -->
+
+          <!-- <div class="row link-pagination">
+            <a href="#">Previous: Previous</a>
+            <a href="#">Next: Application</a>
+          </div> -->
+        </main>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="content cols">
+      <div class="row row-centered">
+        <div>
+          <a class="footer-logo" href="/"><img src="/img/logo/mosca.svg" title="Core.io" alt="Core.io"></a>
+
+          <nav class="footer-menu">
             <ul>
-                <li>
-                    <a href="/documentation/about">About</a>
-                </li>
-            
-                <li>
-                    <a href="/documentation/getting_started">Getting Started</a>
-                </li>
-            
-                <li>
-                    <a href="/documentation/project_layout">Project Layout</a>
-                </li>
-            
-                <li>
-                    <a href="/documentation/configuration">Configuration</a>
-                </li>
-            
-                <li>
-                    <a href="/modules">Modules</a>
-                    <ul>
-                    
-                    <li><a href="/documentation/core_modules">Core Modules</a> </li>
-                    
-                    <li><a href="#" class="selected">User Modules</a> </li>
-                    
-                    </ul>
-                    
-                </li>
-            
-                <li>
-                    <a href="/documentation/commands">Commands</a>
-                </li>
-            
-                <li>
-                    <a href="/documentation/tool_belt">Toolbelt</a>
-                </li>
-            
-                <li>
-                    <a href="/documentation/environments">Environments</a>
-                </li>
-            
-                <li>
-                    <a href="/documentation/reference">Reference</a>
-                </li>
-            
+              <li class="menu-item"><a href="/">Features</a></li>
+              <li class="menu-item"><a href="/quickstart">Quickstart</a></li>
+              <li class="menu-item"><a href="/documentation/about">Documentation</a></li>
+              <li class="menu-item"><a href="/modules">Modules</a></li>
             </ul>
-            </nav><!-- END Documentation Side Menu -->
+          </nav>
         </div>
 
-        <div class="col-2">
-          <div id="guide" class="main-txt">
-            <!-- START CONENT BLOCK -->
-            
-                <p>TODO</p>
+        <div class="footer-releases">
+          <p>Latest Release: 0.2.8 (Jun 01, 2017)</p>
+          <p>Documentation Generated: 2017-12-20</p>
+        </div>
 
-            
-            <!-- END CONENT BLOCK -->
-
-            <!--div class="link-pagination">
-              <a href="#">Next: Application</a>
-            </div-->
-            
-          </div>
+        <div class="footer-github">
+          <a href="#" class="row row-vCentered">
+            <img src="/img/icons/github-icon-2.png" alt="Core.io in Github" title="Github">Github
+          </a>
         </div>
       </div>
 
-    </div><!-- END CONTENT -->
-
-    <footer>
-      <div class="cols cols-centered">
-
-        <div class="col-3">
-          <div class="footer-logo">
-            <a href="/features"><img src="/img/logo/mosca.svg" title="Core.io" alt="Core.io"></a>
-          </div>
-
-          <div class="footer-menu">
-            <a href="/">Features</a>
-            <a href="/quickstart">Quickstart</a>
-            <a href="/documentation">Documentation</a>
-            <a href="/modules">Modules</a>
-          </div>
-        </div>
-
-        <div class="col-3">
-          <div class="footer-releases">
-            <p>Latest Release: 0.2.8 (Jun 01, 2017)</p>
-            <p>Documentation Generated: 2017-12-20</p>
-          </div>
-        </div>
-
-        <div class="col-3">
-          <div class="footer-github">
-            <a href="#" class="row row-vCentered">
-              <img src="/img/icons/github-icon-2.png" alt="Core.io in Github" title="Github">Github
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="row row-centered copyright">
-        <p>Copyright &#xA9; 2017 goliatone. The contents of this page are licensed MIT license.</p>
-      </div>
-    </footer>
-  </div><!-- END docs midnight-mode layout-app -->
-
+      <p class="row row-centered copyright">Copyright &#xA9; 2017 goliatone. The contents of this page are licensed MIT license.</p>
+    </div>
+  </footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.1.1.min.js"><\/script>')</script>
-  <script src="/js/vendor/highlight-common/highlight.pack.js"></script>
+  <script src="../js/vendor/highlight-common/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
-  <script src="/js/main.min.js"></script>
+  <!-- build:js /js/main.min.js -->
+  <script src="/js/main.js"></script>
+  <!-- /build -->
 
 
 

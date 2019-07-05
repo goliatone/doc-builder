@@ -12,124 +12,102 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- build:css /css/main.min.css -->
   <link rel="stylesheet" href="/css/main.css">
+  <!-- /build -->
 
   <!-- highlight js -->
   <link rel="stylesheet" href="/js/vendor/highlight-common/styles/atelier-dune-dark.css">
 </head>
 
-<body>
+<body class="docs">
 
-  <div class="docs midnight-mode layout-app">
+  <div class="highlight-bar"></div>
 
-    <div class="highlight-bar"></div>
+  <header class="main-header row row-vCentered">
 
-    <header class="row row-vCentered">
+    <a href="/"><img src="/img/logo/c_core.svg" alt="Core.io" title="Core.io"></a>
 
-      <!-- HEADER LOGO -->
-      <div class="logo">
-        <a href="/"><img src="/img/logo/c_core.svg" alt="Core.io" title="Core.io"></a>
-      </div><!-- END HEADER LOGO -->
+    <nav id="main-nav" class="nav-bar-1">
+      <ul>
+        <li class="menu-item"><a href="/">Features</a></li>
+        <li class="menu-item"><a href="/quickstart">Quickstart</a></li>
+        <li class="menu-item"><a href="/documentation/about">Documentation</a></li>
+        <li class="menu-item"><a href="/modules">Modules</a></li>
+      </ul>
+    </nav>
 
-      <!-- Header Navigation Bar -->
-      <nav id="main-nav" class="nav-bar-1">
-        <div class="menu-item">
-          <a href="/">Features</a>
-        </div>
-        <div class="menu-item">
-          <a href="/quickstart">Quickstart</a>
-        </div>
-        <div class="menu-item">
-          <a href="/documentation/about">Documentation</a>
-        </div>
-        <div class="menu-item">
-          <a href="/modules">Modules</a>
-        </div>
-      </nav><!-- END Header Navigation Bar -->
+  </header>
 
-    </header><!-- END SECTION HEADER -->
+  <main class="guide content">
 
-    <div class="content">
-
+    <div class="sticky nav">
+      <div class="bg-menu"></div>
       <div class="row row-vCentered">
-      <!-- Documentation Navigation Bar -->
-      <nav id="docs-nav" class="nav-bar-2">
-        <div class="menu-item">
-          <a href="/documentation/guide">Guide</a>
-        </div>
-        <div class="menu-item">
-          <a href="/documentation/api/">API</a>
-        </div>
-        <div class="menu-item">
-          <a href="/documentation/examples">Examples</a>
-        </div>
-      </nav><!-- END Documentation Navigation Bar -->
+        <nav id="docs-nav" class="nav-bar-2">
+          <ul>
+            <li class="menu-item"><a href="/documentation/guide/">Guide</a></li>
+            <li class="menu-item"><a href="/documentation/api/">API</a></li>
+            <li class="menu-item"><a href="/documentation/examples/">Examples</a></li>
+          </ul>
+        </nav>
+        <span class="label highlight">0.8.1</span>
+      </div>
+      <hr class="sticky hr-light">
+    </div>
 
-        <div class="label highlight">
-          <span>0.8.1</span>
-        </div>
+    <div class="row">
+      <div id="split-left">
+        <nav id="docs-side-menu" class="sticky side-menu">
+          <ul>
+            <li class="menu-item">
+              <a href="/documentation/about">About</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/documentation/getting_started">Getting Started</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/documentation/project_layout">Project Layout</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/documentation/configuration">Configuration</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/modules">Modules</a>
+              <ul class="submenu">
+                <li class="menu-item-submenu"><a href="#" class="selected">Core Modules</a></li>
+                <li class="menu-item-submenu"><a href="/documentation/user_modules">User Modules</a></li>
+                </ul>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/documentation/commands">Commands</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/documentation/tool_belt">Toolbelt</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/documentation/environments">Environments</a>
+              </li>
+          
+            <li class="menu-item">
+              <a href="/documentation/reference">Reference</a>
+              </li>
+          </ul>
+        </nav>
       </div>
 
-      <hr class="hr-light">
-
-      <div class="cols">
-        <div class="col-2">
-          <!-- Documentation Side Menu -->
-          <nav id="docs-side-menu" class="side-menu">
-            <ul>
-                <li>
-                    <a href="/documentation/about">About</a>
-                </li>
-            
-                <li>
-                    <a href="/documentation/getting_started">Getting Started</a>
-                </li>
-            
-                <li>
-                    <a href="/documentation/project_layout">Project Layout</a>
-                </li>
-            
-                <li>
-                    <a href="/documentation/configuration">Configuration</a>
-                </li>
-            
-                <li>
-                    <a href="/modules">Modules</a>
-                    <ul>
-                    
-                    <li><a href="#" class="selected">Core Modules</a> </li>
-                    
-                    <li><a href="/documentation/user_modules">User Modules</a> </li>
-                    
-                    </ul>
-                    
-                </li>
-            
-                <li>
-                    <a href="/documentation/commands">Commands</a>
-                </li>
-            
-                <li>
-                    <a href="/documentation/tool_belt">Toolbelt</a>
-                </li>
-            
-                <li>
-                    <a href="/documentation/environments">Environments</a>
-                </li>
-            
-                <li>
-                    <a href="/documentation/reference">Reference</a>
-                </li>
-            
-            </ul>
-            </nav><!-- END Documentation Side Menu -->
-        </div>
-
-        <div class="col-2">
-          <div id="guide" class="main-txt">
-            <!-- START CONENT BLOCK -->
-            
-                <h2>Core Modules</h2>
+      <div id="split-right">
+        <main id="guide" class="main-txt">
+          <!-- START CONTENT BLOCK -->
+          
+            <h2>Core Modules</h2>
 <p>Core modules are optional and can be replaced by any module as long as it provides the same interface.</p>
 <p>Some are optional, like the REPL module. If you don&apos;t need or don&apos;t want a REPL you can remove it from the list of <code>coremodules</code> using the configuration object that you pass to the application instance during the initialization of your program, in the entry point file.</p>
 <p>The most likely scenario is that you might want to enable it during development but not on production.</p>
@@ -142,15 +120,35 @@
 <li>REPL</li>
 </ul>
 <p>Core modules are loaded first and made available for all user modules. You can override this list using a <code>coremodules</code> key in the configuration object you initialize your instance with:</p>
-<pre><code class="language-js">var config = Application.loadConfig({
+<pre><code class="language-js">const config = Application.loadConfig({
     coremodules: [&apos;./logger&apos;, &apos;./errors&apos;, &apos;./dispatcher&apos;]
 }, true);
 
-var app = new Application({config});
+const app = new Application({config});
 </code></pre>
 <p>Here we removed the <a href="#monitoring-module">monitoring</a> and the <a href="#repl-module">REPL</a>.</p>
 <h5>Dispatcher</h5>
 <h5>REPL</h5>
+<p>Applications start a repl instance which exposes the context in the <code>app</code> variable.</p>
+<pre><code>&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2557;
+&#x2551;                                                                    &#x2551;
+&#x2551;                      poke-repl remote console &#x221A;                    &#x2551;
+&#x2551;                                                                    &#x2551;
+&#x2551;              All connections are monitored and recorded            &#x2551;
+&#x2551;      Disconnect IMMEDIATELY if you are not an authorized user      &#x2551;
+&#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;
+
+
+REPL Session Information
+
+Name              : application-core
+Version           : 0.0.0
+Environment       : development
+
+ 
+App Kernel &gt; app.getUid()
+&apos;jxo6adbd-ts7wnaivr0e&apos;
+</code></pre>
 <h5>Logger</h5>
 <p><strong>core.io</strong> provides a logger to the application context as <code>context.logger</code> and is the module with the highest priority, meaning it will be available on first run. Under the hood the logger wraps [winston][winston] and extends it with some extra features:</p>
 <ul>
@@ -194,63 +192,57 @@ DEBUG [23:28:48] &#x251C;&#x2500;&#x2500; dispatcher   : Module &quot;dispatcher
 <p>To override the default configuration you can create a <code>./config/logger.js</code> configuration file.</p>
 <h5>Dispatcher</h5>
 
-            
-            <!-- END CONENT BLOCK -->
+          
+          <!-- END CONTENT BLOCK -->
 
-            <!--div class="link-pagination">
-              <a href="#">Next: Application</a>
-            </div-->
-            
-          </div>
+          <!-- <div class="row link-pagination">
+            <a href="#">Previous: Previous</a>
+            <a href="#">Next: Application</a>
+          </div> -->
+        </main>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="content cols">
+      <div class="row row-centered">
+        <div>
+          <a class="footer-logo" href="/"><img src="/img/logo/mosca.svg" title="Core.io" alt="Core.io"></a>
+
+          <nav class="footer-menu">
+            <ul>
+              <li class="menu-item"><a href="/">Features</a></li>
+              <li class="menu-item"><a href="/quickstart">Quickstart</a></li>
+              <li class="menu-item"><a href="/documentation/about">Documentation</a></li>
+              <li class="menu-item"><a href="/modules">Modules</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-releases">
+          <p>Latest Release: 0.2.8 (Jun 01, 2017)</p>
+          <p>Documentation Generated: 2019-07-03</p>
+        </div>
+
+        <div class="footer-github">
+          <a href="#" class="row row-vCentered">
+            <img src="/img/icons/github-icon-2.png" alt="Core.io in Github" title="Github">Github
+          </a>
         </div>
       </div>
 
-    </div><!-- END CONTENT -->
-
-    <footer>
-      <div class="cols cols-centered">
-
-        <div class="col-3">
-          <div class="footer-logo">
-            <a href="/features"><img src="/img/logo/mosca.svg" title="Core.io" alt="Core.io"></a>
-          </div>
-
-          <div class="footer-menu">
-            <a href="/">Features</a>
-            <a href="/quickstart">Quickstart</a>
-            <a href="/documentation">Documentation</a>
-            <a href="/modules">Modules</a>
-          </div>
-        </div>
-
-        <div class="col-3">
-          <div class="footer-releases">
-            <p>Latest Release: 0.2.8 (Jun 01, 2017)</p>
-            <p>Documentation Generated: 2017-12-20</p>
-          </div>
-        </div>
-
-        <div class="col-3">
-          <div class="footer-github">
-            <a href="#" class="row row-vCentered">
-              <img src="/img/icons/github-icon-2.png" alt="Core.io in Github" title="Github">Github
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="row row-centered copyright">
-        <p>Copyright &#xA9; 2017 goliatone. The contents of this page are licensed MIT license.</p>
-      </div>
-    </footer>
-  </div><!-- END docs midnight-mode layout-app -->
-
+      <p class="row row-centered copyright">Copyright &#xA9; 2017 goliatone. The contents of this page are licensed MIT license.</p>
+    </div>
+  </footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.1.1.min.js"><\/script>')</script>
-  <script src="/js/vendor/highlight-common/highlight.pack.js"></script>
+  <script src="../js/vendor/highlight-common/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
-  <script src="/js/main.min.js"></script>
+  <!-- build:js /js/main.min.js -->
+  <script src="/js/main.js"></script>
+  <!-- /build -->
 
 
 

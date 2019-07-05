@@ -1,553 +1,247 @@
 <!DOCTYPE html><html><head>
-  <meta charset="utf-8">
-  <title>application-core 0.8.4 | Documentation</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="/documentation/api/assets/css/dev/main.css">
-  <link rel="stylesheet" href="/documentation/api/assets/css/style.css">
+    <meta charset="utf-8">
+    <title>Documentation | application-core </title>
+
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="stylesheet" href="/documentation/api/assets/css/style.css">
 
 </head>
-<body>
 
-  <div class="docs midnight-mode layout-app">
-    <header class="row row-vCentered">
+<body class="docs">
 
-      <!-- HEADER LOGO -->
-      <div class="logo">
-        <a href="/"><img src="/documentation/api/assets/img/logo/c_core.svg" alt="Core.io" title="Core.io"></a>
-      </div><!-- END HEADER LOGO -->
+    <div class="highlight-bar"></div>
 
-      <!-- Header Navigation Bar -->
+    <header class="main-header row row-vCentered">
+      <a class="logo" href="/"><img src="/documentation/api/assets/img/logo/c_core.svg" alt="Core.io" title="Core.io"></a>
+
       <nav id="main-nav" class="nav-bar-1">
-        <div class="menu-item">
-          <a href="/">Features</a>
-        </div>
-        <div class="menu-item">
-          <a href="/quickstart">Quickstart</a>
-        </div>
-        <div class="menu-item">
-          <a href="/documentation">Documentation</a>
-        </div>
-        <div class="menu-item">
-          <a href="/modules">Modules</a>
-        </div>
-      </nav><!-- END Header Navigation Bar -->
-    </header><!-- END SECTION HEADER -->
+        <ul>
+          <li class="menu-item"><a href="/">Features</a></li>
+          <li class="menu-item"> <!-- mod --><a href="/quickstart">Quickstart</a></li> <!-- mod -->
+          <li class="menu-item"><a class="selected" href="/documentation">Documentation</a></li>
+          <li class="menu-item"><a href="/modules">Modules</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <div class="content api">
-
+    <main class="api content">
       <div class="sticky nav">
-        <div class="bg-menu"></div>
-        <div class="row row-vCentered">
-          <!-- Documentation Navigation Bar -->
-          <nav id="docs-nav" class="nav-bar-2">
-            <div class="menu-item">
-              <a href="/guide">Guide</a>
-            </div>
-            <div class="menu-item">
-              <a href="/api">API</a>
-            </div>
-            <div class="menu-item">
-              <a href="/examples">Examples</a>
-            </div>
-          </nav><!-- END Documentation Navigation Bar -->
 
-          <div class="label highlight">
-            <span>0.8.4</span>
-          </div>
+        <div class="bg-menu"></div>
+
+        <div class="row row-vCentered">
+          <nav id="docs-nav" class="nav-bar-2">
+            <ul>
+              <li class="menu-item"><a href="/documentation/about">Guide</a></li>
+              <li class="menu-item"><a class="selected" href="#">API</a></li>
+              <li class="menu-item"><a href="/examples">Examples</a></li>
+            </ul>
+          </nav>
+
+          <span class="label highlight">0.8.1</span>
         </div>
 
         <hr class="sticky hr-light">
       </div>
 
-      <div class="cols">
-        <div id="split-left" class="col-2">
-          <div class="side-menu sticky">
-            <nav id="prime-nav">
-              <div id="toc">
-                <ul>
-                  
-                    
-                    <li class="menu-item"><a href="#application" class=" toggle-sibling">
-                      Application
-                      <span class="icon">&#x25B8;</span>
-                    </a>
-                    
-                    <div class="submenu toggle-target display-none">
-                      
-                      <ul>
-                        <li class="menu-item-submenu title"><span>Static members</span></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationloadconfig">.loadConfig</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationchainevents">.chainEvents</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationhook">.hook</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationgetlogger">.getLogger</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationrestorenativeconsole">.restoreNativeConsole</a></li>
-                        
-                      </ul>
-                      
-                      
-                      <ul>
-                        <li class="menu-item-submenu title"><span>Instance members</span></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationenvironment">#environment</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationlogger">#logger</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationgetlogger">#getLogger</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationautorun">#autorun</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationautoinitialize">#autoinitialize</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationautoloadmodulescommands">#autoloadModulesCommands</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationname">#name</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationexitonerror">#exitOnError</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationenablelongstacktrackes">#enableLongStackTrackes</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationsanitizename">#sanitizeName</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationregisterreadyevent">#registerReadyEvent</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationcoremodules">#coremodules</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationbasepath">#basepath</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationloaders">#loaders</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationresolvetimeout">#resolveTimeout</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationregistertimeout">#registerTimeout</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationconfig">#config</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationregistration">#registration</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationinit">#init</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationregister">#register</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationprovide">#provide</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationismoduleregistered">#isModuleRegistered</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationonceregistered">#onceRegistered</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationonerrorhandler">#onErrorHandler</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationhandlemoduleerror">#handleModuleError</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationloaddirectory">#loadDirectory</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationloadmodules">#loadModules</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationloadcommands">#loadCommands</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationloadmodulecommands">#loadModuleCommands</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationresolve">#resolve</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationrun">#run</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationregisterapplication">#registerApplication</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationderegisterapplication">#deregisterApplication</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationcommand">#command</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationclose">#close</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#applicationnicename">#nicename</a></li>
-                        
-                      </ul>
-                      
-                      
-                      
-                    </div>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#corelogger" class=" toggle-sibling">
-                      core/logger
-                      <span class="icon">&#x25B8;</span>
-                    </a>
-                    
-                    <div class="submenu toggle-target display-none">
-                      
-                      <ul>
-                        <li class="menu-item-submenu title"><span>Static members</span></li>
-                        
-                        <li class="menu-item-submenu"><a href="#coreloggerconfig">.config</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#coreloggeraftersolver">.afterSolver</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#coreloggerfilter">.Filter</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#coreloggerlogger">.Logger</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#coreloggerinit">.init</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#coreloggerenforcecolumnwidth">.enforceColumnWidth</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#coreloggermessage">.Message</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#coreloggermuteconsole">.muteConsole</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#coreloggerexports">.exports</a></li>
-                        
-                      </ul>
-                      
-                      
-                      
-                      
-                    </div>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#coredispatcher" class=" toggle-sibling">
-                      core/dispatcher
-                      <span class="icon">&#x25B8;</span>
-                    </a>
-                    
-                    <div class="submenu toggle-target display-none">
-                      
-                      <ul>
-                        <li class="menu-item-submenu title"><span>Static members</span></li>
-                        
-                        <li class="menu-item-submenu"><a href="#coredispatcherinit">.init</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#coredispatchercreatehook">.createHook</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#coredispatchercreatehook">.createHook</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#coredispatcherchainevents">.chainEvents</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#coredispatcherchainevents">.chainEvents</a></li>
-                        
-                      </ul>
-                      
-                      
-                      
-                      
-                    </div>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#emit" class="">
-                      emit
-                      
-                    </a>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#gioc" class=" toggle-sibling">
-                      Gioc
-                      <span class="icon">&#x25B8;</span>
-                    </a>
-                    
-                    <div class="submenu toggle-target display-none">
-                      
-                      
-                      <ul>
-                        <li class="menu-item-submenu title"><span>Instance members</span></li>
-                        
-                        <li class="menu-item-submenu"><a href="#giocconfigure">#configure</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#giocmap">#map</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#giocsolve">#solve</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#giocprepare">#prepare</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#giocbuild">#build</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#giocwire">#wire</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#giocinject">#inject</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#giocpost">#post</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#giocmapped">#mapped</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#giocsolvedependencies">#solveDependencies</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#giocerror">#error</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#giocaddsolver">#addSolver</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#giocaddpost">#addPost</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#giocextend">#extend</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#gioclogger">#logger</a></li>
-                        
-                      </ul>
-                      
-                      
-                      
-                    </div>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#mute" class="">
-                      mute
-                      
-                    </a>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#unmute" class="">
-                      unmute
-                      
-                    </a>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#silence" class="">
-                      silence
-                      
-                    </a>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#applicationlogger" class="">
-                      Application/Logger
-                      
-                    </a>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#applicationlogger" class="">
-                      Application/Logger
-                      
-                    </a>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#setcolorizer" class="">
-                      setColorizer
-                      
-                    </a>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#setcolors" class="">
-                      setColors
-                      
-                    </a>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#settime" class="">
-                      setTime
-                      
-                    </a>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#setlabel" class="">
-                      setLabel
-                      
-                    </a>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#setlevel" class="">
-                      setLevel
-                      
-                    </a>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#setfrom" class="">
-                      setFrom
-                      
-                    </a>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#setmessage" class="">
-                      setMessage
-                      
-                    </a>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#wrapper" class="">
-                      wrapper
-                      
-                    </a>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#collectdirectory" class="">
-                      collectDirectory
-                      
-                    </a>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#require" class="">
-                      require
-                      
-                    </a>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#caretaker" class=" toggle-sibling">
-                      CareTaker
-                      <span class="icon">&#x25B8;</span>
-                    </a>
-                    
-                    <div class="submenu toggle-target display-none">
-                      
-                      
-                      <ul>
-                        <li class="menu-item-submenu title"><span>Instance members</span></li>
-                        
-                        <li class="menu-item-submenu"><a href="#caretakerstartup">#startup</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#caretakercheck">#check</a></li>
-                        
-                      </ul>
-                      
-                      
-                      
-                    </div>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#serene" class="">
-                      Serene
-                      
-                    </a>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#corerepl" class=" toggle-sibling">
-                      core/repl
-                      <span class="icon">&#x25B8;</span>
-                    </a>
-                    
-                    <div class="submenu toggle-target display-none">
-                      
-                      <ul>
-                        <li class="menu-item-submenu title"><span>Static members</span></li>
-                        
-                        <li class="menu-item-submenu"><a href="#corereplinit">.init</a></li>
-                        
-                      </ul>
-                      
-                      
-                      
-                      
-                    </div>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#on" class="">
-                      on
-                      
-                    </a>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#coreutils" class=" toggle-sibling">
-                      core/utils
-                      <span class="icon">&#x25B8;</span>
-                    </a>
-                    
-                    <div class="submenu toggle-target display-none">
-                      
-                      <ul>
-                        <li class="menu-item-submenu title"><span>Static members</span></li>
-                        
-                        <li class="menu-item-submenu"><a href="#coreutilsmakeexcludefilterfromwantlist">.makeExcludeFilterFromWantList</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#coreutilssanitizename">.sanitizeName</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#coreutilsgetmodulename">.getModuleName</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#coreutilsgetpathtomain">.getPathToMain</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#coreutilsgetlistenercount">.getListenerCount</a></li>
-                        
-                        <li class="menu-item-submenu"><a href="#coreutilsnormalizecommandobject">.normalizeCommandObject</a></li>
-                        
-                      </ul>
-                      
-                      
-                      
-                      
-                    </div>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#commandlike" class="">
-                      CommandLike
-                      
-                    </a>
-                    
-                    </li>
-                  
-                    
-                    <li class="menu-item"><a href="#getuid" class="">
-                      getUid
-                      
-                    </a>
-                    
-                    </li>
-                  
-                </ul>
-              </div>
-            </nav></div>
-          
+      <div class="row">
+        <div id="split-left">
+          <nav id="docs-side-menu" class="side-menu sticky">
+            <ul>
+              <li class="menu-item"><a href="#application" class=" toggle-sibling">
+                Application<span class="icon">&#x25B8;</span></a>
+
+                <div class="submenu toggle-target display-none">
+                  <ul>
+                    <li class="menu-item-submenu title"><span>Static members</span></li>
+                    <li class="menu-item-submenu"><a href="#applicationloadconfig">.loadConfig</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationchainevents">.chainEvents</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationhook">.hook</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationgetlogger">.getLogger</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationrestorenativeconsole">.restoreNativeConsole</a></li>
+                  </ul>
+
+                  <ul>
+                    <li class="menu-item-submenu title"><span>Instance members</span></li>
+                    <li class="menu-item-submenu"><a href="#applicationenvironment">#environment</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationlogger">#logger</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationgetlogger">#getLogger</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationautorun">#autorun</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationautoinitialize">#autoinitialize</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationautoloadmodulescommands">#autoloadModulesCommands</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationname">#name</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationexitonerror">#exitOnError</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationenablelongstacktrackes">#enableLongStackTrackes</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationsanitizename">#sanitizeName</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationregisterreadyevent">#registerReadyEvent</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationcoremodules">#coremodules</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationbasepath">#basepath</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationloaders">#loaders</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationresolvetimeout">#resolveTimeout</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationregistertimeout">#registerTimeout</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationconfig">#config</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationregistration">#registration</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationinit">#init</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationregister">#register</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationprovide">#provide</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationismoduleregistered">#isModuleRegistered</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationonceregistered">#onceRegistered</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationonerrorhandler">#onErrorHandler</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationhandlemoduleerror">#handleModuleError</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationloaddirectory">#loadDirectory</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationloadmodules">#loadModules</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationloadcommands">#loadCommands</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationloadmodulecommands">#loadModuleCommands</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationresolve">#resolve</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationrun">#run</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationregisterapplication">#registerApplication</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationderegisterapplication">#deregisterApplication</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationcommand">#command</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationclose">#close</a></li>
+                    <li class="menu-item-submenu"><a href="#applicationnicename">#nicename</a></li>
+                  </ul>
+                </div>
+              </li>
+
+              <li class="menu-item"><a href="#corelogger" class=" toggle-sibling">
+                core/logger<span class="icon">&#x25B8;</span></a>
+
+                <div class="submenu toggle-target display-none">
+                  <ul>
+                    <li class="menu-item-submenu title"><span>Static members</span></li>
+                    <li class="menu-item-submenu"><a href="#coreloggerconfig">.config</a></li>
+                    <li class="menu-item-submenu"><a href="#coreloggeraftersolver">.afterSolver</a></li>
+                    <li class="menu-item-submenu"><a href="#coreloggerfilter">.Filter</a></li>
+                    <li class="menu-item-submenu"><a href="#coreloggerlogger">.Logger</a></li>
+                    <li class="menu-item-submenu"><a href="#coreloggerinit">.init</a></li>
+                    <li class="menu-item-submenu"><a href="#coreloggerenforcecolumnwidth">.enforceColumnWidth</a></li>
+                    <li class="menu-item-submenu"><a href="#coreloggermessage">.Message</a></li>
+                    <li class="menu-item-submenu"><a href="#coreloggermuteconsole">.muteConsole</a></li>
+                    <li class="menu-item-submenu"><a href="#coreloggerexports">.exports</a></li>
+                  </ul>
+                </div>
+              </li>
+
+              <li class="menu-item"><a href="#coredispatcher" class=" toggle-sibling">
+                core/dispatcher<span class="icon">&#x25B8;</span></a>
+
+                <div class="submenu toggle-target display-none">
+                  <ul>
+                    <li class="menu-item-submenu title"><span>Static members</span></li>
+                    <li class="menu-item-submenu"><a href="#coredispatcherinit">.init</a></li>
+                    <li class="menu-item-submenu"><a href="#coredispatchercreatehook">.createHook</a></li>
+                    <li class="menu-item-submenu"><a href="#coredispatchercreatehook">.createHook</a></li>
+                    <li class="menu-item-submenu"><a href="#coredispatcherchainevents">.chainEvents</a></li>
+                    <li class="menu-item-submenu"><a href="#coredispatcherchainevents">.chainEvents</a></li>
+                  </ul>
+                </div>
+              </li>
+
+              <li class="menu-item"><a href="#emit" class="">emit</a></li>
+
+              <li class="menu-item"><a href="#gioc" class=" toggle-sibling">
+                Gioc<span class="icon">&#x25B8;</span></a>
+
+                <div class="submenu toggle-target display-none">
+                  <ul>
+                    <li class="menu-item-submenu title"><span>Instance members</span></li>
+                    <li class="menu-item-submenu"><a href="#giocconfigure">#configure</a></li>
+                    <li class="menu-item-submenu"><a href="#giocmap">#map</a></li>
+                    <li class="menu-item-submenu"><a href="#giocsolve">#solve</a></li>
+                    <li class="menu-item-submenu"><a href="#giocprepare">#prepare</a></li>
+                    <li class="menu-item-submenu"><a href="#giocbuild">#build</a></li>
+                    <li class="menu-item-submenu"><a href="#giocwire">#wire</a></li>
+                    <li class="menu-item-submenu"><a href="#giocinject">#inject</a></li>
+                    <li class="menu-item-submenu"><a href="#giocpost">#post</a></li>
+                    <li class="menu-item-submenu"><a href="#giocmapped">#mapped</a></li>
+                    <li class="menu-item-submenu"><a href="#giocsolvedependencies">#solveDependencies</a></li>
+                    <li class="menu-item-submenu"><a href="#giocerror">#error</a></li>
+                    <li class="menu-item-submenu"><a href="#giocaddsolver">#addSolver</a></li>
+                    <li class="menu-item-submenu"><a href="#giocaddpost">#addPost</a></li>
+                    <li class="menu-item-submenu"><a href="#giocextend">#extend</a></li>
+                    <li class="menu-item-submenu"><a href="#gioclogger">#logger</a></li>
+                  </ul>
+                </div>
+              </li>
+
+              <li class="menu-item"><a href="#mute" class="">mute</a></li>
+              <li class="menu-item"><a href="#unmute" class="">unmute</a></li>
+              <li class="menu-item"><a href="#silence" class="">silence</a></li>
+              <li class="menu-item"><a href="#applicationlogger" class="">Application/Logger</a></li>
+              <li class="menu-item"><a href="#applicationlogger" class="">Application/Logger</a></li>
+              <li class="menu-item"><a href="#setcolorizer" class="">setColorizer</a></li>
+              <li class="menu-item"><a href="#setcolors" class="">setColors</a></li>
+              <li class="menu-item"><a href="#settime" class="">setTime</a></li>
+              <li class="menu-item"><a href="#setlabel" class="">setLabel</a></li>
+              <li class="menu-item"><a href="#setlevel" class="">setLevel</a></li>
+              <li class="menu-item"><a href="#setfrom" class="">setFrom</a></li>
+              <li class="menu-item"><a href="#setmessage" class="">setMessage</a></li>
+              <li class="menu-item"><a href="#wrapper" class="">wrapper</a></li>
+              <li class="menu-item"><a href="#collectdirectory" class="">collectDirectory</a></li>
+              <li class="menu-item"><a href="#require" class="">require</a></li>
+
+              <li class="menu-item"><a href="#caretaker" class=" toggle-sibling">
+                CareTaker<span class="icon">&#x25B8;</span></a>
+
+                <div class="submenu toggle-target display-none">
+                  <ul>
+                    <li class="menu-item-submenu title"><span>Instance members</span></li>
+                    <li class="menu-item-submenu"><a href="#caretakerstartup">#startup</a></li>
+                    <li class="menu-item-submenu"><a href="#caretakercheck">#check</a></li>
+                  </ul>
+                </div>
+              </li>
+
+              <li class="menu-item"><a href="#serene" class="">Serene</a></li>
+
+              <li class="menu-item"><a href="#corerepl" class=" toggle-sibling">
+                core/repl<span class="icon">&#x25B8;</span></a>
+
+                <div class="submenu toggle-target display-none">
+                  <ul>
+                    <li class="menu-item-submenu title"><span>Static members</span></li>
+                    <li class="menu-item-submenu"><a href="#corereplinit">.init</a></li>
+                  </ul>
+                </div>
+              </li>
+
+              <li class="menu-item"><a href="#on" class="">on</a></li>
+
+              <li class="menu-item"><a href="#coreutils" class=" toggle-sibling">
+                core/utils<span class="icon">&#x25B8;</span></a>
+
+                <div class="submenu toggle-target display-none">
+                  <ul>
+                    <li class="menu-item-submenu title"><span>Static members</span></li>
+                    <li class="menu-item-submenu"><a href="#coreutilsmakeexcludefilterfromwantlist">.makeExcludeFilterFromWantList</a></li>
+                    <li class="menu-item-submenu"><a href="#coreutilssanitizename">.sanitizeName</a></li>
+                    <li class="menu-item-submenu"><a href="#coreutilsgetmodulename">.getModuleName</a></li>
+                    <li class="menu-item-submenu"><a href="#coreutilsgetpathtomain">.getPathToMain</a></li>
+                    <li class="menu-item-submenu"><a href="#coreutilsgetlistenercount">.getListenerCount</a></li>
+                    <li class="menu-item-submenu"><a href="#coreutilsnormalizecommandobject">.normalizeCommandObject</a></li>
+                  </ul>
+                </div>
+              </li>
+
+              <li class="menu-item"><a href="#commandlike" class="">CommandLike</a></li>
+              <li class="menu-item"><a href="#getuid" class="">getUid</a></li>
+            </ul>
+          </nav>
         </div>
 
-        <main id="split-right" class="col-2">
-          
-            
+        <div id="split-right">
+          <main id="guide" class="main-txt">
               <section>
-
-  
-    
     <h3 id="application">
       Application
     </h3>
-    
-    
-  
 
   <div class="markdown-body">
     <p>Application constructor.</p>
@@ -563,48 +257,48 @@ which will be available in the instance.</p>
   </div>
 
   <div class="code-line">new Application(options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-  
-  
+
+
     <p>
       Extends
-      
+
         EventEmitter
-      
+
     </p>
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>options</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
-	    
+
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
     <div class="quiet">Static Members</div>
     <div>
-  
+
     <div id="applicationloadconfig" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -615,7 +309,7 @@ which will be available in the instance.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Convenience method to load configuration
@@ -629,27 +323,27 @@ loader takes, see <a href="https://github.com/goliatone/simple-config-loader#opt
   </div>
 
   <div class="code-line">loadConfig(options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, asObject: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>options</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
             = <code>{}</code>)</code>
 	    Default options
 
           </div>
-          
+
           <table>
             <colgroup>
               <col width="30%">
@@ -662,105 +356,105 @@ loader takes, see <a href="https://github.com/goliatone/simple-config-loader#opt
               </tr>
             </thead>
             <tbody>
-              
+
                 <tr>
                   <td><span>options.basepath</span> <code class="quiet"><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>
                   </td>
                   <td><span>Path to main module
 </span></td>
                 </tr>
-              
+
                 <tr>
                   <td><span>options.projectpath</span> <code class="quiet"><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>
-                  
+
                     (default <code>process.cwd()</code>)
                   </td>
                   <td><span></span></td>
                 </tr>
-              
+
                 <tr>
                   <td><span>options.dirname</span> <code class="quiet"><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>
-                  
+
                     (default <code>&apos;config&apos;</code>)
                   </td>
                   <td><span>Name of directory holding configuration files
 </span></td>
                 </tr>
-              
+
                 <tr>
                   <td><span>options.globOptions</span> <code class="quiet"><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>
                   </td>
                   <td><span>Options object used to match and ignore files.
 </span></td>
                 </tr>
-              
+
                 <tr>
                   <td><span>options.getConfigFiles</span> <code class="quiet"><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>
                   </td>
                   <td><span>Function to collect configuration files.
-Uses 
+Uses
 <code>glob</code>
  under the hood.
 </span></td>
                 </tr>
-              
+
                 <tr>
                   <td><span>options.getPackage</span> <code class="quiet"><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>
                   </td>
                   <td><span>Function to retrieve package.json
 </span></td>
                 </tr>
-              
+
                 <tr>
                   <td><span>options.configsPath</span> <code class="quiet"><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>
-                  
+
                     (default <code>&apos;./&apos;</code>)
                   </td>
                   <td><span></span></td>
                 </tr>
-              
+
             </tbody>
           </table>
-          
-      
+
+
           <div>
             <code>asObject</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>
             = <code>true</code>)</code>
 	    Return an object
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
         Configuration object resulting from
 merging all files in config directory.
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationchainevents" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -771,43 +465,43 @@ merging all files in config directory.
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
-    
+
   </div>
 
   <div class="code-line">chainEvents</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationhook" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -818,43 +512,43 @@ merging all files in config directory.
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
-    
+
   </div>
 
   <div class="code-line">hook</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationgetlogger" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -865,7 +559,7 @@ merging all files in config directory.
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Get a Logger instance by name.
@@ -877,64 +571,64 @@ the same name will return the same instance.</p>
   </div>
 
   <div class="code-line">getLogger(name: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, config: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): Logger</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>name</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    String identifying logger
 
           </div>
-          
-      
+
+
           <div>
             <code>config</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
             = <code>{}</code>)</code>
 	    Metadata
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>Logger</code>:
         Logger instance.
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationrestorenativeconsole" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -945,7 +639,7 @@ the same name will return the same instance.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Add a restore function to app.
@@ -955,52 +649,52 @@ the <code>muteConsole</code>.</p>
   </div>
 
   <div class="code-line">restoreNativeConsole(): void</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
-    
+
+
+
+
+
+
+
+
+
+
+
+
       <div class="quiet">Returns</div>
       <code>void</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
 </div>
 
-  
 
-  
+
+
     <div class="quiet">Instance Members</div>
     <div>
-  
+
     <div id="applicationenvironment" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -1011,7 +705,7 @@ the <code>muteConsole</code>.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Default environment variable.
@@ -1022,36 +716,36 @@ the longjohn module.</p>
   </div>
 
   <div class="code-line">environment</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationlogger" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -1062,7 +756,7 @@ the longjohn module.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>This will hold the <strong>app</strong> child
@@ -1073,36 +767,36 @@ identified with the <strong>app</strong> id.</p>
   </div>
 
   <div class="code-line">logger</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationgetlogger" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -1113,7 +807,7 @@ identified with the <strong>app</strong> id.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Default implementation of a logger
@@ -1125,62 +819,62 @@ not load the logger module.</p>
   </div>
 
   <div class="code-line">getLogger(name: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): Logger</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>name</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    Child logger indentifier
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>Logger</code>:
         A child logger instance.
 
-      
-    
-  
 
-  
 
-  
+
+
+
+
+
     <div class="quiet">Example</div>
-    
-      
+
+
       <pre>context.getLogger(<span class="hljs-string">&apos;my-module&apos;</span>).info(<span class="hljs-string">&apos;hi&apos;</span>);</pre>
-    
-  
 
-  
 
-  
 
-  
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationautorun" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -1191,7 +885,7 @@ not load the logger module.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Flag indicating wether to start
@@ -1201,36 +895,36 @@ core modules are loaded.</p>
   </div>
 
   <div class="code-line">autorun</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationautoinitialize" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -1241,7 +935,7 @@ core modules are loaded.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Initialize the applciation from
@@ -1254,36 +948,36 @@ this value set to <code>false</code>.</p>
   </div>
 
   <div class="code-line">autoinitialize</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationautoloadmodulescommands" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -1294,7 +988,7 @@ this value set to <code>false</code>.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>If a module has a <code>commands</code></p>
@@ -1302,36 +996,36 @@ this value set to <code>false</code>.</p>
   </div>
 
   <div class="code-line">autoloadModulesCommands</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationname" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -1342,7 +1036,7 @@ this value set to <code>false</code>.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Name of the application instance.
@@ -1354,36 +1048,36 @@ context.</p>
   </div>
 
   <div class="code-line">name</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationexitonerror" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -1394,7 +1088,7 @@ context.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Critical errors handled by <code>onErrorHandler</code>
@@ -1403,36 +1097,36 @@ will <code>process.exit</code> the application.</p>
   </div>
 
   <div class="code-line">exitOnError</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationenablelongstacktrackes" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -1443,7 +1137,7 @@ will <code>process.exit</code> the application.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Enable long stack traces using
@@ -1456,36 +1150,36 @@ irregardless of this property value.</p>
   </div>
 
   <div class="code-line">enableLongStackTrackes</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationsanitizename" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -1496,7 +1190,7 @@ irregardless of this property value.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Function to sanitize module
@@ -1508,44 +1202,44 @@ name.</p>
   </div>
 
   <div class="code-line">sanitizeName</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="quiet">Example</div>
-    
+
       <p></p><p>Normalized module name.</p>
 <p></p>
       <pre><span class="hljs-comment">// returns &apos;dataManager&apos;</span>
 context.sanitizeName(<span class="hljs-string">&apos;data-manager&apos;</span>);</pre>
-    
-  
 
-  
 
-  
 
-  
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationregisterreadyevent" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -1556,7 +1250,7 @@ context.sanitizeName(<span class="hljs-string">&apos;data-manager&apos;</span>);
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Once a module is registered the
@@ -1567,36 +1261,36 @@ The event type is:
   </div>
 
   <div class="code-line">registerReadyEvent</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationcoremodules" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -1607,7 +1301,7 @@ The event type is:
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>List of modules that will be loaded on
@@ -1619,36 +1313,36 @@ paths.</p>
   </div>
 
   <div class="code-line">coremodules</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationbasepath" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -1659,7 +1353,7 @@ paths.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Base path used to resolve relative
@@ -1673,36 +1367,36 @@ of the Node.js process.</p>
   </div>
 
   <div class="code-line">basepath</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationloaders" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -1713,7 +1407,7 @@ of the Node.js process.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Default paths to load commands
@@ -1723,36 +1417,36 @@ path.</p>
   </div>
 
   <div class="code-line">loaders</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationresolvetimeout" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -1763,7 +1457,7 @@ path.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Time in seconds aftwer which we reject
@@ -1778,36 +1472,36 @@ throw an error, thus being hard to debug.</p>
   </div>
 
   <div class="code-line">resolveTimeout</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationregistertimeout" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -1818,7 +1512,7 @@ throw an error, thus being hard to debug.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Time in seconds aftwer which we reject
@@ -1827,36 +1521,36 @@ a call to <code>context.register</code>.</p>
   </div>
 
   <div class="code-line">registerTimeout</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationconfig" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -1867,43 +1561,43 @@ a call to <code>context.register</code>.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
-    
+
   </div>
 
   <div class="code-line">config</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationregistration" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -1914,7 +1608,7 @@ a call to <code>context.register</code>.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p><code>registration.data</code> can be either
@@ -1926,36 +1620,36 @@ core.io application registry.</p>
   </div>
 
   <div class="code-line">registration</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationinit" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -1966,7 +1660,7 @@ core.io application registry.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Initializes the instance by:</p>
@@ -1985,56 +1679,56 @@ instance.</p>
   </div>
 
   <div class="code-line">init(options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): void</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>options</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Config object
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>void</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationregister" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -2045,7 +1739,7 @@ instance.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Register a module with the application
@@ -2110,72 +1804,72 @@ e.g. &quot;logger.registered&quot;</name></p>
   </div>
 
   <div class="code-line">register(instance: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, name: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): void</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>instance</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Module instance
 
           </div>
-          
-      
+
+
           <div>
             <code>name</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    Module name
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>void</code>:
         Nothing
 
-      
-    
-  
 
-  
+
+
+
+
     <div class="quiet">Throws</div>
     <ul>
-      
+
         <li><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a>: Will throw an Error if the module has
 an init property that is not a function.
 </li>
-      
+
     </ul>
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationprovide" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -2186,7 +1880,7 @@ an init property that is not a function.
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>This will add <code>attr</code> to the application
@@ -2201,73 +1895,73 @@ which is probably what you want.</p>
   </div>
 
   <div class="code-line">provide(attr: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, extension: Mixed): this</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>attr</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    Attribute name
 
           </div>
-          
-      
+
+
           <div>
             <code>extension</code> <code class="quiet">(Mixed)</code>
 	    Funtion or value
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>this</code>:
-        
 
-      
-    
-  
 
-  
+
+
+
+
+
     <div class="quiet">Throws</div>
     <ul>
-      
+
         <li>any: This will throw a TypeError if we
 are trying to overwrite a previously
 defined property.
 </li>
-      
+
     </ul>
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationismoduleregistered" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -2278,7 +1972,7 @@ defined property.
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Checks wether a module with name <code>name</code>
@@ -2287,56 +1981,56 @@ has been registered.</p>
   </div>
 
   <div class="code-line">isModuleRegistered(name: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>name</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    Module id
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationonceregistered" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -2347,7 +2041,7 @@ has been registered.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Register a callback to get notfied
@@ -2367,63 +2061,63 @@ notified.</p>
   </div>
 
   <div class="code-line">onceRegistered(id: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, handler: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>): this</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>id</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    Module id
 
           </div>
-          
-      
+
+
           <div>
             <code>handler</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
 	    Callback function
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>this</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationonerrorhandler" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -2434,7 +2128,7 @@ notified.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Application wide error handler.</p>
@@ -2442,72 +2136,72 @@ notified.</p>
   </div>
 
   <div class="code-line">onErrorHandler(critical: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>, message: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, err: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): void</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>critical</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>)</code>
 	    Should this error
 make the app quit.
 
           </div>
-          
-      
+
+
           <div>
             <code>message</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    Error message outputed
 to screen.
 
           </div>
-          
-      
+
+
           <div>
             <code>err</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Error object
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>void</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationhandlemoduleerror" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -2518,7 +2212,7 @@ to screen.
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Handled errors from registered modules.</p>
@@ -2545,71 +2239,71 @@ to App core.</p>
   </div>
 
   <div class="code-line">handleModuleError(moduleId: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, err: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a>): void</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>moduleId</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    Module name
 
           </div>
-          
-      
+
+
           <div>
             <code>err</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a>)</code>
 	    Error object
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>void</code>:
-        
 
-      
-    
-  
 
-  
+
+
+
+
+
     <div class="quiet">Throws</div>
     <ul>
-      
+
         <li><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a>: Will retrhow the error from here.
 </li>
-      
+
     </ul>
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationloaddirectory" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -2620,7 +2314,7 @@ to App core.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Helper function to glob contents of
@@ -2633,64 +2327,64 @@ function.</p>
   </div>
 
   <div class="code-line">loadDirectory(dir: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>dir</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    Path to directory
 
           </div>
-          
-      
+
+
           <div>
             <code>options</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
             = <code>{}</code>)</code>
 	    Options object
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
         Will resolve with files
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationloadmodules" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -2701,7 +2395,7 @@ function.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>This function will collect and process
@@ -2715,65 +2409,65 @@ Valid options:</p>
   </div>
 
   <div class="code-line">loadModules(dir: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>dir</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>
             = <code>&apos;modules&apos;</code>)</code>
 	    Path to dir
 
           </div>
-          
-      
+
+
           <div>
             <code>options</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
             = <code>{}</code>)</code>
 	    Options object
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationloadcommands" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -2784,7 +2478,7 @@ Valid options:</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>This function will collect and process
@@ -2795,65 +2489,65 @@ context.</p>
   </div>
 
   <div class="code-line">loadCommands(dir: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>dir</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>
             = <code>&apos;commands&apos;</code>)</code>
 	    Path to dir
 
           </div>
-          
-      
+
+
           <div>
             <code>options</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
             = <code>{}</code>)</code>
 	    Options object
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationloadmodulecommands" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -2864,7 +2558,7 @@ context.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Load commands for a given module</p>
@@ -2872,56 +2566,56 @@ context.</p>
   </div>
 
   <div class="code-line">loadModuleCommands(modulePathOrId: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>modulePathOrId</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    module path or id
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationresolve" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -2932,7 +2626,7 @@ context.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Resolve a dependency, this will return a Proimse
@@ -2954,79 +2648,79 @@ dependencies from a user configuration file</p>
   </div>
 
   <div class="code-line">resolve(id: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>), ignoreUndefinedIds: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>id</code> <code class="quiet">((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>))</code>
 	    Module id
 
           </div>
-          
-      
+
+
           <div>
             <code>ignoreUndefinedIds</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>
             = <code>false</code>)</code>
 	    Wether to ignore undefined ids.
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
-        
 
-      
-    
-  
 
-  
+
+
+
+
+
     <div class="quiet">Throws</div>
     <ul>
-      
-        <li><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a>: If 
+
+        <li><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a>: If
 <code>id</code>
  are undefined.
 </li>
-      
-        <li><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a>: If resolving a dep takes longer than 
+
+        <li><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a>: If resolving a dep takes longer than
 <code>resolveTimeout</code>
 .
 </li>
-      
+
     </ul>
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationrun" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -3037,7 +2731,7 @@ dependencies from a user configuration file</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Application entry point. This will register
@@ -3048,44 +2742,44 @@ once the hook has finalized will call
   </div>
 
   <div class="code-line">run(): void</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
-    
+
+
+
+
+
+
+
+
+
+
+
+
       <div class="quiet">Returns</div>
       <code>void</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationregisterapplication" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -3096,7 +2790,7 @@ once the hook has finalized will call
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Register the application instance with
@@ -3105,56 +2799,56 @@ the core.io registry service.</p>
   </div>
 
   <div class="code-line">registerApplication(register: any): void</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>register</code> <code class="quiet">(any
             = <code>true</code>)</code>
-	    
+
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>void</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationderegisterapplication" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -3165,7 +2859,7 @@ the core.io registry service.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Deregister the application instance from
@@ -3174,44 +2868,44 @@ the core.io registry service.</p>
   </div>
 
   <div class="code-line">deregisterApplication(): void</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
-    
+
+
+
+
+
+
+
+
+
+
+
+
       <div class="quiet">Returns</div>
       <code>void</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationcommand" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -3222,7 +2916,7 @@ the core.io registry service.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Register a command for the given event
@@ -3236,34 +2930,34 @@ executes a single command by setting
   </div>
 
   <div class="code-line">command(eventType: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, handler: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, unique: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>): this</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>eventType</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    Event type
 
           </div>
-          
-      
+
+
           <div>
             <code>handler</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
 	    Command handler
 
           </div>
-          
-      
+
+
           <div>
             <code>unique</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>
             = <code>false</code>)</code>
@@ -3271,37 +2965,37 @@ executes a single command by setting
 for a given eventType
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>this</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationclose" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -3312,7 +3006,7 @@ for a given eventType
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Use this function to exit the application
@@ -3323,63 +3017,63 @@ from the registry.</p>
   </div>
 
   <div class="code-line">close(code: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>, label: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>code</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</code>
 	    Error code
 
           </div>
-          
-      
+
+
           <div>
             <code>label</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    Error label
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="applicationnicename" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -3390,7 +3084,7 @@ from the registry.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Sanitized version of the given name.
@@ -3400,86 +3094,86 @@ case it.</p>
   </div>
 
   <div class="code-line">nicename</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
 </div>
 
-  
 
-  
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="corelogger">
       core/logger
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
-    
+
   </div>
 
   <div class="code-line">core/logger</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="quiet">Static Members</div>
     <div>
-  
+
     <div id="coreloggerconfig" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -3490,7 +3184,7 @@ case it.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Default configuration object for Logger
@@ -3499,62 +3193,62 @@ module.</p>
   </div>
 
   <div class="code-line">config</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>wrapConsole</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
             = <code>true</code>)</code>
-	    
+
           </div>
-          
-      
+
+
           <div>
             <code>exceptionHandlers</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>
             = <code>[winston.transports.File]</code>)</code>
-	    
+
           </div>
-          
-      
+
+
           <div>
             <code>transports</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>
             = <code>[winston.transports.File,winston.transports.Console]</code>)</code>
-	    
+
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="coreloggeraftersolver" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -3565,7 +3259,7 @@ module.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Function to execute after all configuration
@@ -3574,26 +3268,26 @@ references have been solved.</p>
   </div>
 
   <div class="code-line">afterSolver(config: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>config</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Configuration object
 
           </div>
-          
+
           <table>
             <colgroup>
               <col width="30%">
@@ -3606,39 +3300,39 @@ references have been solved.</p>
               </tr>
             </thead>
             <tbody>
-              
+
                 <tr>
                   <td><span>config.logger</span> <code class="quiet"><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>
                   </td>
                   <td><span>Logger options
 </span></td>
                 </tr>
-              
+
             </tbody>
           </table>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="coreloggerfilter" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -3649,7 +3343,7 @@ references have been solved.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Filter enables masking output from the
@@ -3660,48 +3354,48 @@ content from the output.</p>
   </div>
 
   <div class="code-line">new Filter(config: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>config</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Configuration options
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="coreloggerlogger" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -3712,7 +3406,7 @@ content from the output.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Logger class providing extra functionality
@@ -3721,36 +3415,36 @@ on top of <a href="https://github.com/winstonjs/winston">winston.Logger</a>.</p>
   </div>
 
   <div class="code-line">Logger()</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="coreloggerinit" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -3761,7 +3455,7 @@ on top of <a href="https://github.com/winstonjs/winston">winston.Logger</a>.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Logger moudle provides a wrapper around
@@ -3772,63 +3466,63 @@ winston.</p>
   </div>
 
   <div class="code-line">init(app: <a href="#application">Application</a>, config: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>app</code> <code class="quiet">(<a href="#application">Application</a>)</code>
 	    Application context
 
           </div>
-          
-      
+
+
           <div>
             <code>config</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Configuration object for &quot;logger&quot;
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
         Winston instance
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="coreloggerenforcecolumnwidth" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -3839,7 +3533,7 @@ winston.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Enforce a column width of length <code>length</code></p>
@@ -3847,64 +3541,64 @@ winston.</p>
   </div>
 
   <div class="code-line">enforceColumnWidth(message: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, length: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>message</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    Message string
 
           </div>
-          
-      
+
+
           <div>
             <code>length</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>
             = <code>90</code>)</code>
 	    Column width
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="coreloggermessage" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -3915,7 +3609,7 @@ winston.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Message is the formatter for messages
@@ -3926,36 +3620,36 @@ more information.</p>
   </div>
 
   <div class="code-line">new Message()</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="coreloggermuteconsole" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -3966,7 +3660,7 @@ more information.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Utility function to mute the native console.
@@ -3976,55 +3670,55 @@ the Application instance <code>context</code>.</p>
   </div>
 
   <div class="code-line">muteConsole(context: <a href="#application">Application</a>, config: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>context</code> <code class="quiet">(<a href="#application">Application</a>)</code>
 	    Application context
 
           </div>
-          
-      
+
+
           <div>
             <code>config</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Configuration object
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="coreloggerexports" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -4035,7 +3729,7 @@ the Application instance <code>context</code>.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Wrap native console with a <code>logger</code> instance.</p>
@@ -4043,115 +3737,115 @@ the Application instance <code>context</code>.</p>
   </div>
 
   <div class="code-line">exports(app: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, config: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): void</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>app</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Application core instance.
 
           </div>
-          
-      
+
+
           <div>
             <code>config</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Configuration object.
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>void</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
 </div>
 
-  
 
-  
 
-  
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="coredispatcher">
       core/dispatcher
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
-    
+
   </div>
 
   <div class="code-line">core/dispatcher</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="quiet">Static Members</div>
     <div>
-  
+
     <div id="coredispatcherinit" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -4162,7 +3856,7 @@ the Application instance <code>context</code>.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Adds Event management methods to <code>Application</code>.</p>
@@ -4170,55 +3864,55 @@ the Application instance <code>context</code>.</p>
   </div>
 
   <div class="code-line">init(context: <a href="#application">Application</a>, config: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>context</code> <code class="quiet">(<a href="#application">Application</a>)</code>
 	    Application context
 
           </div>
-          
-      
+
+
           <div>
             <code>config</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Configuration Object
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="coredispatchercreatehook" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -4229,7 +3923,7 @@ the Application instance <code>context</code>.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Creates a wrapper function that will make hooks.
@@ -4250,63 +3944,63 @@ method of your emitter.</p>
   </div>
 
   <div class="code-line">createHook(emitter: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, config: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>emitter</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    EventEmitter instance
 
           </div>
-          
-      
+
+
           <div>
             <code>config</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Options object
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="coredispatchercreatehook" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -4317,7 +4011,7 @@ method of your emitter.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Wraps a chain of events in a Promise.</p>
@@ -4325,36 +4019,36 @@ method of your emitter.</p>
   </div>
 
   <div class="code-line">createHook</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="coredispatcherchainevents" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -4365,7 +4059,7 @@ method of your emitter.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Function wraps emitter with a chainEvent function.
@@ -4375,56 +4069,56 @@ resolve when all are triggered.</p>
   </div>
 
   <div class="code-line">chainEvents(emitter: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>emitter</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    EventEmitter
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="coredispatcherchainevents" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -4435,7 +4129,7 @@ resolve when all are triggered.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Wraps a chain of events in a Promise.</p>
@@ -4443,104 +4137,104 @@ resolve when all are triggered.</p>
   </div>
 
   <div class="code-line">chainEvents</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
 </div>
 
-  
 
-  
 
-  
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="emit">
       emit
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
-    
+
   </div>
 
   <div class="code-line">emit</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="gioc">
       Gioc
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
     <p>Gioc constructor.</p>
@@ -4548,44 +4242,44 @@ resolve when all are triggered.</p>
   </div>
 
   <div class="code-line">new Gioc(config: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>config</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Optional config object.
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
     <div class="quiet">Instance Members</div>
     <div>
-  
+
     <div id="giocconfigure" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -4596,7 +4290,7 @@ resolve when all are triggered.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Handles configuration.</p>
@@ -4604,56 +4298,56 @@ resolve when all are triggered.</p>
   </div>
 
   <div class="code-line">configure(config: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): this</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>config</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Configuration object
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>this</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="giocmap" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -4664,7 +4358,7 @@ resolve when all are triggered.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Stores a definition, with configuration
@@ -4675,71 +4369,71 @@ or a factory method.</p>
   </div>
 
   <div class="code-line">map(beanId: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, context: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>), config: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="#gioc">Gioc</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>beanId</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    String ID.
 
           </div>
-          
-      
+
+
           <div>
             <code>context</code> <code class="quiet">((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)
             = <code>this.container</code>)</code>
 	    Value to be map.
 
           </div>
-          
-      
+
+
           <div>
             <code>config</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Options for current mapping.
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="#gioc">Gioc</a></code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="giocsolve" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -4750,7 +4444,7 @@ or a factory method.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Solve for the provided <em>beanId</em>, it returns
@@ -4767,65 +4461,65 @@ of runing the methods in order:</p>
   </div>
 
   <div class="code-line">solve(beanId: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>beanId</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    String ID we are solving
 for
 
           </div>
-          
-      
+
+
           <div>
             <code>options</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Options object.
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a>)</code>:
         Solved value
 for the given beanId.
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="giocprepare" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -4836,7 +4530,7 @@ for the given beanId.
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Pre process to consolidate the configuration
@@ -4849,80 +4543,80 @@ The default provider is the <code>extend</code> method.</p>
   </div>
 
   <div class="code-line">prepare(beanId: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, target: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, config: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="#gioc">Gioc</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>beanId</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    String ID we are solving
 for
 
           </div>
-          
-      
+
+
           <div>
             <code>target</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Resulting object.
 
           </div>
-          
-      
+
+
           <div>
             <code>config</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Conf object stored with the
 beanId.
 
           </div>
-          
-      
+
+
           <div>
             <code>options</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Conf object passed in the
 method call.
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="#gioc">Gioc</a></code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="giocbuild" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -4933,7 +4627,7 @@ method call.
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Retrieve the context value for the given <em>beanId</em>.
@@ -4945,65 +4639,65 @@ function then we execute it with the <strong>scope</strong> and
   </div>
 
   <div class="code-line">build(beanId: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): (Primitive | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>beanId</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    String ID we are solving
 for
 
           </div>
-          
-      
+
+
           <div>
             <code>options</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Conf object passed in the
 method call.
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>(Primitive | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>:
         Raw stored value for beanId.
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="giocwire" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -5014,7 +4708,7 @@ method call.
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Goes over the <code>config</code> object&apos;s beanIds
@@ -5029,72 +4723,72 @@ for the <code>deps</code> beanId.</p>
   </div>
 
   <div class="code-line">wire(beanId: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, target: (Primitive | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>), config: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): (Primitive | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>beanId</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    String ID we are solving
 for
 
           </div>
-          
-      
+
+
           <div>
             <code>target</code> <code class="quiet">((Primitive | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
 	    Solved value for the
 provided beanId.
 
           </div>
-          
-      
+
+
           <div>
             <code>config</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Configuration object.
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>(Primitive | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>:
         Solved value.
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="giocinject" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -5105,7 +4799,7 @@ provided beanId.
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Injects a dependency into the provided <code>scope</code></p>
@@ -5113,72 +4807,72 @@ provided beanId.
   </div>
 
   <div class="code-line">inject(beanId: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, scope: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): this</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>beanId</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    String ID we are solving
 for
 
           </div>
-          
-      
+
+
           <div>
             <code>scope</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Target to be injected
 
           </div>
-          
-      
+
+
           <div>
             <code>options</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
             = <code>{}</code>)</code>
 	    Options object.
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>this</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="giocpost" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -5189,7 +4883,7 @@ for
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>During the solve cycle, the post process applied
@@ -5199,20 +4893,20 @@ wired.</p>
   </div>
 
   <div class="code-line">post(beanId: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, target: (Primitive | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>), options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="#gioc">Gioc</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>beanId</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    [
@@ -5220,51 +4914,51 @@ description
 ]
 
           </div>
-          
-      
+
+
           <div>
             <code>target</code> <code class="quiet">((Primitive | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
 	    Result from solving beanId.
 
           </div>
-          
-      
+
+
           <div>
             <code>options</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Options object.
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="#gioc">Gioc</a></code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="giocmapped" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -5275,7 +4969,7 @@ description
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Checks to see if <em>beanId</em> is currently
@@ -5287,57 +4981,57 @@ need to add solver+mapper!</p>
   </div>
 
   <div class="code-line">mapped(beanId: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>beanId</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    Definition id.
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
         Does a definition
 with this beanId exist?
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="giocsolvedependencies" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -5348,7 +5042,7 @@ with this beanId exist?
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Solve an array of dependencies.</p>
@@ -5356,71 +5050,71 @@ with this beanId exist?
   </div>
 
   <div class="code-line">solveDependencies(beanId: any, scope: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, mappings: [type]): this</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>beanId</code> <code class="quiet">(any)</code>
-	    
+
           </div>
-          
-      
+
+
           <div>
             <code>scope</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Scope to which dependencies
 will be applied to.
 
           </div>
-          
-      
+
+
           <div>
             <code>mappings</code> <code class="quiet">([type])</code>
 	    Array contained deps.
 definitions
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>this</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="giocerror" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -5431,7 +5125,7 @@ definitions
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Error handler. If <code>strictErrors</code> is true
@@ -5441,63 +5135,63 @@ handled by <code>logger</code>.</p>
   </div>
 
   <div class="code-line">error(beanId: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, message: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): void</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>beanId</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    Error beanId
 
           </div>
-          
-      
+
+
           <div>
             <code>message</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    Message
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>void</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="giocaddsolver" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -5508,7 +5202,7 @@ handled by <code>logger</code>.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Solvers are functions that handle
@@ -5519,55 +5213,55 @@ We add solvers by beanId.</p>
   </div>
 
   <div class="code-line">addSolver(beanId: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, solver: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>beanId</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    Solver ID
 
           </div>
-          
-      
+
+
           <div>
             <code>solver</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
 	    Solver implementation.
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="giocaddpost" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -5578,7 +5272,7 @@ We add solvers by beanId.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Add a post solver function.</p>
@@ -5586,48 +5280,48 @@ We add solvers by beanId.</p>
   </div>
 
   <div class="code-line">addPost(processor: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>processor</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
 	    Post processor
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="giocextend" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -5638,7 +5332,7 @@ We add solvers by beanId.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Extend method. It has a common signature with
@@ -5650,75 +5344,75 @@ from left to right.</p>
   </div>
 
   <div class="code-line">extend(beanId: any, target: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, options: any, config: any): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>beanId</code> <code class="quiet">(any)</code>
-	    
+
           </div>
-          
-      
+
+
           <div>
             <code>target</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Source object
 
           </div>
-          
-      
+
+
           <div>
             <code>options</code> <code class="quiet">(any)</code>
-	    
+
           </div>
-          
-      
+
+
           <div>
             <code>config</code> <code class="quiet">(any)</code>
-	    
+
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
         Resulting object from
 meging target to params.
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="gioclogger" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -5729,7 +5423,7 @@ meging target to params.
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Stub method for logger.
@@ -5738,128 +5432,128 @@ By default is mapped to console.</p>
   </div>
 
   <div class="code-line">logger</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
 </div>
 
-  
 
-  
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="mute">
       mute
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
-    
+
   </div>
 
   <div class="code-line">mute(names: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): this</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>names</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    A list of names to mute
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>this</code>:
-        
 
-      
-    
-  
 
-  
 
-  
+
+
+
+
+
+
     <div class="quiet">Example</div>
-    
-      
+
+
       <pre><span class="hljs-string">`context.getLogger(&apos;core&apos;).mute(&apos;commands&apos;, &apos;modules&apos;);`</span></pre>
-    
-  
 
-  
 
-  
 
-  
+
+
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="unmute">
       unmute
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
     <p>Un-mute previously mute&apos;d logger instances.</p>
@@ -5867,66 +5561,66 @@ By default is mapped to console.</p>
   </div>
 
   <div class="code-line">unmute(names: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): this</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>names</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    A list of names of loggers
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>this</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="silence">
       silence
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
     <p>Silence a given Logger instance.</p>
@@ -5934,222 +5628,222 @@ By default is mapped to console.</p>
   </div>
 
   <div class="code-line">silence(name: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, silent: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>name</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    Logger instance name
 
           </div>
-          
-      
+
+
           <div>
             <code>silent</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>
             = <code>true</code>)</code>
-	    
+
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="applicationlogger">
       Application/Logger
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
-    
+
   </div>
 
   <div class="code-line">Application/Logger</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="applicationlogger">
       Application/Logger
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
-    
+
   </div>
 
   <div class="code-line">Application/Logger</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="setcolorizer">
       setColorizer
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
-    
+
   </div>
 
   <div class="code-line">setColorizer(colorizer: Colorizer): Message</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>colorizer</code> <code class="quiet">(Colorizer)</code>
-	    
+
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>Message</code>:
         Return instance
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="setcolors">
       setColors
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
     <p>This takes a configuration
@@ -6158,317 +5852,317 @@ object like Winston&apos;s colors object.</p>
   </div>
 
   <div class="code-line">setColors(colors: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>colors</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
-	    
+
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="settime">
       setTime
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
-    
+
   </div>
 
   <div class="code-line">setTime(timestamp: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>)): Message</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>timestamp</code> <code class="quiet">((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>))</code>
-	    
+
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>Message</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="setlabel">
       setLabel
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
-    
+
   </div>
 
   <div class="code-line">setLabel(label: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a>)): Message</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>label</code> <code class="quiet">((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a>))</code>
-	    
+
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>Message</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="setlevel">
       setLevel
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
-    
+
   </div>
 
   <div class="code-line">setLevel(level: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a>)): Message</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>level</code> <code class="quiet">((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a>))</code>
-	    
+
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>Message</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="setfrom">
       setFrom
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
-    
+
   </div>
 
   <div class="code-line">setFrom(from: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a>)): Message</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>from</code> <code class="quiet">((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a>))</code>
-	    
+
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>Message</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="setmessage">
       setMessage
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
     <p>Set the message of this instance.</p>
@@ -6476,66 +6170,66 @@ object like Winston&apos;s colors object.</p>
   </div>
 
   <div class="code-line">setMessage(message: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): this</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>message</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    String to output
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>this</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="wrapper">
       wrapper
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
     <p>filters: used to meddle with the content string, e.g.</p>
@@ -6552,58 +6246,58 @@ object like Winston&apos;s colors object.</p>
   </div>
 
   <div class="code-line">wrapper(logger: core/Logger)</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>logger</code> <code class="quiet">(core/Logger)</code>
 	    Logger instance
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="collectdirectory">
       collectDirectory
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
     <p>Collect files in a directory.</p>
@@ -6611,73 +6305,73 @@ object like Winston&apos;s colors object.</p>
   </div>
 
   <div class="code-line">collectDirectory(match: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): void</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>match</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    glob pattern
 
           </div>
-          
-      
+
+
           <div>
             <code>options</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Options object
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>void</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="require">
       require
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
     <p>Require module</p>
@@ -6685,73 +6379,73 @@ object like Winston&apos;s colors object.</p>
   </div>
 
   <div class="code-line">require(path: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, id: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>path</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    Path to module
 
           </div>
-          
-      
+
+
           <div>
             <code>id</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
 	    Module id
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="caretaker">
       CareTaker
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
     <p>Manages a program life-cycle.</p>
@@ -6767,44 +6461,44 @@ we consider the system wonked</p>
   </div>
 
   <div class="code-line">new CareTaker(options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>options</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Config object
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
     <div class="quiet">Instance Members</div>
     <div>
-  
+
     <div id="caretakerstartup" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -6815,7 +6509,7 @@ we consider the system wonked</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Code to be executed on startup</p>
@@ -6823,44 +6517,44 @@ we consider the system wonked</p>
   </div>
 
   <div class="code-line">startup(): void</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
-    
+
+
+
+
+
+
+
+
+
+
+
+
       <div class="quiet">Returns</div>
       <code>void</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="caretakercheck" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -6871,7 +6565,7 @@ we consider the system wonked</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Check point for monitored service.
@@ -6884,76 +6578,76 @@ will execute the <code>terminate</code> function.</p>
   </div>
 
   <div class="code-line">check(data: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): void</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>data</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Object to be serialized
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code>void</code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
 </div>
 
-  
 
-  
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="serene">
       Serene
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
     <p>TODO: Move to it&apos;s own package. Require inside
@@ -6972,58 +6666,58 @@ supervisord: SIGTERM - 10 secs - SIGKILL</p>
   </div>
 
   <div class="code-line">new Serene(config: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>config</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Config object
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="corerepl">
       core/repl
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
     <p>The repl module provides a REPL interface
@@ -7032,30 +6726,30 @@ to your Application instance.</p>
   </div>
 
   <div class="code-line">core/repl</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="quiet">Static Members</div>
     <div>
-  
+
     <div id="corereplinit" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -7066,7 +6760,7 @@ to your Application instance.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>This enables connecting to your application
@@ -7088,33 +6782,33 @@ mechanism.</p>
   </div>
 
   <div class="code-line">init(context: <a href="#application">Application</a>, config: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>context</code> <code class="quiet">(<a href="#application">Application</a>)</code>
 	    Application context.
 
           </div>
-          
-      
+
+
           <div>
             <code>config</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    Configuration object.
 
           </div>
-          
+
           <table>
             <colgroup>
               <col width="30%">
@@ -7127,34 +6821,34 @@ mechanism.</p>
               </tr>
             </thead>
             <tbody>
-              
+
                 <tr>
                   <td><span>config.port</span> <code class="quiet"><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>
-                  
+
                     (default <code>8989</code>)
                   </td>
                   <td><span>Port exposed by the REPL server.
 </span></td>
                 </tr>
-              
+
                 <tr>
                   <td><span>config.host</span> <code class="quiet"><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>
-                  
+
                     (default <code>&apos;localhost&apos;</code>)
                   </td>
                   <td><span>Host of the REPL server.
 </span></td>
                 </tr>
-              
+
                 <tr>
                   <td><span>config.enabled</span> <code class="quiet"><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
-                  
+
                     (default <code>false</code>)
                   </td>
                   <td><span>Should the REPL be enabled.
 </span></td>
                 </tr>
-              
+
                 <tr>
                   <td><span>config.metadata</span> <code class="quiet"><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>
                   </td>
@@ -7162,60 +6856,60 @@ mechanism.</p>
 This depends on what the banner you use expects.
 </span></td>
                 </tr>
-              
+
                 <tr>
                   <td><span>config.options</span> <code class="quiet"><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>
                   </td>
                   <td><span></span></td>
                 </tr>
-              
+
             </tbody>
           </table>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
 </div>
 
-  
 
-  
 
-  
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="on">
       on
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
     <p>the application context changed,
@@ -7226,46 +6920,46 @@ reload/refresh the connection.</p>
   </div>
 
   <div class="code-line">on</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="coreutils">
       core/utils
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
     <p>Module holding different utilities.</p>
@@ -7273,30 +6967,30 @@ reload/refresh the connection.</p>
   </div>
 
   <div class="code-line">core/utils</div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="quiet">Static Members</div>
     <div>
-  
+
     <div id="coreutilsmakeexcludefilterfromwantlist" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -7307,7 +7001,7 @@ reload/refresh the connection.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Transform a list of files we want into
@@ -7317,56 +7011,56 @@ exclude files NOT matching those names.</p>
   </div>
 
   <div class="code-line">makeExcludeFilterFromWantList(options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>options</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
             = <code>{}</code>)</code>
-	    
+
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="coreutilssanitizename" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -7377,7 +7071,7 @@ exclude files NOT matching those names.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Naive filename sanitize function.</p>
@@ -7385,57 +7079,57 @@ exclude files NOT matching those names.</p>
   </div>
 
   <div class="code-line">sanitizeName(name: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>name</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>
             = <code>&apos;&apos;</code>)</code>
 	    Name to be clean up
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
         Sanitized name
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="coreutilsgetmodulename" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -7446,7 +7140,7 @@ exclude files NOT matching those names.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Return name of module from it&apos;s path.</p>
@@ -7454,57 +7148,57 @@ exclude files NOT matching those names.</p>
   </div>
 
   <div class="code-line">getModuleName(file: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>file</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>
             = <code>&apos;&apos;</code>)</code>
 	    Path to module.
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
         Module name.
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="coreutilsgetpathtomain" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -7515,7 +7209,7 @@ exclude files NOT matching those names.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Get path to main module.</p>
@@ -7523,44 +7217,44 @@ exclude files NOT matching those names.</p>
   </div>
 
   <div class="code-line">getPathToMain(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
-    
+
+
+
+
+
+
+
+
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="coreutilsgetlistenercount" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -7571,7 +7265,7 @@ exclude files NOT matching those names.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Get number of listeners an event emitter
@@ -7580,61 +7274,61 @@ has for a given event type.</p>
   </div>
 
   <div class="code-line">getListenerCount(emitter: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, type: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>emitter</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
-	    
+
           </div>
-          
-      
+
+
           <div>
             <code>type</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
-	    
+
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
     <div id="coreutilsnormalizecommandobject" class="element-member">
       <div class="toggle-sibling">
         <div>
@@ -7645,7 +7339,7 @@ has for a given event type.</p>
       <div class="display-none toggle-target">
         <section>
 
-  
+
 
   <div class="markdown-body">
     <p>Normalize command object.</p>
@@ -7653,84 +7347,84 @@ has for a given event type.</p>
   </div>
 
   <div class="code-line">normalizeCommandObject(command: <a href="#commandlike">CommandLike</a>, config: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>command</code> <code class="quiet">(<a href="#commandlike">CommandLike</a>)</code>
-	    
+
           </div>
-          
-      
+
+
           <div>
             <code>config</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
             = <code>{}</code>)</code>
-	    
+
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
       </div>
     </div>
-  
+
 </div>
 
-  
 
-  
 
-  
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="commandlike">
       CommandLike
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
     <p>Anything that can be executed.</p>
@@ -7738,51 +7432,51 @@ has for a given event type.</p>
   </div>
 
   <div class="code-line">CommandLike</div>
-  
+
     <p>
       Type:
       (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a> | Class | Command)
     </p>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
-            
-          
-            
+
+
+
               <section>
 
-  
-    
+
+
     <h3 id="getuid">
       getUid
     </h3>
-    
-    
-  
+
+
+
 
   <div class="markdown-body">
     <p>Generate an unique identifier in
@@ -7792,101 +7486,99 @@ the form or:
   </div>
 
   <div class="code-line">getUid(len: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
-  
-  
 
-  
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
     <div class="quiet">Parameters</div>
     <div class="prose">
-      
+
           <div>
             <code>len</code> <code class="quiet">(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>
             = <code>20</code>)</code>
 	    Output length
 
           </div>
-          
-      
+
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="quiet">Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
-        
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 </section>
 
-            
-          
+
+
         </main>
       </div>
-    </div>
+    </main>
+
 
     <footer>
-      <div class="cols cols-centered">
+      <div class="content cols">
+        <div class="row row-centered">
+          <div>
+            <a class="footer-logo" href="/"><img src="/documentation/api/assets/img/logo/mosca.svg" title="Core.io" alt="Core.io"></a>
 
-        <div class="col-3">
-          <div class="footer-logo">
-            <a href="/"><img src="/documentation/api/assets/img/logo/mosca.svg" title="Core.io" alt="Core.io"></a>
+            <nav class="footer-menu">
+              <ul>
+                <li class="menu-item"><a href="/">Features</a></li>
+                <li class="menu-item"><a href="/quickstart">Quickstart</a></li>
+                <li class="menu-item"><a href="/documentation">Documentation</a></li>
+                <li class="menu-item"><a href="/modules">Modules</a></li>
+              </ul>
+            </nav>
           </div>
 
-          <div class="footer-menu">
-            <a href="/">Features</a>
-            <a href="/quickstart">Quickstart</a>
-            <a href="/documentation">Documentation</a>
-            <a href="/modules">Modules</a>
-          </div>
-        </div>
-
-        <div class="col-3">
           <div class="footer-releases">
             <p>Latest Release: 0.2.8 (Jun 01, 2017)</p>
           </div>
-        </div>
 
-        <div class="col-3">
           <div class="footer-github">
             <a href="#" class="row row-vCentered">
               <img src="/documentation/api/assets/img/icons/github-icon-2.png" alt="Core.io in Github" title="Github">Github
             </a>
           </div>
         </div>
-      </div>
 
-      <div class="row row-centered copyright">
-        <p>Copyright &#xA9; 2017 goliatone. The contents of this page are licensed MIT license.</p>
+        <p class="row row-centered copyright">Copyright &#xA9; 2017 goliatone. The contents of this page are licensed MIT license.</p>
       </div>
     </footer>
-  </div>
 
-  <script src="/documentation/api/assets/anchor.js"></script>
-  <!-- <script src='assets/split.js'></script> -->
-  <script src="/documentation/api/assets/site.js"></script>
-  <!-- <script src='assets/nav.js'></script> -->
+
+    <script src="/documentation/api/assets/anchor.js"></script>
+    <!-- <script src='assets/split.js'></script> -->
+    <script src="/documentation/api/assets/site.js"></script>
+    <!-- <script src='assets/nav.js'></script> -->
+
+
 
 
 </body></html>
