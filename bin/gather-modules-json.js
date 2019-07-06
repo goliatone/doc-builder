@@ -1,3 +1,5 @@
+'use strict';
+const fetch = require('node-fetch');
 
 function getModulesInfo(url){
     return fetch(url).then((res)=>res.json());
@@ -23,7 +25,7 @@ function transformResults(json) {
 
         return mod;
     });
-    
+
     return Promise.resolve(out);
 }
 
@@ -34,5 +36,3 @@ let uri = 'http://npmsearch.com/query?q=core.io&fields=name,author,readme,keywor
     result = await transformResults(result);
     console.log(JSON.stringify(result, null, 4));
 })()
-
-
