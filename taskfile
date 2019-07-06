@@ -20,6 +20,12 @@ function shw_err  {
     echo $(tput bold)$(tput setaf 1) $@ $(tput sgr 0)
 }
 
+function  site:upload {
+    local host=${1:-locahost}
+    local user=${2:-root}
+    local target=${3:-/home/static/sites/coreio.tech}
+    scp -i ~/.ssh/id_rsa -rp ./output/* "$user"@"$host":"$target"
+}
 
 function site:build {
     ./bin/gather-website
@@ -55,7 +61,7 @@ function docker:dev {
             -d -p 8080:80 \
         core.io-web
     fi
-    
+
 }
 
 function docker:stop {
@@ -76,7 +82,7 @@ function docker:create {
 }
 
 function docker:rebuild {
-    docker:stop 
+    docker:stop
     docker:build:bust
     docker:dev
 }

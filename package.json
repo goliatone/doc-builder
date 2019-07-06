@@ -33,6 +33,7 @@
     "babel-core": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
+    "dokku-toolbelt": "^1.1.3",
     "live-server": "^1.2.0",
     "rimraf": "^2.5.4",
     "rollup": "^0.53.0",
