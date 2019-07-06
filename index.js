@@ -14,25 +14,23 @@ const buildOutputName = require('./lib/behaviors/buildOutputName');
 const buildSidebarLevels = require('./lib/behaviors/buildSidebarLevels');
 const buildTemplateName = require('./lib/behaviors/buildTemplateName');
 
-var filepath;
-
 (async () => {
     /**
-     * TODO: For this to work, we need to add 
-     * plugins before we create an instance. 
+     * TODO: For this to work, we need to add
+     * plugins before we create an instance.
      * This is not what we want.
-     * 
+     *
      * TODO: How do we configure behaviors?
-     * 
+     *
      * `use` is overloaded to take multiple
      * signatures:
-     * name, function: 
+     * name, function:
      * function/1
      * function/1
      */
     FileDesriptor.use(addMetadata);
     FileDesriptor.use(renderMarkdown);
-    FileDesriptor.use( buildSidebarLevels);
+    FileDesriptor.use(buildSidebarLevels);
 
     FileDesriptor.use('render', renderHtml);
     FileDesriptor.use('parseGrayMatter', parseGrayMatter);
@@ -108,6 +106,7 @@ var filepath;
     }
 
     console.log('process files');
+
     /**
      * Process all files, build paths
      * and create sidebar
@@ -117,6 +116,7 @@ var filepath;
     }
 
     console.log('render files');
+
     sidebar.items = sidebar.items.filter(Boolean);
     sidebar.items.forEach(child => {
         child.children = child.children.filter(Boolean);
@@ -125,10 +125,10 @@ var filepath;
     /**
      * Render stage
      */
-    var out = true;
+    let out = true;
     files.forEach(async (file) => {
         file.set('sidebar', sidebar);
-        
+
         if (out) {
             console.log(JSON.stringify(sidebar, null, 4));
             out = false;
