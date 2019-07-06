@@ -26,6 +26,7 @@
     "markdown-it": "^8.4.0",
     "micromatch": "^3.1.4",
     "mkdirp-promise": "^5.0.1",
+    "node-fetch": "^2.6.0",
     "npmi": "^4.0.0",
     "rmfr": "^1.0.3"
   },
