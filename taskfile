@@ -1,27 +1,27 @@
 #!/bin/bash
 PATH=./node_modules/.bin:$PATH
 
-function shw_grey {
+function _shw_grey {
     echo $(tput bold)$(tput setaf 0) $@ $(tput sgr 0)
 }
 
-function shw_norm {
+function _shw_norm {
     echo $(tput bold)$(tput setaf 9) $@ $(tput sgr 0)
 }
 
-function shw_info {
+function _shw_info {
     echo $(tput bold)$(tput setaf 4) $@ $(tput sgr 0)
 }
 
-function shw_warn {
+function _shw_warn {
     echo $(tput bold)$(tput setaf 2) $@ $(tput sgr 0)
 }
-function shw_err  {
+function _shw_err  {
     echo $(tput bold)$(tput setaf 1) $@ $(tput sgr 0)
 }
 
 function  site:upload {
-    local host=${1:-locahost}
+    local host=${1:-104.248.216.192}
     local user=${2:-root}
     local target=${3:-/home/static/sites/coreio.tech}
     scp -i ~/.ssh/id_rsa -rp ./output/* "$user"@"$host":"$target"
@@ -94,7 +94,7 @@ function docker:nginx:rld {
 function help {
     echo "$0 <task> <args>"
     echo "Tasks:"
-    compgen -A function | cat -n
+    compgen -A function | grep -v '^_' | cat -n
 }
 
 TIMEFORMAT="Task completed in %3lR"
