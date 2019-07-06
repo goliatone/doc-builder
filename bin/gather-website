@@ -9,20 +9,28 @@ const runTaskfile = require('../lib/tasks/run-taskfile');
 
 
 module.exports = async function gatherWebsite(options) {
-    console.log('cloning repository...');
-
+    console.log('1) cloning repository...');
+    console.log();
+    //Clean target directory
     await clean(options.clone);
-
+    //Clone our github repository
     await clone(options.clone);
 
-    console.log('npm install');
-
+    console.log();
+    console.log('2) npm install');
+    console.log();
+    //Install npm packages
     await install(options.install);
 
-    console.log('run taskfile');
-
+    console.log();
+    console.log('3) run taskfile');
+    console.log();
+    //Run a given task on repo
     await runTaskfile(options.taskfile);
 
+    console.log();
+    console.log('4) copy website over...');
+    console.log();
     try {
         await copy(options.copy);
     } catch (error) {
@@ -36,7 +44,7 @@ module.exports = async function gatherWebsite(options) {
 
     module.exports({
         clone: {
-            repository: 'goliatone/core.io-website', 
+            repository: 'goliatone/core.io-website',
             wrapTarget: false,
             target
         },
