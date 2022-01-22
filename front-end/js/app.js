@@ -1,4 +1,4 @@
-import SearchBox from './components/SearchBox.html';
+import SearchBox  from './components/SearchBox.html';
 import Pagination from './components/Pagination.html';
 import SearchPage from './components/SearchPage.html';
 
@@ -16,7 +16,7 @@ const API = {
                 mod.author = mod.author[0];
                 mod.name = mod.name[0];
                 mod.description = mod.description[0];
-                
+
                 return mod;
             });
             //Just for now, so we can have await working

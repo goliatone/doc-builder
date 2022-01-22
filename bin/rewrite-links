@@ -26,8 +26,7 @@ const _prepend = function(str, char) {
 
 const assets = ['img/', 'js/', 'css/'];
 
-const LINK_RULES = [
-    {
+const LINK_RULES = [{
         description: 'Replace index.html for a /',
         match: function(str) {
             return str.match(/.*(index.html)$/);
@@ -76,7 +75,7 @@ async function processDirectory(dirpath, cwd) {
     let htmlFiles = collection.filterByExt('.html');
 
     // let file = new FileDescriptor({source: './output/documentation/api/index.html', cwd});
-    
+
     // try {
     //     await processFile(file, collection);
     // } catch (error) {
@@ -85,7 +84,7 @@ async function processDirectory(dirpath, cwd) {
 
     // process.exit();
 
-    htmlFiles.forEachAsync(async (fd)=>{
+    htmlFiles.forEachAsync(async fd => {
         fd.cwd = cwd;
         try {
             await processFile(fd, collection);
@@ -233,7 +232,7 @@ function processLinkTags($, collection) {
     });
     console.log('---------------------------------');
 }
-    
+
 
 function ensureIsInPath(uri, path) {}
 
@@ -246,7 +245,7 @@ function isAbsolute(url) {
 }
 
 function isRelative(url = '') {
-    return !isAbsolute(url) && !isHash(url)// && !isLocal(url);
+    return !isAbsolute(url) && !isHash(url) // && !isLocal(url);
 }
 
 function isHash(url = '') {
